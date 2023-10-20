@@ -1,15 +1,15 @@
-# [Titel ist noch in Bearbeitung]
+# KidsSecure
 ## Darstellung des Problems
 ![Domänenmodell](/https://github.com/AnoukMartinez/EP_WS23_Ganz_Khamkaew_Martinez/blob/main/dom%C3%A4nenmodellv1.png)
 
-- Kinder und Jugendliche wissen nicht viel über Schutz im Internet
-- Klicken in Foren/ Discord unüberlegt Links an, weil dahinter z.B. Skins für Minecraft stecken sollen
-- Problem findet nicht nur zu Hause statt, sondern auch in der Schule
-- Lehrer\*innen kennen sich damit selbst nicht aus und können Schüler\*innen nicht kompetent im Medienbereich "erziehen"
+Es ist ein weitverbreitetes Phänomen, dass viele User unbedacht Links in Mails und / oder Foren z.B. öffnen und so schnell Opfer von verschiedenen Arten der Cyberkriminalität werden können. Besonders anfällig dafür sind Kinder, da sie oft die Gefahren aus dem Internet noch gar nicht kennen bzw. diese nicht einschätzen können. Es hat sich gezeigt, dass die "Medienführerscheine" aus den Schulen nicht auszureichend sind. Kinder und Jugendliche hinterfragen nicht, wenn ihnen ein Fremder in einem Forum/ Chat einen Link zu einem angesagten Game oder Thema für ein Spiel schicken, sondern freuen sich über die Nettigkeit und klicken vertrauensvoll auf den Link. 
+
+Da Eltern oft selbst nicht im Bilde darüber sind, welche Seiten und Links vertrauenswürdig sind, stellen diese keine große Hilfe für ihre Kinder dar. Diese Problematik beläuft sich nicht nur im heimischen Umfeld, sondern auch in der Schule. Lehrer\*innen fordern z.b. Schüler auf ein bestimmes Programm zu installieren und verteilen z.T. selbst unwissend Links zu schadhafter Software. Aber auch wenn Schüler\*innen die Computer der Schule nutzen möchten bzw. müssen, um für Referate zu recherchieren, können sie schnell in Virenfallen z.B. treten. Wie erwähnt hat auch das Lehrpersonal in diesem Bereich Wissenslücken, kann besonders dann, wenn sie nicht aus dem Fachbereich der Informatik kommen, und können den Schüler\*innen nur bedingt helfen. 
 
 ## Zielsetzung / Vision
-- Entwicklung eines Systems zur Untersützung von Schüer\*innen bei einem verantworungsvollen und privatsphärenschützendem Umgang mit Medien/ Internet
-- 
+Ziel von KidsSecure ist es, ein System zu entwickeln, dass es Schüler\*innen ermöglicht spielerisch und verständlich über die Gefahren im Internet aufgeklärt zu werden und so vor Viren, Trojanern, Identitäsklau etc. geschützt zu werden. Die Vision dahinter ist, dass Kinder und Jugendliche sich nicht von der Themaik erschlagen fühlen, weil sie haufenweise Regeln vorgesetzt bekommen, sondern ein nachhaltives Verständnis und Vorsicht entwickeln und so auch anderen aktiv helfen können. 
+
 ## Relevanz
 Die Relevanz, durch die Umsetzung des vorliegenden Projekts ist offensichtlich: dadurch, dass Schüler\*innen gezielt den Umgang mit Gefahren im Internet lernen, sind Familien im privaten Umfeld geschützter, weil sich mindestens eine Person mit dem Thema IT-Sicherheit auseinander gesetzt hat. Ein solches System entlastet darüber hinaus auch das Lehrpersonal, da auch im schulischen Kontext die Lehr- und Lerneinheiten im Internet stattfinden und die Lehrer\*innen oft selbst nicht über die entsprechenden Kompetenzen verfügen. 
-- was Kinder lernen, bereitet später im Berufsleben kaum bis keine Probleme 
+Darüber hinaus reicht die Relevanz bis in die berufliche Zukunft der Kinder. Gefahren, die die Kinder heute schon kennengelernt haben, werden sie auf der Arbeit selbstsicher erkennen und aus dem Weg gehen können. Dadurch wird auch das IT Team in Firmen entlastet, da sie sich so voll und ganz auf ihre Arbeit konzentrieren können und nicht mehr so oft die Schäden beheben müssen, die Mitarbeiter\*innen unbedacht angerichtet haben. 
+
