@@ -1,6 +1,6 @@
 # KidsSecure
 ## Darstellung des Problems
-![Domänenmodell](/https://github.com/AnoukMartinez/EP_WS23_Ganz_Khamkaew_Martinez/blob/main/dom%C3%A4nenmodellv1.png)
+![grafik](https://github.com/AnoukMartinez/EP_WS23_Ganz_Khamkaew_Martinez/assets/92312207/b813b28b-54ca-41c7-878d-315c296a077b)
 
 Es ist ein weitverbreitetes Phänomen, dass viele User unbedacht Links in Mails und / oder Foren z.B. öffnen und so schnell Opfer von verschiedenen Arten der Cyberkriminalität werden können. Besonders anfällig dafür sind Kinder, da sie oft die Gefahren aus dem Internet noch gar nicht kennen bzw. diese nicht einschätzen können. Es hat sich gezeigt, dass die "Medienführerscheine" aus den Schulen nicht auszureichend sind. Kinder und Jugendliche hinterfragen nicht, wenn ihnen ein Fremder in einem Forum/ Chat einen Link zu einem angesagten Game oder Thema für ein Spiel schicken, sondern freuen sich über die Nettigkeit und klicken vertrauensvoll auf den Link. 
 
