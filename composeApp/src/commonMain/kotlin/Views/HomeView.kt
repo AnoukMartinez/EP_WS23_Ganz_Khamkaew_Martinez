@@ -1,5 +1,3 @@
-package mvvm.views
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,20 +8,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun HomeScreen(onClickPlay: () -> Unit) {
+fun HomeScreen(navigator : Navigator) {
     Row(
         modifier = Modifier
             .fillMaxSize(),
@@ -37,25 +36,19 @@ fun HomeScreen(onClickPlay: () -> Unit) {
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            TitleText(title = "KidsSecure")
+            TitleText(title = "KidSecure")
             Row(
                 modifier = Modifier
-                    .fillMaxWidth(0.5f)
                     .padding(60.dp, 0.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.Center
             ) {
-                Button(
-                    onClick = {
-                        onClickPlay()
-                    },
-                    elevation = ButtonDefaults.elevation(0.dp),
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent))
-
-                {
+                TextButton(onClick = { navigator.navigate("/worldmap") }) {
                     Text(
-                        text = "Play",
+                        text = "PLAY",
                         color = Color.Black,
-                        fontSize = 20.sp)
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
                 }
             }
         }
@@ -66,14 +59,15 @@ fun HomeScreen(onClickPlay: () -> Unit) {
 fun TitleText(title : String) {
     Box(
         modifier = Modifier
-            .background(Color.White, RoundedCornerShape(100.dp))
+            .background(Color.Black, RoundedCornerShape(10.dp))
             .padding(50.dp, 10.dp)
     ) {
         Text(
             title,
             style = TextStyle(
-                color = Color.Black,
-                fontSize = 20.sp,
+                color = Color.White,
+                fontSize = 40.sp,
+                fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center,
                 letterSpacing = 5.sp,
             )

@@ -1,4 +1,4 @@
-rootProject.name = "KidSecure"
+rootProject.name = "Interface"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

@@ -1,78 +1,79 @@
-
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.CircleShape
+import Models.justin
+import Models.kevin
+import Models.levels
+import Models.oma
+import Models.schule
+import Views.LevelView
+import Views.Oberwelt
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import mvvm.views.KevinsHaus
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.painterResource
-
+import moe.tlaster.precompose.PreComposeApp
+import moe.tlaster.precompose.navigation.NavHost
+import moe.tlaster.precompose.navigation.rememberNavigator
+import moe.tlaster.precompose.navigation.transition.NavTransition
 
 @Composable
 fun App() {
-    MaterialTheme {
-        var currentLocation by remember { mutableStateOf<Location?>(null) }
+    PreComposeApp {
+        MaterialTheme {
+            val navigator = rememberNavigator()
+            NavHost (
+                navigator = navigator,
+                navTransition = NavTransition(),
+                initialRoute = "/home",
+            ) {
+                // HOME SCREEN
+                scene (
+                    route = "/home",
+                    navTransition = NavTransition(),
+                ) {
+                    HomeScreen(navigator)
+                }
 
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                // OBERWELT
+                scene (
+                    route = "/worldmap",
+                    navTransition = NavTransition(),
+                ) {
+                    Oberwelt(levels, navigator)
+                }
 
-           /* locationButton("OMA") { currentLocation = Location.OMA }
-            locationButton("KEVIN") { currentLocation = Location.KEVIN }
-            locationButton("SCHULE") { currentLocation = Location.SCHULE }*/
+                // KEVINS HAUS
+                scene (
+                    route = "/kevin",
+                    navTransition = NavTransition(),
+                ) {
+                    LevelView(navigator, kevin)
+                }
 
-            //HomeScreen(onClickPlay = {})
+                // OMAS HAUS
+                scene (
+                    route = "/oma",
+                    navTransition = NavTransition(),
+                ) {
+                    LevelView(navigator, oma)
+                }
 
-            //Oberwelt()
-            KevinsHaus()
+                // SCHULE
+                scene (
+                    route = "/schule",
+                    navTransition = NavTransition(),
+                ) {
+                    LevelView(navigator, schule)
+                }
 
-            currentLocation?.let { location ->
-                locationTest(location)
+                // JUSTIN
+                scene (
+                    route = "/justin",
+                    navTransition = NavTransition(),
+                ) {
+                    LevelView(navigator, justin)
+                }
             }
         }
     }
 }
-data class Welt(val name: String)
-
-@Composable
-fun LocationInfo(level:Welt) {
-    Text(text = level.name, fontSize = 24.sp,
-        modifier = Modifier
-            .padding(10.dp)
-    )
-
-}
-
-@OptIn(ExperimentalResourceApi::class)
-@Composable
-fun LevelButton(name:String, onClick:()-> Unit) {
-    Column(modifier = Modifier.wrapContentSize(Alignment.Center)) {
-        Image(
-            painterResource("haus1.png"), null,
-            modifier = Modifier
-                .size(40.dp)
-                .clip(CircleShape)
-                .align(Alignment.CenterHorizontally)
-        )
-        TextButton(
-            onClick = { onClick() })
-        {
-            Text(name)
-        }
-    }
-}
-
