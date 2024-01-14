@@ -1,6 +1,5 @@
 package Models
 
-import Models.Scripts.kevinScript
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 
@@ -20,7 +19,15 @@ enum class GameCharacter {
 
 data class Script (
     val lines : MutableList<DialogueLine> = mutableListOf()
-)
+) {
+    operator fun get(scriptLineNumber: Int) : DialogueLine {
+            return lines[scriptLineNumber]
+    }
+
+    fun getScriptSize() : Int {
+        return lines.size
+    }
+}
 
 data class DialogueLine (
     val dialogueLine : String,
@@ -28,38 +35,7 @@ data class DialogueLine (
     val mood : Mood
 )
 
-val test = """
-    [
-        {
-            "dialogueLine": "Hey Mann, wie geht's? Cool dass du nach der Schule vorbeischaust.",
-            "speaker": "KEVIN",
-            "mood": "HAPPY"
-        },
-        {
-            "dialogueLine": "Hör mal, ich weiss wir wollten eigentlich Fortnite spielen...",
-            "speaker": "KEVIN",
-            "mood": "NEUTRAL"
-        },
-        {
-            "dialogueLine": "Aber meine Schwester hat meinen Laptop geklaut und das Passwort geändert!",
-            "speaker": "KEVIN",
-            "mood": "ANGRY"
-        },
-        {
-            "dialogueLine": "Kannst du mir helfen das Passwort zu knacken? So schwer kann das ja nicht sein...!",
-            "speaker": "KEVIN",
-            "mood": "NEUTRAL"
-        }
-    ]
-""".trimIndent()
-
 val mapper = jacksonObjectMapper()
-val dialogueLinesTest : List<DialogueLine> = mapper.readValue(test)
-fun gogetem(){
-    for(element in dialogueLinesTest){
-        println(element)
-    }
-}
 
 fun buildScript(rawCharacterScript : String) : Script {
     val dialogueLines : List<DialogueLine> = mapper.readValue(rawCharacterScript)

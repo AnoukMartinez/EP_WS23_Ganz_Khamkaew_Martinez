@@ -3,11 +3,15 @@ package Views
 import LocationBackground
 import Models.Level
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
@@ -29,14 +33,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun LevelView(navigator: Navigator, level : Level) {
     var isHelpOverlayVisible by remember { mutableStateOf(false) }
+    var scriptLineNumber by remember { mutableStateOf(1) }
 
     Box (
         modifier = Modifier
@@ -59,6 +67,32 @@ fun LevelView(navigator: Navigator, level : Level) {
 
             if (isHelpOverlayVisible) {
                 HelpOverlay(onConfirm = { isHelpOverlayVisible = false })
+            }
+        }
+
+        Box (
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(70.dp)
+                .align(Alignment.BottomCenter)
+                .background(Color.White.copy(alpha = 0.8f))
+                .clickable {
+                    if(scriptLineNumber < level.script.getScriptSize()) {
+                        scriptLineNumber++
+                    }
+                }
+                .padding(24.dp)
+        ) {
+            Column {
+                Text(
+                    text = level.script[scriptLineNumber - 1].speaker.toString() + " :",
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = level.script[scriptLineNumber - 1].dialogueLine,
+                    fontSize = 18.sp,
+                )
             }
         }
     }

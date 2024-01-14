@@ -1,4 +1,3 @@
-import Models.gogetem
 import Models.justin
 import Models.kevin
 import Models.levels
@@ -19,7 +18,6 @@ fun App() {
     PreComposeApp {
         MaterialTheme {
             val navigator = rememberNavigator()
-            gogetem()
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
