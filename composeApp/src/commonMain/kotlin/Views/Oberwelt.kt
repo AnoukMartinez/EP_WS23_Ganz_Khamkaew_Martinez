@@ -56,5 +56,10 @@ fun Oberwelt(
                 }
             }
         }
+        Row() {
+            TestTaskButton {
+                navigator.navigate("/testtask")
+            }
+        }
     }
 }

@@ -2,10 +2,10 @@ import Models.Level
 import androidx.compose.runtime.Composable
 
 public enum class Location {
-    OMA,
-    KEVIN,
+    OMASHAUS,
+    KEVINSHAUS,
     SCHULE,
-    JUSTIN;
+    JUSTINSHAUS;
 
     fun getDesktopPath() : String {
         return this.toString().lowercase() + ".png";

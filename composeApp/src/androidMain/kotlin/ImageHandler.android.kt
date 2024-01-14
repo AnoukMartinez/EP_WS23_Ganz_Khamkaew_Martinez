@@ -6,7 +6,7 @@ import androidx.compose.ui.res.painterResource
 import org.example.project.R
 
 @Composable
-actual fun LocationImage(location : Location){
+actual fun LocationBackground(location : Location){
     Image(
         painterResource(getResourceFromLocation(location)),
         modifier = Modifier.fillMaxSize(),
@@ -16,10 +16,10 @@ actual fun LocationImage(location : Location){
 
 fun getResourceFromLocation(location : Location) : Int {
     return when(location){
-        Location.OMA -> R.drawable.oma
-        Location.KEVIN -> R.drawable.kevin
+        Location.OMASHAUS -> R.drawable.omashaus
+        Location.KEVINSHAUS -> R.drawable.kevinshaus
         Location.SCHULE -> R.drawable.schule
-        Location.JUSTIN -> R.drawable.justin
+        Location.JUSTINSHAUS -> R.drawable.justinshaus
         else -> throw Exception("Location not implemented yet")
     }
 }

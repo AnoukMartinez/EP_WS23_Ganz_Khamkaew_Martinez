@@ -1,3 +1,4 @@
+import Models.gogetem
 import Models.justin
 import Models.kevin
 import Models.levels
@@ -5,12 +6,9 @@ import Models.oma
 import Models.schule
 import Views.LevelView
 import Views.Oberwelt
+import Views.TestTaskView
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.rememberNavigator
@@ -21,6 +19,7 @@ fun App() {
     PreComposeApp {
         MaterialTheme {
             val navigator = rememberNavigator()
+            gogetem()
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
@@ -44,7 +43,7 @@ fun App() {
 
                 // KEVINS HAUS
                 scene (
-                    route = "/kevin",
+                    route = "/kevinshaus",
                     navTransition = NavTransition(),
                 ) {
                     LevelView(navigator, kevin)
@@ -52,7 +51,7 @@ fun App() {
 
                 // OMAS HAUS
                 scene (
-                    route = "/oma",
+                    route = "/omashaus",
                     navTransition = NavTransition(),
                 ) {
                     LevelView(navigator, oma)
@@ -68,10 +67,17 @@ fun App() {
 
                 // JUSTIN
                 scene (
-                    route = "/justin",
+                    route = "/justinshaus",
                     navTransition = NavTransition(),
                 ) {
                     LevelView(navigator, justin)
+                }
+
+                scene (
+                    route = "/testtask",
+                    navTransition = NavTransition()
+                ) {
+                    TestTaskView()
                 }
             }
         }
