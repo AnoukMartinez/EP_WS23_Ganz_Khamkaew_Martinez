@@ -19,13 +19,16 @@ import androidx.compose.ui.unit.dp
 fun HelpOverlay(onConfirm : () -> Unit) {
     AlertDialog (
         title = {
-            Text(text = "Wie bediene ich KidSecure?")
+            // PLATZHALTER
+            Text(text = "Was soll ich jetzt machen?")
         },
         text = {
-            Text(text = "Hallo! Du hast die Aufgabenstellung also nicht ganz verstanden? " +
-            "Hier ist nochmal eine bisschen detailliertere Erklärung. Hoffentlich haben " +
-                    "wir dir weitergeholfen. Sonst kannst du bestimmt noch einmal bei deinem " +
-                    "Lehrer oder deiner Lehrerin nachfragen!")
+            // Platzhalterrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+            Text(text = "Im Moment befindest du dich noch im Story Modus. " +
+                "Das bedeutet du kannst einfach auf die Textbox unten klicken, um " +
+                "die Handlung voranzutreiben. Lies dir hierbei den Dialog " +
+                "genau durch, um Hinweise auf die Aufgabe zu erhalten die " +
+                "in jeder Welt drankommt.")
         },
         onDismissRequest = { },
         confirmButton = {

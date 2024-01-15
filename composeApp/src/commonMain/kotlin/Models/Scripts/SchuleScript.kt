@@ -21,6 +21,16 @@ val schuleScript = """
             "dialogueLine": "JUSTIN! Gut dass du hier bist! Du wirst es nicht glauben...",
             "speaker": "KEVIN",
             "mood": "ANGRY"
+        },
+        {
+            "dialogueLine": "Was, was ist denn?",
+            "speaker": "JUSTIN",
+            "mood": "SAD"
+        },
+        {
+            "dialogueLine": "Ich hab da was gefunden",
+            "speaker": "KEVIN",
+            "mood": "HAPPY"
         }
     ]
 """.trimIndent()

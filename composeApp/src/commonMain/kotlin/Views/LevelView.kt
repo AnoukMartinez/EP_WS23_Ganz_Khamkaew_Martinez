@@ -1,7 +1,10 @@
 package Views
 
+import CharacterSprite
 import LocationBackground
+import Models.GameCharacter
 import Models.Level
+import Models.Mood
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -56,17 +59,54 @@ fun LevelView(navigator: Navigator, level : Level) {
         Row (
             modifier = Modifier
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = { navigator.goBack() }) {
                 Icon(Icons.Filled.Home, contentDescription = "Back To Worldview")
             }
+
+            Text(
+                text = level.location.getLocationToString(),
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+
             IconButton(onClick = { isHelpOverlayVisible = true }) {
                 Icon(Icons.Filled.Info, contentDescription = "Aufgabenerklärung")
             }
 
             if (isHelpOverlayVisible) {
                 HelpOverlay(onConfirm = { isHelpOverlayVisible = false })
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center) // Funktioniert nicht so wie erwartet :(
+        ) {
+            Row (
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(80.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                var justinspeaking = false
+                if(level.script[scriptLineNumber - 1].speaker != GameCharacter.JUSTIN){
+                    CharacterSprite(
+                        GameCharacter.JUSTIN,
+                        Mood.NEUTRAL,
+                        justinspeaking
+                    )
+                } else justinspeaking = false
+
+                // Todo: Die npc sprite soll nicht verschwinden wenn nur justin redet
+                CharacterSprite(
+                    level.script[scriptLineNumber - 1].speaker,
+                    level.script[scriptLineNumber - 1].mood,
+                    true
+                )
             }
         }
 
@@ -97,7 +137,6 @@ fun LevelView(navigator: Navigator, level : Level) {
         }
     }
 }
-
 @Composable
 fun TestTaskView(){
     Box (

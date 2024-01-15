@@ -10,6 +10,15 @@ public enum class Location {
     fun getDesktopPath() : String {
         return this.toString().lowercase() + ".png";
     }
+
+    fun getLocationToString() : String {
+        return when(this) {
+            OMASHAUS -> "Oma's Haus"
+            KEVINSHAUS -> "Kevin's Haus"
+            SCHULE -> "Schule"
+            JUSTINSHAUS -> "Justin's Zuhause"
+        }
+    }
 }
 
 @Composable

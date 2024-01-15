@@ -13,7 +13,6 @@ enum class Mood {
 enum class GameCharacter {
     KEVIN,
     OMA,
-    SCHULE, // Vielleicht sollten Locations und Character seperat sein?
     JUSTIN
 }
 
