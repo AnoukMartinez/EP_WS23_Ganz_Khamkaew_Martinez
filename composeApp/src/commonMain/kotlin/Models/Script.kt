@@ -13,7 +13,8 @@ enum class Mood {
 enum class GameCharacter {
     KEVIN,
     OMA,
-    JUSTIN
+    JUSTIN,
+    NOBODY
 }
 
 data class Script (
@@ -31,7 +32,9 @@ data class Script (
 data class DialogueLine (
     val dialogueLine : String,
     val speaker : GameCharacter,
-    val mood : Mood
+    val speakermood : Mood,
+    val listener : GameCharacter,
+    val listenermood : Mood
 )
 
 val mapper = jacksonObjectMapper()

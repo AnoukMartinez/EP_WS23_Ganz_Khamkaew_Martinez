@@ -36,7 +36,7 @@ actual fun CharacterSprite(character : GameCharacter, mood : Mood, isActive : Bo
     }
     Image(
         painterResource(getResourceFromSprite(character, mood)),
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier,
         contentDescription = "$character$mood",
         colorFilter = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(filter) })
     )

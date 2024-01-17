@@ -5,22 +5,30 @@ val kevinScript = """
         {
             "dialogueLine": "Hey Mann, wie geht's? Cool dass du nach der Schule vorbeischaust.",
             "speaker": "KEVIN",
-            "mood": "HAPPY"
+            "speakermood": "HAPPY",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
         },
         {
             "dialogueLine": "Hör mal, ich weiss wir wollten eigentlich Fortnite spielen...",
             "speaker": "KEVIN",
-            "mood": "NEUTRAL"
+            "speakermood": "NEUTRAL",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
         },
         {
             "dialogueLine": "Aber meine Schwester hat meinen Laptop geklaut und das Passwort geändert!",
             "speaker": "KEVIN",
-            "mood": "ANGRY"
+            "speakermood": "ANGRY",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
         },
         {
             "dialogueLine": "Kannst du mir helfen das Passwort zu knacken? So schwer kann das ja nicht sein...!",
             "speaker": "KEVIN",
-            "mood": "NEUTRAL"
+            "speakermood": "NEUTRAL",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
         }
     ]
 """.trimIndent()

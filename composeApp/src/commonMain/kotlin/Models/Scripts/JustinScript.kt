@@ -5,12 +5,16 @@ val justinScript = """
         {
             "dialogueLine": "Home Sweet Home...",
             "speaker": "JUSTIN",
-            "mood": "NEUTRAL"
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood" : "NEUTRAL"
         },
         {
             "dialogueLine": "Zeit selbst nach ein paar Hinweisen zu suchen...!",
             "speaker": "JUSTIN",
-            "mood": "HAPPY"
+            "speakermood": "HAPPY",
+            "listener": "NOBODY",
+            "listenermood" : "NEUTRAL"
         }
     ]
 """.trimIndent()
