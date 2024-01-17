@@ -1,3 +1,4 @@
+import Models.httpTestScreen
 import Models.justin
 import Models.kevin
 import Models.levels
@@ -29,6 +30,7 @@ fun App() {
                     navTransition = NavTransition(),
                 ) {
                     HomeScreen(navigator)
+                    // httpTestScreen()
                 }
 
                 // OBERWELT
