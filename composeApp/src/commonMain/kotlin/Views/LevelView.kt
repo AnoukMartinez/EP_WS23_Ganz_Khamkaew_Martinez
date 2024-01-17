@@ -73,7 +73,7 @@ fun LevelView(navigator: Navigator, level : Level) {
 
             Text(
                 text = level.location.getLocationToString(),
-                fontSize = 18.sp,
+                fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
             )
 
@@ -105,13 +105,13 @@ fun LevelView(navigator: Navigator, level : Level) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ){
                 Text(
-                    text = level.script[scriptLineNumber - 1].speaker.toString() + " :",
-                    fontSize = 24.sp,
+                    text = level.script[scriptLineNumber - 1].speaker.toString() + ":",
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = level.script[scriptLineNumber - 1].dialogueLine,
-                    fontSize = 18.sp,
+                    fontSize = 20.sp,
                 )
                 Row (
                     modifier = Modifier.fillMaxWidth(),
