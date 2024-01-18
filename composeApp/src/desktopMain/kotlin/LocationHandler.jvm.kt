@@ -1,6 +1,7 @@
 import Models.Level
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -57,6 +58,7 @@ actual fun LevelButton(location: Location, level: Level, onClick: () -> Unit) {
                 .size(40.dp)
                 .clip(CircleShape)
                 .align(Alignment.CenterHorizontally)
+                .clickable { onClick() }
         )
         TextButton (
             onClick = { onClick() }
