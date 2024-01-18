@@ -9,7 +9,7 @@ private val client = HttpClient(Java)
 
 actual suspend fun getLocationScriptFromServer(location : Location) : String {
     // Hier ip addresse von dem gerät wo der server drauf läuft :)
-    val ip = "00.0.000.000:3000"
+    val ip = "192.168.2.154:3000"
     val response = client.get("http://$ip/script/${location.toString().lowercase()}")
     return response.bodyAsText()
 }
