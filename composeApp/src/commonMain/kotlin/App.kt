@@ -71,7 +71,7 @@ fun App() {
                     route = "/testtask",
                     navTransition = NavTransition()
                 ) {
-                    TestTaskView()
+                    TestTaskView(navigator)
                 }
 
                 scene(

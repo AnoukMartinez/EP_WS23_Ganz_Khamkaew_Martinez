@@ -1,6 +1,7 @@
 import Models.Level
 import Models.buildScripts
 import Models.levels
+import Views.FalseLoad
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,12 +11,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -64,11 +71,18 @@ fun GameLoadingScreen(navigator : Navigator) {
         verticalArrangement = Arrangement.Center
     ) {
         val scope = rememberCoroutineScope()
+        var localScripts by remember { mutableStateOf(false) }
 
         LaunchedEffect(true) {
             scope.launch {
                 levels = buildScripts()
-                navigator.navigate("/worldmap")
+                // Dieser Check ist nicht sehr gut und sollte später noch ersetzt werden.
+                // Wir checken einfach ob das Skript das lokale ist, oder mit dem richtigem Satz anfängt.
+                if(levels[0].script[0].dialogueLine == "Hey Mann, wie geht's? Cool dass du nach der Schule vorbeischaust."){
+                    localScripts = true
+                } else {
+                    navigator.navigate("/worldmap")
+                }
             }
         }
         CircularProgressIndicator(
@@ -83,6 +97,15 @@ fun GameLoadingScreen(navigator : Navigator) {
             fontWeight = FontWeight.ExtraBold,
             fontSize = 20.sp
         )
+
+        if(localScripts){
+            FalseLoad(
+                "Es konnte keine Verbindung zum Server aufgebaut werden. " +
+                        "Das bedeutet deine Skripts sind möglicherweise veraltet.",
+                "Du kannst versuchen die App neu zu laden, oder mit alten Dialogen spielen.",
+                "/worldmap",
+                navigator)
+        }
     }
 }
 

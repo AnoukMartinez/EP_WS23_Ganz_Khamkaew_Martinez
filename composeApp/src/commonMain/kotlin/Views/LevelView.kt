@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
@@ -22,6 +23,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -82,7 +84,18 @@ fun LevelView(navigator: Navigator, level : Level) {
             }
 
             if (isHelpOverlayVisible) {
-                HelpOverlay(onConfirm = { isHelpOverlayVisible = false })
+                // Platzhalter!!
+                val helperTitlePlaceholder = "Was soll ich jetzt machen?"
+                val helperTextPlaceholder = "Im Moment befindest du dich noch im Story Modus. " +
+                        "Das bedeutet du kannst einfach auf die Textbox unten klicken, um " +
+                        "die Handlung voranzutreiben. Lies dir hierbei den Dialog " +
+                        "genau durch, um Hinweise auf die Aufgabe zu erhalten die " +
+                        "in jeder Welt drankommt."
+                HelpOverlay(
+                    onConfirm = { isHelpOverlayVisible = false },
+                    helperTitlePlaceholder,
+                    helperTextPlaceholder
+                )
             }
         }
 
@@ -109,10 +122,20 @@ fun LevelView(navigator: Navigator, level : Level) {
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
-                Text(
-                    text = level.script[scriptLineNumber - 1].dialogueLine,
-                    fontSize = 20.sp,
-                )
+
+                if(level.script[scriptLineNumber - 1].dialogueLine.isEmpty()){
+                    FalseLoad(
+                        "Das Skript wurde nicht richtig geladen.",
+                        "Versuche deine App neu zu laden.",
+                        "/home",
+                        navigator
+                    )
+                } else {
+                    Text(
+                        text = level.script[scriptLineNumber - 1].dialogueLine,
+                        fontSize = 20.sp,
+                    )
+                }
                 Row (
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
@@ -159,30 +182,78 @@ fun LevelView(navigator: Navigator, level : Level) {
 }
 
 @Composable
-fun TestTaskView(){
+fun TestTaskView(navigator : Navigator){
+    var isHelpOverlayVisible by remember { mutableStateOf(false) }
+
     Box (
         modifier = Modifier
             .fillMaxWidth()
     ) {
         var text by remember { mutableStateOf("") }
+        var submitted by remember { mutableStateOf(false) }
 
-        Row() {
-            TextField(
+        // Icon Bar oben mit Location Titel
+        Row (
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconButton(onClick = { navigator.goBack() }) {
+                Icon(Icons.Filled.Home, contentDescription = "Back To Worldview")
+            }
+
+            IconButton(onClick = { isHelpOverlayVisible = true }) {
+                Icon(Icons.Filled.Info, contentDescription = "Aufgabenerklärung")
+            }
+
+            if (isHelpOverlayVisible) {
+                // Platzhalter!!
+                val helperTitlePlaceholder = "Was jetzt?"
+                val helperTextPlaceholder = "Bitte tippe folgendes ein: Hello World"
+                HelpOverlay(
+                    onConfirm = { isHelpOverlayVisible = false },
+                    helperTitlePlaceholder,
+                    helperTextPlaceholder
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            TextField (
+                modifier = Modifier.padding(20.dp),
                 value = text,
-                onValueChange = { text = it },
+                onValueChange = {
+                    if(!submitted) {
+                        text = it
+                    }
+                                },
                 label = { Text("Eingabe Test") }
             )
+
             Button(
                 onClick = {
-                    if(text == "Hello World") {
-                        println("It works")
-                    } else {
-                        println("Wrong input")
-                    }
+                    submitted = true
                 },
                 shape = RoundedCornerShape(50.dp)
             ) {
-                Text(text = "Login")
+                Text(text = "Lösung Prüfen")
+            }
+
+            if(submitted) {
+                Box(modifier = Modifier.padding(10.dp)) {
+                    if(text == "Hello World") {
+                        Text("Die Eingabe war richtig")
+                    } else {
+                        Text("Leider nicht. Die richtige Eingabe wäre gewesen: Hello World. " +
+                                "[Hier eine Erklärung]. Weil in der Info stand man sollte das so machen.")
+                    }
+                }
             }
         }
     }

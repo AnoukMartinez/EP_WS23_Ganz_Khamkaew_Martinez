@@ -16,19 +16,19 @@ import androidx.compose.ui.unit.dp
 
 // WIP, hier muss noch der Text und der Titel als Argument übergeben werden.
 @Composable
-fun HelpOverlay(onConfirm : () -> Unit) {
+fun HelpOverlay(onConfirm : () -> Unit, title : String, content : String) {
     AlertDialog (
         title = {
             // PLATZHALTER
-            Text(text = "Was soll ich jetzt machen?")
+            Text(title)
         },
         text = {
-            // Platzhalterrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-            Text(text = "Im Moment befindest du dich noch im Story Modus. " +
-                "Das bedeutet du kannst einfach auf die Textbox unten klicken, um " +
-                "die Handlung voranzutreiben. Lies dir hierbei den Dialog " +
-                "genau durch, um Hinweise auf die Aufgabe zu erhalten die " +
-                "in jeder Welt drankommt.")
+            if(content.isEmpty()){
+                Text("Leider konnte hier keine Hilfe abgerufen werden. " +
+                        "Bitte versuche doch einmal die App neu zu starten!")
+            } else {
+                Text(content)
+            }
         },
         onDismissRequest = { },
         confirmButton = {
