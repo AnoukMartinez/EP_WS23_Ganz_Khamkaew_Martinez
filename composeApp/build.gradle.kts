@@ -49,6 +49,9 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            // implementation("io.ktor:ktor-client-core-jvm:2.3.7")
+            // implementation("io.ktor:ktor-client-cio-jvm:1.5.3")
+            implementation("io.ktor:ktor-client-java:2.3.7")
         }
     }
 }
