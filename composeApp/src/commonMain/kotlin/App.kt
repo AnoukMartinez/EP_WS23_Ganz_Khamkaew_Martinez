@@ -1,9 +1,4 @@
-import Models.httpTestScreen
-import Models.justin
-import Models.kevin
 import Models.levels
-import Models.oma
-import Models.schule
 import Views.LevelView
 import Views.Oberwelt
 import Views.TestTaskView
@@ -30,7 +25,6 @@ fun App() {
                     navTransition = NavTransition(),
                 ) {
                     HomeScreen(navigator)
-                    // httpTestScreen()
                 }
 
                 // OBERWELT
@@ -46,7 +40,7 @@ fun App() {
                     route = "/kevinshaus",
                     navTransition = NavTransition(),
                 ) {
-                    LevelView(navigator, kevin)
+                    LevelView(navigator, levels.first { it.location == Location.KEVINSHAUS })
                 }
 
                 // OMAS HAUS
@@ -54,7 +48,7 @@ fun App() {
                     route = "/omashaus",
                     navTransition = NavTransition(),
                 ) {
-                    LevelView(navigator, oma)
+                    LevelView(navigator, levels.first { it.location == Location.OMASHAUS })
                 }
 
                 // SCHULE
@@ -62,7 +56,7 @@ fun App() {
                     route = "/schule",
                     navTransition = NavTransition(),
                 ) {
-                    LevelView(navigator, schule)
+                    LevelView(navigator, levels.first { it.location == Location.SCHULE })
                 }
 
                 // JUSTIN
@@ -70,7 +64,7 @@ fun App() {
                     route = "/justinshaus",
                     navTransition = NavTransition(),
                 ) {
-                    LevelView(navigator, justin)
+                    LevelView(navigator, levels.first { it.location == Location.JUSTINSHAUS })
                 }
 
                 scene (
@@ -78,6 +72,13 @@ fun App() {
                     navTransition = NavTransition()
                 ) {
                     TestTaskView()
+                }
+
+                scene(
+                    route = "/gameloadingscreen",
+                    navTransition = NavTransition()
+                ) {
+                    GameLoadingScreen(navigator)
                 }
             }
         }
