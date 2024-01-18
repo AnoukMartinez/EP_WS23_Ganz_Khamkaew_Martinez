@@ -1,0 +1,44 @@
+[
+    {
+        "dialogueLine": "Was ist gerade passiert?",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood" : "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Oh, ich habe es geschafft!",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood" : "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Wo ist denn nur...",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood" : "NEUTRAL"
+    },
+    {
+        "dialogueLine": "JUSTIN! Was machst du denn hier?",
+        "speaker": "KEVIN",
+        "speakermood": "ANGRY",
+        "listener": "JUSTIN",
+        "listenermood" : "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Was, was ist denn? Hab ich was falsch gemacht?",
+        "speaker": "JUSTIN",
+        "speakermood": "SAD",
+        "listener": "KEVIN",
+        "listenermood" : "ANGRY"
+    },
+    {
+        "dialogueLine": "D-du bist einfach so aufgetaucht! Unglaublich!",
+        "speaker": "KEVIN",
+        "speakermood": "ANGRY",
+        "listener": "JUSTIN",
+        "listenermood" : "SAD"
+    }
+]

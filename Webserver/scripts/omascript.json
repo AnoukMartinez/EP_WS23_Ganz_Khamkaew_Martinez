@@ -1,0 +1,30 @@
+[
+    {
+        "dialogueLine": "Ach, hallo Justin! Ich komme von einem Server... WOW!",
+        "speaker": "OMA",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ich fühle mich so... MODERN!",
+        "speaker": "OMA",
+        "speakermood": "SAD",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Und das alles mit Javascript, wer hätte das gedacht!",
+        "speaker": "OMA",
+        "speakermood": "HAPPY",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Naja, willst du noch Kekse? Ich weiß selber nicht was ich sage...",
+        "speaker": "OMA",
+        "speakermood": "HAPPY",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    }
+]
