@@ -1,7 +1,5 @@
 package mvvm.views
 
-// import LocationInfo
-// import Welt
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.Card
