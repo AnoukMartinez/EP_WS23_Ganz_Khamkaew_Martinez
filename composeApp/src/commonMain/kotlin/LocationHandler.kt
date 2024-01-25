@@ -19,6 +19,23 @@ public enum class Location {
             JUSTINSHAUS -> "Justin's Zuhause"
         }
     }
+
+    fun getRoomList() : List<Rooms> {
+        return when(this) {
+            KEVINSHAUS -> listOf(Rooms.KEVINSZIMMER, Rooms.RIASZIMMER)
+            else -> throw Exception("Location noch nicht fertig")
+        }
+    }
+}
+
+public enum class Rooms {
+    KEVINSZIMMER,
+    RIASZIMMER,
+    OMAKUECHE,
+    OMAWOHNZIMMER,
+    JUSTINFLUR,
+    JUSTINKUECHE,
+    JUSTINZIMMER
 }
 
 @Composable

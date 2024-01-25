@@ -29,6 +29,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
+import Models.buildScriptsLocal
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
@@ -45,15 +48,32 @@ fun HomeScreen(navigator : Navigator) {
                 .padding(50.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            TextButton(onClick = {
-                navigator.navigate("/gameloadingscreen")
-            }) {
-                Text(
-                    text = "PLAY",
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 30.sp
-                )
+            Column (modifier = Modifier.padding(10.dp)) {
+                Button(onClick = {
+                    navigator.navigate("/gameloadingscreen")
+                }) {
+                    Text(
+                        text = "PLAY",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    onClick = {
+                        buildScriptsLocal()
+                        navigator.navigate("/worldmap")
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
+                {
+                    Text(
+                        text = "SKIP (DEV OPTION)",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
             }
         }
     }

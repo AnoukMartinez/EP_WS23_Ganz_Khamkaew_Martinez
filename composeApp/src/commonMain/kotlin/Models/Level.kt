@@ -48,3 +48,16 @@ suspend fun buildScripts() : MutableList<Level> {
     levels.add(justin)
     return levels
 }
+
+fun buildScriptsLocal() : MutableList<Level> {
+    val kevin = Level(Location.KEVINSHAUS, script = buildScript(kevinScript))
+    val oma = Level(Location.OMASHAUS, script = buildScript(omaScript))
+    val schule = Level(Location.SCHULE, script = buildScript(schuleScript))
+    val justin = Level(Location.JUSTINSHAUS, script = buildScript(justinScript))
+
+    levels.add(kevin)
+    levels.add(oma)
+    levels.add(schule)
+    levels.add(justin)
+    return levels
+}
