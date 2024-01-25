@@ -6,17 +6,49 @@ import androidx.compose.ui.res.painterResource
 import org.example.project.R
 import Models.GameCharacter
 import Models.Mood
+import androidx.compose.ui.draw.BlurredEdgeTreatment
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
+import androidx.compose.ui.unit.dp
 
 @Composable
-actual fun LocationBackground(location : Location){
+actual fun LocationBackground(location : Location, dialogueIsActive : Boolean){
+    var blurIntensity = 0.dp
+    if(dialogueIsActive) {
+        blurIntensity = 5.dp
+    }
+
     Image(
         painterResource(getResourceFromLocation(location)),
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+        .fillMaxSize()
+        .blur(
+            radiusX = blurIntensity,
+            radiusY = blurIntensity
+        ),
         contentDescription = location.toString()
     )
 }
+
+/*
+fun InvestigationMode(background : location, liste von lookherekoordinaten){
+    Box(fillmaxsize)
+    {
+        locationbackground(location)
+        for( element in lookherekoordinaten) {
+            lookherebutton(element.x.dp, element.y.dp)
+        }
+    }
+}
+
+@Composables
+fun lookherebutton(x, y, script) {
+    Image
+    onclick -> dialog situation mit script
+}
+
+ */
 
 fun getResourceFromLocation(location : Location) : Int {
     return when(location){
