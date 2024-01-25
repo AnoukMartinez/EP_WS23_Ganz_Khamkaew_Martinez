@@ -1,6 +1,7 @@
 import Models.levels
 import Views.LevelView
 import Views.Oberwelt
+import Views.RegisterScreen
 import Views.TestTaskView
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -17,14 +18,37 @@ fun App() {
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/home",
+                initialRoute = "/register",
             ) {
-                // HOME SCREEN
+                // LOGIN SCREEN
                 scene (
-                    route = "/home",
+                    route = "/login",
                     navTransition = NavTransition(),
                 ) {
-                    HomeScreen(navigator)
+                    // TODO!!!
+                }
+
+                // REGISTRIERUNGS SCREEN
+                scene (
+                    route = "/register",
+                    navTransition = NavTransition(),
+                ) {
+                    RegisterScreen(navigator)
+                }
+
+                // HOME SCREEN SCHÜLERINNEN
+                scene (
+                    route = "/studenthome",
+                    navTransition = NavTransition(),
+                ) {
+                    StudentHomeScreen(navigator)
+                }
+                // HOME SCREEN LEHRERINNEN
+                scene (
+                    route = "/teacherhome",
+                    navTransition = NavTransition(),
+                ) {
+                    TeacherHomeScreen(navigator)
                 }
 
                 // OBERWELT

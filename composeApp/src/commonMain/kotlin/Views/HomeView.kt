@@ -35,7 +35,7 @@ import androidx.compose.material.ButtonDefaults
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun HomeScreen(navigator : Navigator) {
+fun StudentHomeScreen(navigator : Navigator) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -149,5 +149,72 @@ fun TitleText(title : String) {
                 letterSpacing = 5.sp,
             )
         )
+    }
+}
+
+@Composable
+fun TeacherHomeScreen(navigator : Navigator){
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        TitleText(title = "KidSecure")
+        Row(
+            modifier = Modifier
+                .padding(50.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Column (
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Button(
+                    modifier = Modifier.padding(5.dp),
+                    onClick = {
+                        navigator.navigate("/gameloadingscreen")
+                    }) {
+                    Text(
+                        text = "LEVELS",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    modifier = Modifier.padding(5.dp),
+                    onClick = {
+                        buildScriptsLocal()
+                        navigator.navigate("/worldmap")
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
+                {
+                    Text(
+                        text = "SKIP",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    modifier = Modifier.padding(5.dp),
+                    onClick = {
+                        buildScriptsLocal()
+                        navigator.navigate("/worldmap")
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
+                {
+                    Text(
+                        text = "KLASSEN",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+            }
+        }
     }
 }
