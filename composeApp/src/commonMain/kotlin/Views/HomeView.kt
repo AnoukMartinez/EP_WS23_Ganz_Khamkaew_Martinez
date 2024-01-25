@@ -203,7 +203,7 @@ fun TeacherHomeScreen(navigator : Navigator){
                     modifier = Modifier.padding(5.dp),
                     onClick = {
                         buildScriptsLocal()
-                        navigator.navigate("/worldmap")
+                        navigator.navigate("/classedit")
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
                 {

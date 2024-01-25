@@ -1,7 +1,10 @@
 import Models.levels
+import Views.ClassEditView
+import Views.ClassProgressView
 import Views.LevelView
 import Views.Oberwelt
 import Views.RegisterScreen
+import Views.StudentProgressView
 import Views.TestTaskView
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -103,6 +106,26 @@ fun App() {
                     navTransition = NavTransition()
                 ) {
                     GameLoadingScreen(navigator)
+                }
+
+                scene(
+                    route = "/classedit",
+                    navTransition = NavTransition()
+                ){
+                    ClassEditView(navigator)
+                }
+
+                scene(
+                    route = "/classprogress",
+                    navTransition = NavTransition()
+                ){
+                    ClassProgressView(navigator)
+                }
+                scene(
+                    route = "/studentprogress",
+                    navTransition = NavTransition()
+                ){
+                    StudentProgressView(navigator)
                 }
             }
         }

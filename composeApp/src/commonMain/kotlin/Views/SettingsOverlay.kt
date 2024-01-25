@@ -41,7 +41,7 @@ fun SettingsOverlay(navigator: Navigator,level : Level) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = { navigator.goBack() }) {
+            IconButton(onClick = { navigator.navigate("/worldmap") }) {
                 Icon(Icons.Filled.Home, contentDescription = "Back To Worldview")
             }
 
