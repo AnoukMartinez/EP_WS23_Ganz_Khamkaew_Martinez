@@ -48,9 +48,14 @@ fun HomeScreen(navigator : Navigator) {
                 .padding(50.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            Column (modifier = Modifier.padding(10.dp)) {
-                Button(onClick = {
-                    navigator.navigate("/gameloadingscreen")
+            Column (
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Button(
+                    modifier = Modifier.padding(5.dp),
+                    onClick = {
+                        navigator.navigate("/gameloadingscreen")
                 }) {
                     Text(
                         text = "PLAY",
@@ -61,6 +66,7 @@ fun HomeScreen(navigator : Navigator) {
                 }
 
                 Button(
+                    modifier = Modifier.padding(5.dp),
                     onClick = {
                         buildScriptsLocal()
                         navigator.navigate("/worldmap")
