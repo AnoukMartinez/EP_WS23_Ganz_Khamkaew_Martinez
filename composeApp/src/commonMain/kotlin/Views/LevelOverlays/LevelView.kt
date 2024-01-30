@@ -35,5 +35,5 @@ fun LevelView(navigator: Navigator, level : Level) {
     )
 
     // DialogueOverlay(navigator, level)
-    SettingsOverlay(navigator, level)
+    SettingsOverlay(navigator, level, currentRoomIndex)
 }

@@ -45,6 +45,21 @@ public enum class Room {
     fun getDesktopPath() : String {
         return this.toString().lowercase() + ".png";
     }
+
+    fun getRoomToString() : String {
+        return when(this) {
+            KEVINSZIMMER -> "Kevin's Zimmer"
+            RIASZIMMER -> "Ria's Zimmer"
+            OMAKUECHE -> "Oma's Küche"
+            OMAWOHNZIMMER -> "Oma's Wohnzimmer"
+            JUSTINFLUR -> "Justin's Flur"
+            JUSTINKUECHE -> "Justin's Küche"
+            JUSTINZIMMER -> "Justin's Zimmer"
+            SCHULFLUR -> "Schule Flur"
+            SCHULLABOR -> "Computerraum"
+            else -> throw Exception("Location noch nicht fertig")
+        }
+    }
 }
 
 @Composable

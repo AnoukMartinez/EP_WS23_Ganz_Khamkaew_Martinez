@@ -23,8 +23,9 @@ import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun SettingsOverlay(navigator: Navigator,level : Level) {
+fun SettingsOverlay(navigator: Navigator,level : Level, currentRoomIndex : Int) {
     var isHelpOverlayVisible by remember { mutableStateOf(false) }
+    val rooms = level.location.getRoomList()
 
     Box(
         modifier = Modifier
@@ -45,7 +46,7 @@ fun SettingsOverlay(navigator: Navigator,level : Level) {
             }
 
             Text(
-                text = level.location.getLocationToString(),
+                text = rooms[currentRoomIndex].getRoomToString(),
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
             )
