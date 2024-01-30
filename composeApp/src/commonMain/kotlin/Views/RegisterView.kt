@@ -11,8 +11,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,7 +30,7 @@ import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun RegisterScreen(navigator : Navigator) {
+fun RegisterChoice(navigator : Navigator) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -38,7 +44,7 @@ fun RegisterScreen(navigator : Navigator) {
         ) {
             Column(
                 modifier = Modifier
-                    .clickable { navigator.navigate("/studenthome") }
+                    .clickable { navigator.navigate("/studentregister") }
                     .size(300.dp, 400.dp)
                     .clip(shape = RoundedCornerShape(30.dp))
                     .background(Color(64, 95, 255)),
@@ -54,7 +60,7 @@ fun RegisterScreen(navigator : Navigator) {
             }
             Column(
                 modifier = Modifier
-                    .clickable { navigator.navigate("/teacherhome") }
+                    .clickable { navigator.navigate("/teacherregister") }
                     .size(300.dp, 400.dp)
                     .clip(shape = RoundedCornerShape(30.dp))
                     .background(Color.LightGray),
@@ -67,6 +73,74 @@ fun RegisterScreen(navigator : Navigator) {
                     fontSize = 30.sp,
                     textAlign = TextAlign.Center
                 )
+            }
+        }
+    }
+}
+
+@Composable
+fun StudentRegisterScreen(navigator : Navigator) {
+    Box (
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp).fillMaxSize(),
+        ) {
+            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
+                InputField("Vorname")
+                InputField("Nachname")
+            }
+            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
+                InputField("Email")
+                InputField("Passwort")
+            }
+            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
+                InputField("Schule")
+                InputField("Klasse")
+            }
+            Row() {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        navigator.navigate("/studenthome")
+                    }
+                ) {
+                    Text("LOGIN")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun TeacherRegisterScreen(navigator : Navigator) {
+    Box (
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp).fillMaxSize(),
+        ) {
+            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
+                InputField("Vorname")
+                InputField("Nachname")
+            }
+            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
+                InputField("Email")
+                InputField("Passwort")
+            }
+            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
+                InputField("Schule")
+                InputField("Klasse")
+            }
+            Row() {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        navigator.navigate("/teacherhome")
+                    }
+                ) {
+                    Text("LOGIN")
+                }
             }
         }
     }

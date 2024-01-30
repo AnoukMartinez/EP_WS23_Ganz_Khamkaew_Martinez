@@ -76,10 +76,7 @@ import kotlinx.coroutines.FlowPreview
 fun DialogueOverlay(navigator : Navigator, level: Level) {
     var scriptLineNumber by remember { mutableStateOf(1) }
 
-    Box(
-        modifier = Modifier.fillMaxWidth()
-    )
-    {
+    Box(modifier = Modifier.fillMaxWidth()) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -124,7 +121,6 @@ fun DialogueOverlay(navigator : Navigator, level: Level) {
                 }
             }
         }
-
 
     Box(
         modifier = Modifier

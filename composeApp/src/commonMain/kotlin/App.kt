@@ -2,9 +2,12 @@ import Models.levels
 import Views.ClassEditView
 import Views.ClassProgressView
 import Views.LevelView
+import Views.LoginScreen
 import Views.Oberwelt
-import Views.RegisterScreen
+import Views.RegisterChoice
 import Views.StudentProgressView
+import Views.StudentRegisterScreen
+import Views.TeacherRegisterScreen
 import Views.TestTaskView
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -21,14 +24,14 @@ fun App() {
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/register",
+                initialRoute = "/login",
             ) {
                 // LOGIN SCREEN
                 scene (
                     route = "/login",
                     navTransition = NavTransition(),
                 ) {
-                    // TODO!!!
+                    LoginScreen(navigator)
                 }
 
                 // REGISTRIERUNGS SCREEN
@@ -36,7 +39,23 @@ fun App() {
                     route = "/register",
                     navTransition = NavTransition(),
                 ) {
-                    RegisterScreen(navigator)
+                    RegisterChoice(navigator)
+                }
+
+                // STUDENT REGISTER
+                scene (
+                    route = "/studentregister",
+                    navTransition = NavTransition()
+                ) {
+                    StudentRegisterScreen(navigator)
+                }
+
+                // TEACHER REGISTER
+                scene (
+                    route = "/teacherregister",
+                    navTransition = NavTransition()
+                ) {
+                    TeacherRegisterScreen(navigator)
                 }
 
                 // HOME SCREEN SCHÜLERINNEN

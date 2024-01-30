@@ -10,7 +10,7 @@ import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
 fun LevelView(navigator: Navigator, level : Level) {
-    val dialogueIsActive by remember { mutableStateOf(true)}
+    val dialogueIsActive by remember { mutableStateOf(true) }
 
     LocationBackground(level.location, dialogueIsActive)
     DialogueOverlay(navigator, level)

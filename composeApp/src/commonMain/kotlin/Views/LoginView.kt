@@ -17,9 +17,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navigator : Navigator) {
+    var password by remember { mutableStateOf("") }
+    var mail by remember { mutableStateOf("") }
+
     Box (
         modifier = Modifier.fillMaxSize()
     ) {
@@ -27,23 +31,36 @@ fun LoginScreen() {
             modifier = Modifier.padding(20.dp).fillMaxSize(),
         ) {
             Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
-                InputField("Vorname")
-                InputField("Nachname")
+                OutlinedTextField(
+                    value = mail,
+                    onValueChange = { mail = it },
+                    label = { Text("E-Mail") }
+                )
+
+                OutlinedTextField(
+                    value = password,
+                    onValueChange = { password = it },
+                    label = { Text("Password") }
+                )
             }
-            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
-                InputField("Email")
-                InputField("Passwort")
-            }
-            Row(modifier = Modifier, horizontalArrangement = Arrangement.SpaceEvenly) {
-                InputField("Schule")
-                InputField("Klasse")
-            }
-            Row() {
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = {}
+            Row {
+                Button (
+                    onClick = {
+                        if(mail == "student" && password == "hi") {
+                            navigator.navigate("/studenthome")
+                        } else if (mail == "teacher" && password == "hi") {
+                            navigator.navigate("/teacherhome")
+                        }
+                    }
                 ) {
                     Text("LOGIN")
+                }
+                Button (
+                    onClick = {
+                        navigator.navigate("/register")
+                    }
+                ) {
+                    Text("NEU REGISTRIEREN")
                 }
             }
         }
@@ -51,11 +68,12 @@ fun LoginScreen() {
 }
 
 @Composable
-fun InputField(label : String) {
+fun InputField(label : String) : String {
     var text by remember { mutableStateOf("") }
     OutlinedTextField(
         value = text,
         onValueChange = { text = it },
         label = { Text(label) }
     )
+    return text
 }
