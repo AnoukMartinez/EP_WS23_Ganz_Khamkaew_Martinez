@@ -23,6 +23,9 @@ public enum class Location {
     fun getRoomList() : List<Room> {
         return when(this) {
             KEVINSHAUS -> listOf(Room.KEVINSZIMMER, Room.RIASZIMMER)
+            OMASHAUS -> listOf(Room.OMAKUECHE, Room.OMAWOHNZIMMER)
+            JUSTINSHAUS -> listOf(Room.JUSTINFLUR, Room.JUSTINKUECHE, Room.JUSTINZIMMER)
+            SCHULE -> listOf(Room.SCHULFLUR, Room.SCHULLABOR)
             else -> throw Exception("Location noch nicht fertig")
         }
     }
@@ -35,7 +38,9 @@ public enum class Room {
     OMAWOHNZIMMER,
     JUSTINFLUR,
     JUSTINKUECHE,
-    JUSTINZIMMER;
+    JUSTINZIMMER,
+    SCHULFLUR,
+    SCHULLABOR;
 
     fun getDesktopPath() : String {
         return this.toString().lowercase() + ".png";

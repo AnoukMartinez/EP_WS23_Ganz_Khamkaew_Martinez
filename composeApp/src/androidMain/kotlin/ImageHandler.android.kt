@@ -53,10 +53,10 @@ fun lookherebutton(x, y, script) {
 
 fun getResourceFromLocation(location : Location) : Int {
     return when(location){
-        Location.OMASHAUS -> R.drawable.omashaus
+        Location.OMASHAUS -> R.drawable.omakueche
         Location.KEVINSHAUS -> R.drawable.kevinszimmer
-        Location.SCHULE -> R.drawable.schule
-        Location.JUSTINSHAUS -> R.drawable.justinshaus
+        Location.SCHULE -> R.drawable.schulflur
+        Location.JUSTINSHAUS -> R.drawable.justinzimmer
         else -> throw Exception("Location not implemented yet")
     }
 }
@@ -65,6 +65,13 @@ fun getResourceFromRoom(room : Room) : Int {
     return when(room) {
         Room.KEVINSZIMMER -> R.drawable.kevinszimmer
         Room.RIASZIMMER -> R.drawable.riaszimmer
+        Room.JUSTINFLUR -> R.drawable.justinflur
+        Room.JUSTINZIMMER -> R.drawable.justinzimmer
+        Room.JUSTINKUECHE -> R.drawable.justinkueche
+        Room.OMAKUECHE -> R.drawable.omakueche
+        Room.OMAWOHNZIMMER -> R.drawable.omawohnzimmer
+        Room.SCHULFLUR -> R.drawable.schulflur
+        Room.SCHULLABOR -> R.drawable.schullabor
         else -> throw Exception("Room not implemented yet")
     }
 }
