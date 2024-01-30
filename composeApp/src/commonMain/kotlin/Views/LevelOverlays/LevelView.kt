@@ -1,7 +1,9 @@
-package Views
+package Views.LevelOverlays
 
 import LocationBackground
 import Models.Level
+import Views.LevelOverlays.DialogueOverlay
+import Views.LevelOverlays.SettingsOverlay
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

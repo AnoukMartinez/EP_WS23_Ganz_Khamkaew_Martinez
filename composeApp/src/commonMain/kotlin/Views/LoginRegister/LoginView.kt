@@ -1,4 +1,4 @@
-package Views
+package Views.LoginRegister
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
