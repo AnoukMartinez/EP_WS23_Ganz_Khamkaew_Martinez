@@ -46,3 +46,12 @@ actual fun CharacterSprite(character : GameCharacter, mood : Mood, isActive : Bo
         colorFilter = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(filter) })
     )
 }
+
+@Composable
+actual fun LookHereImage() {
+    Image (
+        painterResource("lookhere.png"),
+        modifier = Modifier,
+        contentDescription = "Look Here Button"
+    )
+}

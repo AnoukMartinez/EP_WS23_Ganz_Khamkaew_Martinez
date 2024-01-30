@@ -6,3 +6,6 @@ expect fun LocationBackground(location : Location, dialogueIsActive : Boolean, c
 
 @Composable
 expect fun CharacterSprite(character : GameCharacter, mood : Mood, isActive : Boolean)
+
+@Composable
+expect fun LookHereImage()

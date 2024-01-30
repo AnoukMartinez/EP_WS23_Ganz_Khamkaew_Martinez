@@ -32,25 +32,6 @@ actual fun LocationBackground(location : Location, dialogueIsActive : Boolean, c
     )
 }
 
-/*
-fun InvestigationMode(background : location, liste von lookherekoordinaten){
-    Box(fillmaxsize)
-    {
-        locationbackground(location)
-        for( element in lookherekoordinaten) {
-            lookherebutton(element.x.dp, element.y.dp)
-        }
-    }
-}
-
-@Composables
-fun lookherebutton(x, y, script) {
-    Image
-    onclick -> dialog situation mit script
-}
-
- */
-
 fun getResourceFromLocation(location : Location) : Int {
     return when(location){
         Location.OMASHAUS -> R.drawable.omakueche
@@ -116,4 +97,13 @@ fun getResourceFromSprite(character : GameCharacter, mood : Mood) : Int {
         }
         else -> throw Exception("Character does not exist yet")
     }
+}
+
+@Composable
+actual fun LookHereImage() {
+    Image (
+        painterResource(R.drawable.lookhere),
+        modifier = Modifier,
+        contentDescription = "Look Here Button"
+    )
 }

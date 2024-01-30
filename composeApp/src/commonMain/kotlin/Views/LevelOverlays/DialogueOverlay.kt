@@ -3,6 +3,7 @@ package Views.LevelOverlays
 import CharacterSprite
 import Models.GameCharacter
 import Models.Level
+import Models.Script
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -34,7 +35,7 @@ import Views.FalseLoad
 
 
 @Composable
-fun DialogueOverlay(navigator : Navigator, level: Level) {
+fun DialogueOverlay(script : Script) {
     var scriptLineNumber by remember { mutableStateOf(1) }
 
     Box(modifier = Modifier.fillMaxWidth()) {
@@ -45,8 +46,11 @@ fun DialogueOverlay(navigator : Navigator, level: Level) {
                 .align(Alignment.BottomCenter)
                 .background(Color.White.copy(alpha = 0.8f))
                 .clickable {
-                    if (scriptLineNumber < level.script.getScriptSize()) {
+                    if (scriptLineNumber < script.getScriptSize()) {
                         scriptLineNumber++
+                    } else {
+                        // SKRIPT IST DURCHGELAUFEN, WAS JETZT? NÄCHSTES SKRIPT?
+                        // ÜBERLEGUNGEN SIND NOCH WORK IN PROGRESS
                     }
                 }
                 .padding(24.dp),
@@ -56,24 +60,16 @@ fun DialogueOverlay(navigator : Navigator, level: Level) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = level.script[scriptLineNumber - 1].speaker.toString() + ":",
+                    text = script[scriptLineNumber - 1].speaker.toString() + ":",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
 
-                if (level.script[scriptLineNumber - 1].dialogueLine.isEmpty()) {
-                    FalseLoad(
-                        "Das Skript wurde nicht richtig geladen.",
-                        "Versuche deine App neu zu laden.",
-                        "/home",
-                        navigator
-                    )
-                } else {
-                    Text(
-                        text = level.script[scriptLineNumber - 1].dialogueLine,
-                        fontSize = 20.sp,
-                    )
-                }
+                Text(
+                    text = script[scriptLineNumber - 1].dialogueLine,
+                    fontSize = 20.sp,
+                )
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
@@ -97,7 +93,7 @@ fun DialogueOverlay(navigator : Navigator, level: Level) {
                     .height(250.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                val activeLine = level.script[scriptLineNumber - 1]
+                val activeLine = script[scriptLineNumber - 1]
 
                 val speakers = listOf(
                     Triple(activeLine.speaker, activeLine.speakermood, true),

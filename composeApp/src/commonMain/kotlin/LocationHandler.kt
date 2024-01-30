@@ -1,5 +1,8 @@
 import Models.Level
+import Views.LevelOverlays.LookHere
+import Views.LevelOverlays.LookHereButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 
 public enum class Location {
     OMASHAUS,
@@ -57,6 +60,22 @@ public enum class Room {
             JUSTINZIMMER -> "Justin's Zimmer"
             SCHULFLUR -> "Schule Flur"
             SCHULLABOR -> "Computerraum"
+            else -> throw Exception("Location noch nicht fertig")
+        }
+    }
+
+    // HAB NOCH NICHT ALLES AUSGEFÜLLT...
+    fun getRoomLookHeres() : List<LookHere> {
+        return when(this) {
+            KEVINSZIMMER -> listOf(LookHere(300.dp, 130.dp, 1))
+            RIASZIMMER -> listOf(LookHere(400.dp, 160.dp, 1), LookHere(130.dp, 230.dp, 2))
+            OMAKUECHE -> listOf()
+            OMAWOHNZIMMER -> listOf()
+            JUSTINFLUR -> listOf()
+            JUSTINKUECHE -> listOf()
+            JUSTINZIMMER -> listOf()
+            SCHULFLUR -> listOf()
+            SCHULLABOR -> listOf()
             else -> throw Exception("Location noch nicht fertig")
         }
     }

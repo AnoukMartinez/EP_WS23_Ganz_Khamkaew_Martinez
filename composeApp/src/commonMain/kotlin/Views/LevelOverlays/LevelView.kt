@@ -34,6 +34,6 @@ fun LevelView(navigator: Navigator, level : Level) {
         currentRoomIndex
     )
 
-    // DialogueOverlay(navigator, level)
+    // DialogueOverlay(level.script)
     SettingsOverlay(navigator, level, currentRoomIndex)
 }
