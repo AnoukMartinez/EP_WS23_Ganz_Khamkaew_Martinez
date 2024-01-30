@@ -13,14 +13,16 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.unit.dp
 
 @Composable
-actual fun LocationBackground(location : Location, dialogueIsActive : Boolean){
+actual fun LocationBackground(location : Location, dialogueIsActive : Boolean, currentRoomIndex : Int){
+    val rooms = location.getRoomList()
+
     var blurIntensity = 0.dp
     if(dialogueIsActive) {
         blurIntensity = 5.dp
     }
 
     Image(
-        painterResource(location.getDesktopPath()),
+        painterResource(rooms[currentRoomIndex].getDesktopPath()),
         modifier = Modifier
             .fillMaxSize()
             .blur(

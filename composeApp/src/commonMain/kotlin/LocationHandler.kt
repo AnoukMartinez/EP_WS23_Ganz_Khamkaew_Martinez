@@ -20,22 +20,26 @@ public enum class Location {
         }
     }
 
-    fun getRoomList() : List<Rooms> {
+    fun getRoomList() : List<Room> {
         return when(this) {
-            KEVINSHAUS -> listOf(Rooms.KEVINSZIMMER, Rooms.RIASZIMMER)
+            KEVINSHAUS -> listOf(Room.KEVINSZIMMER, Room.RIASZIMMER)
             else -> throw Exception("Location noch nicht fertig")
         }
     }
 }
 
-public enum class Rooms {
+public enum class Room {
     KEVINSZIMMER,
     RIASZIMMER,
     OMAKUECHE,
     OMAWOHNZIMMER,
     JUSTINFLUR,
     JUSTINKUECHE,
-    JUSTINZIMMER
+    JUSTINZIMMER;
+
+    fun getDesktopPath() : String {
+        return this.toString().lowercase() + ".png";
+    }
 }
 
 @Composable

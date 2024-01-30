@@ -29,6 +29,61 @@ import androidx.compose.ui.unit.dp
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
+fun LoginTaskView() {
+    Box (
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        var text by remember { mutableStateOf("") }
+        var submitted by remember { mutableStateOf(false) }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            TextField (
+                modifier = Modifier.padding(20.dp),
+                value = text,
+                onValueChange = {
+                    if(!submitted) { text = it }
+                },
+                label = { Text("Eingabe Test") }
+            )
+
+            Button(
+                onClick = { submitted = true },
+                shape = RoundedCornerShape(50.dp)
+            ) {
+                Text(text = "Lösung Prüfen")
+            }
+
+            if(submitted) {
+                Box(modifier = Modifier.padding(10.dp)) {
+                    if(text == "Hello World") {
+                        Text("Die Eingabe war richtig")
+                    } else {
+                        Text("Leider nicht. Die richtige Eingabe wäre gewesen: Hello World. " +
+                                "[Hier eine Erklärung]. Weil in der Info stand man sollte das so machen.")
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun EmailTaskView() {
+    // TODO
+}
+
+@Composable
+fun CrosswordTaskView() {
+    // TODO
+}
+
+@Composable
 fun TestTaskView(navigator : Navigator){
     var isHelpOverlayVisible by remember { mutableStateOf(false) }
 
