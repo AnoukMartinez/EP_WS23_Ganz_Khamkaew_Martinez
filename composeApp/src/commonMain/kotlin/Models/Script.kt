@@ -1,5 +1,6 @@
 package Models
 
+import Views.LevelOverlays.GameSituation
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 
@@ -23,6 +24,12 @@ enum class ScriptType {
     LOOKHERE,
     FEEDBACK
 }
+
+data class HelpContent(
+    val situation : GameSituation,
+    val title : String,
+    val content : String
+)
 
 data class Script (
     val scriptType : ScriptType,
@@ -56,4 +63,8 @@ fun buildScript(rawCharacterScript : String) : Script {
     }
 
     return characterScript
+}
+
+fun buildHelpContent(rawHelpContent : String) : List<HelpContent> {
+    return mapper.readValue(rawHelpContent)
 }

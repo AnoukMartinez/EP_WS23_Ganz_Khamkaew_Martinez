@@ -49,8 +49,7 @@ fun DialogueOverlay(script : Script) {
                     if (scriptLineNumber < script.getScriptSize()) {
                         scriptLineNumber++
                     } else {
-                        // SKRIPT IST DURCHGELAUFEN, WAS JETZT? NÄCHSTES SKRIPT?
-                        // ÜBERLEGUNGEN SIND NOCH WORK IN PROGRESS
+                        // Skript ist durch. Was jetzt?
                     }
                 }
                 .padding(24.dp),

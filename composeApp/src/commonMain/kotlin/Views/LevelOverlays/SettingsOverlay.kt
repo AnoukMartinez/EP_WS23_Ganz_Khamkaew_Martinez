@@ -1,5 +1,6 @@
 package Views.LevelOverlays
 
+import Models.HelpContent
 import Models.Level
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun SettingsOverlay(navigator: Navigator,level : Level, currentRoomIndex : Int) {
+fun SettingsOverlay(navigator: Navigator, level : Level, currentRoomIndex : Int, helpContent : HelpContent) {
     var isHelpOverlayVisible by remember { mutableStateOf(false) }
     val rooms = level.location.getRoomList()
 
@@ -56,17 +57,10 @@ fun SettingsOverlay(navigator: Navigator,level : Level, currentRoomIndex : Int) 
             }
 
             if (isHelpOverlayVisible) {
-                // Platzhalter!!
-                val helperTitlePlaceholder = "Was soll ich jetzt machen?"
-                val helperTextPlaceholder = "Im Moment befindest du dich noch im Story Modus. " +
-                        "Das bedeutet du kannst einfach auf die Textbox unten klicken, um " +
-                        "die Handlung voranzutreiben. Lies dir hierbei den Dialog " +
-                        "genau durch, um Hinweise auf die Aufgabe zu erhalten die " +
-                        "in jeder Welt drankommt."
                 HelpOverlay(
                     onConfirm = { isHelpOverlayVisible = false },
-                    helperTitlePlaceholder,
-                    helperTextPlaceholder
+                    helpContent.title,
+                    helpContent.content
                 )
             }
         }
