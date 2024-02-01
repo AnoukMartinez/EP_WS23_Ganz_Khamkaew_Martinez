@@ -1,0 +1,16 @@
+[
+    {
+        "dialogueLine": "Ich komme von einem Server!",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood" : "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ich bin wirklich so aktuell! Viel besser als diese komischen lokalen Scripts!",
+        "speaker": "JUSTIN",
+        "speakermood": "HAPPY",
+        "listener": "NOBODY",
+        "listenermood" : "NEUTRAL"
+    }
+]

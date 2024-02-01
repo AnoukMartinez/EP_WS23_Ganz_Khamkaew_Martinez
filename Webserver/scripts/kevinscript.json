@@ -1,0 +1,30 @@
+[
+    {
+        "dialogueLine": "Hey Mann, wo kommst du denn her?",
+        "speaker": "KEVIN",
+        "speakermood": "HAPPY",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ich, mein guter Herr, komme von einem Server.",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "KEVIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Wow!",
+        "speaker": "KEVIN",
+        "speakermood": "ANGRY",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Das ist ja völlig verrückt!",
+        "speaker": "KEVIN",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    }
+]
