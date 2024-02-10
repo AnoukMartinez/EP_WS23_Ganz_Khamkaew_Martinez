@@ -1,5 +1,6 @@
 package Views
 
+import Models.Profiles.klassen
 import Models.buildScriptsLocal
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -28,21 +29,24 @@ fun ClassEditView(navigator: Navigator){
             Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Back To Worldview")
         }
 
-        Button(
-            modifier = Modifier.padding(5.dp),
-            onClick = {
-                buildScriptsLocal()
-                navigator.navigate("/classprogress")
-            },
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
-        )
-        {
-            Text(
-                text = "4b",
-                color = Color.Black,
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp
+        for(klasse in klassen){
+            Button(
+                modifier = Modifier.padding(5.dp),
+                onClick = {
+                    buildScriptsLocal()
+                    navigator.navigate("/classprogress")
+                },
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
             )
+
+            {
+                Text(
+                    text = klasse,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 30.sp
+                )
+            }
         }
     }
 }

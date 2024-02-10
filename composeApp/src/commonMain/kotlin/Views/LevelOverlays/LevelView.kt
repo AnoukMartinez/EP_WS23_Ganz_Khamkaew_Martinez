@@ -23,8 +23,8 @@ enum class GameSituation {
 @Composable
 fun LevelView(navigator: Navigator, level : Level) {
     var currentRoomIndex by remember { mutableStateOf(0) } // In welchem Raum sind wir?
-    val dialogueIsActive by remember { mutableStateOf(true) } // Hintergrund blurry?
-    val currentSituation by remember { mutableStateOf(GameSituation.GREETINGDIALOGUE) } // Wichtig für später
+    val dialogueIsActive by remember { mutableStateOf(false) } // Hintergrund blurry?
+    val currentSituation by remember { mutableStateOf(GameSituation.INSPECTIONMODE) } // Wichtig für später
 
     LocationBackground(level.location, dialogueIsActive, currentRoomIndex)
 

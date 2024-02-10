@@ -1,3 +1,6 @@
+import Models.Profiles.parseStudentList
+import Models.Profiles.processedStudentProfiles
+import Models.Profiles.studentProfiles
 import Models.levels
 import Views.ClassEditView
 import Views.ClassProgressView
@@ -13,6 +16,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavHost
+import moe.tlaster.precompose.navigation.path
+import moe.tlaster.precompose.navigation.query
 import moe.tlaster.precompose.navigation.rememberNavigator
 import moe.tlaster.precompose.navigation.transition.NavTransition
 
@@ -24,7 +29,7 @@ fun App() {
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/studenthome",
+                initialRoute = "/studentprogress",
             ) {
                 // LOGIN SCREEN
                 scene (
@@ -137,14 +142,16 @@ fun App() {
                 scene(
                     route = "/classprogress",
                     navTransition = NavTransition()
-                ){
-                    ClassProgressView(navigator)
+                ) {
+                    // TODO PLATZHALTER weil PreCompose navigate by id funktioniert noch nicht
+                    ClassProgressView("5a", navigator)
                 }
                 scene(
                     route = "/studentprogress",
                     navTransition = NavTransition()
                 ){
-                    StudentProgressView(navigator)
+                    // TODO PLATZHALTER weil PreCompose navigate by id funktioniert noch nicht
+                    StudentProgressView(processedStudentProfiles[0], navigator)
                 }
             }
         }

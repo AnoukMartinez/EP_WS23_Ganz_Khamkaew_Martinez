@@ -1,5 +1,6 @@
 package Views
 
+import Models.Profiles.processedStudentProfiles
 import Models.buildScriptsLocal
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -20,29 +21,30 @@ import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun ClassProgressView(navigator: Navigator){
-
+fun ClassProgressView(classId : String?, navigator: Navigator){
     Column {
         IconButton(onClick = { navigator.goBack() }) {
             Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Back To Worldview")
         }
 
-        Button(
-            modifier = Modifier.padding(5.dp),
-            onClick = {
-                buildScriptsLocal()
-                navigator.navigate("/studentprogress")
-            },
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
-        )
-        {
-            Text(
-                text = "Jan Müller",
-                color = Color.Black,
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp
-            )
+        for(student in processedStudentProfiles){
+            Button(
+                modifier = Modifier.padding(5.dp),
+                onClick = {
+                    buildScriptsLocal()
+                    navigator.navigate("/studentprogress")
+                },
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
+            ) {
+                if(student.klasse == classId){
+                    Text(
+                        text = student.vorname + " " + student.nachname,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+            }
         }
     }
-
 }
