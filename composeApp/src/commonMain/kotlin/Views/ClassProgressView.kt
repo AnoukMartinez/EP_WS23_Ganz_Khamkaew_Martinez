@@ -32,7 +32,7 @@ fun ClassProgressView(classId : String?, navigator: Navigator){
                 modifier = Modifier.padding(5.dp),
                 onClick = {
                     buildScriptsLocal()
-                    navigator.navigate("/studentprogress")
+                    navigator.navigate("/studentprogress/${student.vorname}")
                 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
             ) {

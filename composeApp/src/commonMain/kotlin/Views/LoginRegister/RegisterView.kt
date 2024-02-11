@@ -93,7 +93,7 @@ fun StudentRegisterScreen(navigator : Navigator) {
                 InputField("Schule")
                 InputField("Klasse")
             }
-            Row() {
+            Row {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
@@ -127,7 +127,7 @@ fun TeacherRegisterScreen(navigator : Navigator) {
                 InputField("Schule")
                 InputField("Klasse")
             }
-            Row() {
+            Row {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {

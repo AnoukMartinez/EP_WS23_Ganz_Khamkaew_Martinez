@@ -4,14 +4,14 @@ import Views.LevelOverlays.LookHereButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 
-public enum class Location {
+enum class Location {
     OMASHAUS,
     KEVINSHAUS,
     SCHULE,
     JUSTINSHAUS;
 
     fun getDesktopPath() : String {
-        return this.toString().lowercase() + ".png";
+        return this.toString().lowercase() + ".png"
     }
 
     fun getLocationToString() : String {
@@ -34,7 +34,7 @@ public enum class Location {
     }
 }
 
-public enum class Room {
+enum class Room {
     KEVINSZIMMER,
     RIASZIMMER,
     OMAKUECHE,
@@ -46,7 +46,7 @@ public enum class Room {
     SCHULLABOR;
 
     fun getDesktopPath() : String {
-        return this.toString().lowercase() + ".png";
+        return this.toString().lowercase() + ".png"
     }
 
     fun getRoomToString() : String {

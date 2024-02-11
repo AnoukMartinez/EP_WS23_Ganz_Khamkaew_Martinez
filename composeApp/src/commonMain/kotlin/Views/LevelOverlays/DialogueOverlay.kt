@@ -2,7 +2,6 @@ package Views.LevelOverlays
 
 import CharacterSprite
 import Models.GameCharacter
-import Models.Level
 import Models.Script
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,8 +29,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import moe.tlaster.precompose.navigation.Navigator
-import Views.FalseLoad
 
 
 @Composable
@@ -78,38 +75,39 @@ fun DialogueOverlay(script : Script) {
             }
         }
 
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        Column(
-            modifier = Modifier.fillMaxHeight(),
-            verticalArrangement = Arrangement.Bottom
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(250.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+            Column(
+                modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.Bottom
             ) {
-                val activeLine = script[scriptLineNumber - 1]
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(250.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    val activeLine = script[scriptLineNumber - 1]
 
-                val speakers = listOf(
-                    Triple(activeLine.speaker, activeLine.speakermood, true),
-                    Triple(activeLine.listener, activeLine.listenermood, false)
-                )
+                    val speakers = listOf(
+                        Triple(activeLine.speaker, activeLine.speakermood, true),
+                        Triple(activeLine.listener, activeLine.listenermood, false)
+                    )
 
-                val sortedSpeakers =
-                    speakers.sortedByDescending { it.first == GameCharacter.JUSTIN }
+                    val sortedSpeakers =
+                        speakers.sortedByDescending { it.first == GameCharacter.JUSTIN }
 
-                sortedSpeakers.forEach { (speaker, mood, isSpeakerActive) ->
-                    if (speaker == GameCharacter.NOBODY) {
-                        // DO nothing
-                    } else {
-                        CharacterSprite(speaker, mood, isSpeakerActive)
+                    sortedSpeakers.forEach { (speaker, mood, isSpeakerActive) ->
+                        if (speaker == GameCharacter.NOBODY) {
+                            // DO nothing
+                        } else {
+                            CharacterSprite(speaker, mood, isSpeakerActive)
+                        }
                     }
                 }
             }
         }
     }
-}}
+}
