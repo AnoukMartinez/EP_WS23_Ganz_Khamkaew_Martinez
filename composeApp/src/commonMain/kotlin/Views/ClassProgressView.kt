@@ -28,15 +28,15 @@ fun ClassProgressView(classId : String?, navigator: Navigator){
         }
 
         for(student in processedStudentProfiles){
-            Button(
-                modifier = Modifier.padding(5.dp),
-                onClick = {
-                    buildScriptsLocal()
-                    navigator.navigate("/studentprogress/${student.vorname}")
-                },
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
-            ) {
-                if(student.klasse == classId){
+            if(student.klasse == classId){
+                Button(
+                    modifier = Modifier.padding(5.dp),
+                    onClick = {
+                        buildScriptsLocal()
+                        navigator.navigate("/studentprogress/${student.email}")
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
+                ) {
                     Text(
                         text = student.vorname + " " + student.nachname,
                         color = Color.Black,

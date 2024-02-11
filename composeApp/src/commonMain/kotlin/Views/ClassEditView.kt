@@ -33,7 +33,7 @@ fun ClassEditView(navigator: Navigator){
                 modifier = Modifier.padding(5.dp),
                 onClick = {
                     buildScriptsLocal()
-                    navigator.navigate("/classprogress")
+                    navigator.navigate("/classprogress/$klasse")
                 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
             )

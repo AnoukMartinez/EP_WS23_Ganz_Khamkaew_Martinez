@@ -1,4 +1,5 @@
 import Models.Profiles.StudentProfile
+import Models.Profiles.klassen
 import Models.Profiles.processedStudentProfiles
 import Models.levels
 import Views.ClassEditView
@@ -84,36 +85,13 @@ fun App() {
                     Oberwelt(levels, navigator)
                 }
 
-                // KEVINS HAUS
                 scene (
-                    route = "/kevinshaus",
-                    navTransition = NavTransition(),
-                ) {
-                    LevelView(navigator, levels.first { it.location == Location.KEVINSHAUS })
-                }
-
-                // OMAS HAUS
-                scene (
-                    route = "/omashaus",
-                    navTransition = NavTransition(),
-                ) {
-                    LevelView(navigator, levels.first { it.location == Location.OMASHAUS })
-                }
-
-                // SCHULE
-                scene (
-                    route = "/schule",
-                    navTransition = NavTransition(),
-                ) {
-                    LevelView(navigator, levels.first { it.location == Location.SCHULE })
-                }
-
-                // JUSTIN
-                scene (
-                    route = "/justinshaus",
-                    navTransition = NavTransition(),
-                ) {
-                    LevelView(navigator, levels.first { it.location == Location.JUSTINSHAUS })
+                    route = "/level/{locationname}",
+                    navTransition = NavTransition()
+                ) { backStackEntry ->
+                    val locationname : String? = backStackEntry.path<String>("locationname")
+                    val queriedLevel = levels.first { it.location.toString() == locationname}
+                    LevelView(navigator, queriedLevel)
                 }
 
                 scene (
@@ -138,29 +116,21 @@ fun App() {
                 }
 
                 scene(
-                    route = "/classprogress",
-                    navTransition = NavTransition()
-                ) {
-                    // TODO PLATZHALTER weil PreCompose navigate by id funktioniert noch nicht
-                    ClassProgressView("5a", navigator)
-                }
-
-                /*
-                scene(
-                    route = "/studentprogress",
-                    navTransition = NavTransition()
-                ) {
-                    // TODO PLATZHALTER weil PreCompose navigate by id funktioniert noch nicht
-                    StudentProgressView(processedStudentProfiles[0], navigator)
-                }
-                */
-
-                scene (
-                    route = "/studentprogress/{id}",
+                    route = "/classprogress/{classid}",
                     navTransition = NavTransition()
                 ) { backStackEntry ->
-                    val id: String? = backStackEntry.path<String>("id")
-                    val queriedProfile = processedStudentProfiles.first { it.vorname == id }
+                    val classid : String? = backStackEntry.path<String>("classid")
+                    val queriedProfile = klassen.first { it == classid }
+
+                    ClassProgressView(classid, navigator)
+                }
+
+                scene (
+                    route = "/studentprogress/{studentmail}",
+                    navTransition = NavTransition()
+                ) { backStackEntry ->
+                    val studentmail : String? = backStackEntry.path<String>("studentmail")
+                    val queriedProfile = processedStudentProfiles.first { it.email == studentmail }
                     StudentProgressView(queriedProfile, navigator)
                 }
             }
