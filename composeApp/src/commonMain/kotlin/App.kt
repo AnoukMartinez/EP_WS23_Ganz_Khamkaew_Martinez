@@ -1,5 +1,3 @@
-import Models.Profiles.StudentProfile
-import Models.Profiles.klassen
 import Models.Profiles.processedStudentProfiles
 import Models.levels
 import Views.ClassEditView
@@ -127,6 +125,7 @@ fun App() {
                 }
 
                 scene (
+                    // Ich schätze die Schüler Mail sollte eindeutig genug sein
                     route = "/studentprogress/{studentmail}",
                     navTransition = NavTransition()
                 ) { backStackEntry ->

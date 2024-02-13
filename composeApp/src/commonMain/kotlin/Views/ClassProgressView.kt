@@ -1,5 +1,6 @@
 package Views
 
+import Models.Profiles.klassen
 import Models.Profiles.processedStudentProfiles
 import Models.buildScriptsLocal
 import androidx.compose.foundation.layout.Column
@@ -27,7 +28,7 @@ fun ClassProgressView(classId : String?, navigator: Navigator){
             Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Back To Worldview")
         }
 
-        for(student in processedStudentProfiles){
+        for(student in klassen.first{ it.id == classId }.students){
             if(student.klasse == classId){
                 Button(
                     modifier = Modifier.padding(5.dp),

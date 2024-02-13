@@ -4,6 +4,7 @@ import Location
 import Models.mapper
 import com.fasterxml.jackson.module.kotlin.readValue
 
+// Reminder: Fertig sollte schon in den jeweiligen Levels getrackt werden (discovered/completed)
 data class LevelProgress (
     val aufgabe : Location,
     val ersterscore : Int,

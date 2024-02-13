@@ -32,9 +32,6 @@ fun SettingsOverlay(navigator: Navigator, level : Level, currentRoomIndex : Int,
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        // Wird später zu Image Sequence mit Script usw.
-
-
         // Icon Bar oben mit Location Titel
         Row(
             modifier = Modifier
