@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +18,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -107,8 +109,9 @@ fun StudentProgressView(student : StudentProfile, navigator : Navigator) {
                     .background(Color.White),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.padding(5.dp))
                 for(level in student.progress) {
-                    Text(modifier = Modifier.padding(5.dp), text = level.aufgabe.getLocationToString())
+                    Text(modifier = Modifier.padding(5.dp), text = level.aufgabe.getLocationToString(), fontWeight = FontWeight.ExtraBold)
                 }
             }
 
@@ -121,6 +124,7 @@ fun StudentProgressView(student : StudentProfile, navigator : Navigator) {
                     .background(Color.White),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.padding(5.dp))
                 for(level in student.progress) {
                     Text(modifier = Modifier.padding(5.dp), text = level.ersterscore.toString())
                 }
@@ -135,6 +139,7 @@ fun StudentProgressView(student : StudentProfile, navigator : Navigator) {
                     .background(Color.White),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.padding(5.dp))
                 for(level in student.progress) {
                     Text(modifier = Modifier.padding(5.dp), text = level.besterscore.toString())
                 }
@@ -149,8 +154,15 @@ fun StudentProgressView(student : StudentProfile, navigator : Navigator) {
                     .background(Color.White),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Spacer(modifier = Modifier.padding(5.dp))
                 for(level in student.progress) {
-                    Text(modifier = Modifier.padding(5.dp), text = level.fertig.toString())
+                    Row(modifier = Modifier.padding(5.dp)) {
+                        if (level.fertig) {
+                            Icon(Icons.Filled.Star, "Fertig", tint = Color.Blue)
+                        } else {
+                            Icon(Icons.Filled.Star, "Fertig", tint = Color.LightGray)
+                        }
+                    }
                 }
             }
         }

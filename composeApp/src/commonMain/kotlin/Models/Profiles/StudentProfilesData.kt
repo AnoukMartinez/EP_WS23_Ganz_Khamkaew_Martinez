@@ -52,21 +52,21 @@ val studentProfiles = """
                 },
                 {
                     "aufgabe" : "KEVINSHAUS",
-                    "ersterscore" : "0",
-                    "besterscore" : "0",
-                    "fertig" : "false"
+                    "ersterscore" : "4",
+                    "besterscore" : "7",
+                    "fertig" : "true"
                 },
                 {
                     "aufgabe" : "SCHULE",
-                    "ersterscore" : "0",
-                    "besterscore" : "0",
-                    "fertig" : "false"
+                    "ersterscore" : "12",
+                    "besterscore" : "12",
+                    "fertig" : "true"
                 },
                 {
                     "aufgabe" : "JUSTINSHAUS",
-                    "ersterscore" : "0",
-                    "besterscore" : "0",
-                    "fertig" : "false"
+                    "ersterscore" : "12",
+                    "besterscore" : "12",
+                    "fertig" : "true"
                 }
             ]
         },
