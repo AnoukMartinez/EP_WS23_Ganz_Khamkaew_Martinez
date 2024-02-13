@@ -28,7 +28,7 @@ fun App() {
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/login",
+                initialRoute = "/classedit",
             ) {
                 // LOGIN SCREEN
                 scene (
@@ -85,6 +85,7 @@ fun App() {
                     Oberwelt(levels, navigator)
                 }
 
+                // LEVEL AUFRUF
                 scene (
                     route = "/level/{locationname}",
                     navTransition = NavTransition()
@@ -94,6 +95,7 @@ fun App() {
                     LevelView(navigator, queriedLevel)
                 }
 
+                // TEST TASK (Kommt später wieder weg)
                 scene (
                     route = "/testtask",
                     navTransition = NavTransition()
@@ -101,6 +103,7 @@ fun App() {
                     TestTaskView(navigator)
                 }
 
+                // LOADING SCREEN FÜR SCRIPTS
                 scene(
                     route = "/gameloadingscreen",
                     navTransition = NavTransition()
@@ -120,8 +123,6 @@ fun App() {
                     navTransition = NavTransition()
                 ) { backStackEntry ->
                     val classid : String? = backStackEntry.path<String>("classid")
-                    val queriedProfile = klassen.first { it == classid }
-
                     ClassProgressView(classid, navigator)
                 }
 
