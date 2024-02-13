@@ -97,9 +97,10 @@ fun ClassEditView(navigator : Navigator){
             ) {
                 for(i in 0..4){
                     if(currentLastClass < klassen.size){
+                        val currentClassId = klassen[currentLastClass].id
                         Column(modifier = Modifier
                             .padding(10.dp)
-                            .clickable {  }
+                            .clickable { navigator.navigate("/classprogress/${currentClassId}") }
                             .fillMaxSize()
                             .clip(shape = RoundedCornerShape(20.dp))
                             .background(Color.Black)
@@ -151,9 +152,10 @@ fun ClassEditView(navigator : Navigator){
             Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.Center) {
                 for(i in 0..4){
                     if(currentLastClass < klassen.size){
+                        val currentClassId = klassen[currentLastClass].id
                         Column(modifier = Modifier
                             .padding(10.dp)
-                            .clickable {  }
+                            .clickable { navigator.navigate("/classprogress/${currentClassId}") }
                             .fillMaxSize()
                             .clip(shape = RoundedCornerShape(20.dp))
                             .background(Color.Black)
@@ -205,9 +207,10 @@ fun ClassEditView(navigator : Navigator){
             Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.Center) {
                 for(i in 0..4){
                     if(currentLastClass < klassen.size){
+                        val currentClassId = klassen[currentLastClass].id
                         Column(modifier = Modifier
                             .padding(10.dp)
-                            .clickable {  }
+                            .clickable { navigator.navigate("/classprogress/${currentClassId}") }
                             .fillMaxSize()
                             .clip(shape = RoundedCornerShape(20.dp))
                             .background(Color.Black)
