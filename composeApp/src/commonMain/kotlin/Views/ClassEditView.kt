@@ -1,5 +1,6 @@
 package Views
 
+import Models.Profiles.Klasse
 import Models.Profiles.klassen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -10,28 +11,42 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
 fun ClassEditView(navigator : Navigator){
     var currentLastClass = 0
     var lastClassReached = false
+    var isAddOverlayVisible by remember { mutableStateOf(false) }
+
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.fillMaxWidth().weight(0.1f),
@@ -87,7 +102,7 @@ fun ClassEditView(navigator : Navigator){
                             ) {
                                 Column(modifier = Modifier
                                     .padding(10.dp)
-                                    .clickable {  }
+                                    .clickable { isAddOverlayVisible = true }
                                     .fillMaxSize()
                                     .clip(shape = RoundedCornerShape(20.dp))
                                     .background(Color(255, 122, 0)),
@@ -143,7 +158,7 @@ fun ClassEditView(navigator : Navigator){
                             ) {
                                 Column(modifier = Modifier
                                     .padding(10.dp)
-                                    .clickable {  }
+                                    .clickable { isAddOverlayVisible = true }
                                     .fillMaxSize()
                                     .clip(shape = RoundedCornerShape(20.dp))
                                     .background(Color(255, 122, 0)),
@@ -199,7 +214,7 @@ fun ClassEditView(navigator : Navigator){
                             ) {
                                 Column(modifier = Modifier
                                     .padding(10.dp)
-                                    .clickable {  }
+                                    .clickable { isAddOverlayVisible = true }
                                     .fillMaxSize()
                                     .clip(shape = RoundedCornerShape(20.dp))
                                     .background(Color(255, 122, 0)),
@@ -220,6 +235,59 @@ fun ClassEditView(navigator : Navigator){
                             ) {
                                 Text("")
                             }
+                        }
+                    }
+                }
+            }
+        }
+        if(isAddOverlayVisible){
+            ClassAddOverlay { isAddOverlayVisible = false }
+        }
+    }
+}
+
+@Composable
+fun ClassAddOverlay(onDismiss : () -> Unit) {
+    Dialog(onDismissRequest = { onDismiss() }) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp)
+                .padding(16.dp),
+            shape = RoundedCornerShape(16.dp),
+        ) {
+            Column(modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally)
+            {
+                Text(
+                    text = "Bitte geben Sie einen Klassen Namen ein.",
+                    textAlign = TextAlign.Center,
+                )
+
+                var text by remember { mutableStateOf("") }
+                var submitted by remember { mutableStateOf(false) }
+
+                TextField (
+                    modifier = Modifier.padding(20.dp),
+                    value = text,
+                    onValueChange = { text = it },
+                    label = { Text("Klassen Name") }
+                )
+
+                Button(onClick = { submitted = true }){
+                    Text("Abschicken")
+                }
+
+                if(submitted) {
+                    Box(modifier = Modifier.padding(10.dp)) {
+                        if(text.isEmpty()) {
+                            Text("Das Textfeld darf nicht leer sein.")
+                        } else {
+                            klassen.add(Klasse(text, mutableListOf()))
+                            onDismiss()
                         }
                     }
                 }

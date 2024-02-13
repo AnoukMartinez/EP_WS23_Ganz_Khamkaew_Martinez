@@ -13,4 +13,4 @@ val testclass3 = Klasse("5c", mutableListOf())
 val testclass4 = Klasse("6c", mutableListOf())
 val testclass5 = Klasse("7a", mutableListOf())
 
-val klassen = listOf(testclass1, testclass2, testclass3, testclass4, testclass5, testclass5, testclass5)
+val klassen = mutableListOf(testclass1, testclass2, testclass3, testclass4, testclass5, testclass5, testclass5)
