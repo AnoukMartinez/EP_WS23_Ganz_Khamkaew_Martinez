@@ -1,29 +1,23 @@
 package Views
 
 import Models.Profiles.klassen
-import Models.buildScriptsLocal
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,37 +27,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
-
-@Composable
-fun ClassEditView2(navigator: Navigator){
-
-    Column {
-
-        IconButton(onClick = { navigator.goBack() }) {
-            Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Back To Worldview")
-        }
-
-        for(klasse in klassen){
-            Button(
-                modifier = Modifier.padding(5.dp),
-                onClick = {
-                    buildScriptsLocal()
-                    navigator.navigate("/classprogress/${klasse.id}")
-                },
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
-            )
-
-            {
-                Text(
-                    text = klasse.id,
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 30.sp
-                )
-            }
-        }
-    }
-}
 
 @Composable
 fun ClassEditView(navigator : Navigator){
@@ -80,7 +43,7 @@ fun ClassEditView(navigator : Navigator){
             }
             Text(modifier = Modifier, text = "Klassen verwalten", fontSize = 18.sp, fontWeight = FontWeight.Bold)
             IconButton(onClick = { }) {
-                Icon(Icons.Filled.Settings, contentDescription = "Placeholder for Settings")
+                Icon(Icons.Filled.Info, contentDescription = "Placeholder for Spacer")
             }
         }
 
@@ -149,6 +112,7 @@ fun ClassEditView(navigator : Navigator){
                     }
                 }
             }
+
             Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.Center) {
                 for(i in 0..4){
                     if(currentLastClass < klassen.size){
@@ -204,6 +168,7 @@ fun ClassEditView(navigator : Navigator){
                     }
                 }
             }
+
             Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.Center) {
                 for(i in 0..4){
                     if(currentLastClass < klassen.size){
