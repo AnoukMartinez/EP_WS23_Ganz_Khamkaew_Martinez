@@ -52,7 +52,7 @@ fun DialogueOverlay(script : Script, onScriptFinished : () -> Unit) {
                 .padding(24.dp),
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth(0.5f).align(Alignment.Center),
+                modifier = Modifier.fillMaxWidth(0.5f).align(Alignment.Center).height(120.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(

@@ -1,4 +1,4 @@
-package Models.Scripts
+package Models.Scripts.Protagonist
 
 val justinScript = """
     [

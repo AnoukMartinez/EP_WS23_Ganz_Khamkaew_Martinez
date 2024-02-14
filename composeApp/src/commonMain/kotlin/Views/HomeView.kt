@@ -32,6 +32,7 @@ import kotlinx.coroutines.launch
 import Models.buildScriptsLocal
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.MaterialTheme.colors
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
@@ -42,7 +43,7 @@ fun StudentHomeScreen(navigator : Navigator) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        TitleText(title = "KidSecure")
+        TitleText()
         Row(
             modifier = Modifier
                 .padding(50.dp),
@@ -53,29 +54,32 @@ fun StudentHomeScreen(navigator : Navigator) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(
-                    modifier = Modifier.padding(5.dp),
+                    modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
                         navigator.navigate("/gameloadingscreen")
-                }) {
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black)
+                ) {
                     Text(
-                        text = "PLAY",
-                        color = Color.Black,
+                        text = "SPIELEN",
+                        color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 30.sp
                     )
                 }
 
                 Button(
-                    modifier = Modifier.padding(5.dp),
+                    modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
                         buildScriptsLocal()
-                        navigator.navigate("/worldmap")
+                        // PLATZHALTER
+                        navigator.navigate("/studentprogress/student")
                     },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black))
                 {
                     Text(
-                        text = "SKIP (DEV OPTION)",
-                        color = Color.Black,
+                        text = "FORTSCHRITT",
+                        color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 30.sp
                     )
@@ -101,6 +105,7 @@ fun GameLoadingScreen(navigator : Navigator) {
                 levels = buildScripts()
                 // Dieser Check ist nicht sehr gut und sollte später noch ersetzt werden.
                 // Wir checken einfach ob das Skript das lokale ist, oder mit dem richtigem Satz anfängt.
+                // Oh Gott ja der Check ist schrecklich aber ich hab den ganz vergessen oh nein
                 if(levels[0].scripts[0][0].dialogueLine == "Hey Mann, wie geht's? Cool dass du nach der Schule vorbeischaust."){
                     localScripts = true
                 } else {
@@ -122,31 +127,38 @@ fun GameLoadingScreen(navigator : Navigator) {
         )
 
         if(localScripts){
-            FalseLoad(
-                "Es konnte keine Verbindung zum Server aufgebaut werden. " +
-                        "Das bedeutet deine Skripts sind möglicherweise veraltet.",
-                "Du kannst versuchen die App neu zu laden, oder mit alten Dialogen spielen.",
-                "/worldmap",
-                navigator)
+            Box {
+                FalseLoad (
+                    "Es konnte keine Verbindung zum Server aufgebaut werden. " +
+                            "Das bedeutet deine Skripts sind möglicherweise veraltet.",
+                    "Du kannst versuchen die App neu zu laden, oder mit alten Dialogen spielen.",
+                    "/worldmap",
+                    navigator
+                )
+            }
         }
     }
 }
 
 @Composable
-fun TitleText(title : String) {
-    Box(
-        modifier = Modifier
-            .background(Color.Black, RoundedCornerShape(10.dp))
-            .padding(50.dp, 10.dp)
-    ) {
+fun TitleText() {
+    Row {
         Text(
-            title,
+            "Kid",
             style = TextStyle(
-                color = Color.White,
-                fontSize = 40.sp,
+                color = Color(64, 95, 255),
+                fontSize = 84.sp,
                 fontWeight = FontWeight.ExtraBold,
-                textAlign = TextAlign.Center,
-                letterSpacing = 5.sp,
+                textAlign = TextAlign.Center
+            )
+        )
+        Text(
+            "Secure",
+            style = TextStyle(
+                color = Color.Black,
+                fontSize = 84.sp,
+                fontWeight = FontWeight.ExtraBold,
+                textAlign = TextAlign.Center
             )
         )
     }
@@ -160,7 +172,7 @@ fun TeacherHomeScreen(navigator : Navigator){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        TitleText(title = "KidSecure")
+        TitleText()
         Row(
             modifier = Modifier
                 .padding(50.dp),
@@ -171,45 +183,31 @@ fun TeacherHomeScreen(navigator : Navigator){
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(
-                    modifier = Modifier.padding(5.dp),
+                    modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
                         navigator.navigate("/gameloadingscreen")
-                    }) {
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black)
+                ) {
                     Text(
                         text = "LEVELS",
-                        color = Color.Black,
+                        color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 30.sp
                     )
                 }
 
                 Button(
-                    modifier = Modifier.padding(5.dp),
-                    onClick = {
-                        buildScriptsLocal()
-                        navigator.navigate("/worldmap")
-                    },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
-                {
-                    Text(
-                        text = "SKIP",
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 30.sp
-                    )
-                }
-
-                Button(
-                    modifier = Modifier.padding(5.dp),
+                    modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
                         buildScriptsLocal()
                         navigator.navigate("/classedit")
                     },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow))
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black))
                 {
                     Text(
                         text = "KLASSEN",
-                        color = Color.Black,
+                        color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 30.sp
                     )

@@ -2,6 +2,7 @@ package Views.LevelOverlays
 
 import DesktopBackground
 import DesktopProfilePicture
+import Models.levels
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -151,6 +152,7 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit){
                     if(submitted){
                         if(text == "Hello World") {
                             Text("Die Eingabe war richtig")
+                            levels[0].cleared = true
                         } else {
                             Text("Das Passwort ist falsch. Bitte noch einmal versuchen.")
                         }

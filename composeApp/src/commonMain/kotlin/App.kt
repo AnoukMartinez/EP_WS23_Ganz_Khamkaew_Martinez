@@ -92,6 +92,7 @@ fun App() {
                 ) { backStackEntry ->
                     val locationname : String? = backStackEntry.path<String>("locationname")
                     val queriedLevel = levels.first { it.location.toString() == locationname}
+                    queriedLevel.discovered = true
                     LevelView(navigator, queriedLevel, levelStateManager)
                 }
 

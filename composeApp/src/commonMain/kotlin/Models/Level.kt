@@ -3,13 +3,13 @@ package Models
 import Location
 import Models.Scripts.Kevin.kevinHelp
 import Models.Scripts.Kevin.kevinLookHere1
-import Models.Scripts.justinScript
+import Models.Scripts.Protagonist.justinScript
 import Models.Scripts.Kevin.kevinScript
 import Models.Scripts.Kevin.kevinTaskExplanationScript
 import Models.Scripts.Kevin.riasZimmerLookHere1
 import Models.Scripts.Kevin.riasZimmerLookHere2
-import Models.Scripts.omaScript
-import Models.Scripts.schuleScript
+import Models.Scripts.Oma.omaScript
+import Models.Scripts.Schule.schuleScript
 import Views.LevelOverlays.GameSituation
 
 data class Level (
