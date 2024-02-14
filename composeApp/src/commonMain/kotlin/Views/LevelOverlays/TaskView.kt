@@ -156,7 +156,7 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : (
                     Text(modifier = Modifier, text = "Hinweis: süßundgelb22", fontWeight = FontWeight.Bold)
 
                     if(submitted){
-                        if(text == "Hello World") {
+                        if(text == "teddy22") {
                             onFinishCorrect()
                             // Text("Die Eingabe war richtig")
                             levels[0].cleared = true

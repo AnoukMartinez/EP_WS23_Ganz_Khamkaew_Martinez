@@ -101,7 +101,21 @@ val kevinPositiveFeedback = """
             "listenermood": "HAPPY"
         },
         {
-            "dialogueLine": "Keine Sorge, du kannst deine Passwörter auch regelmäßig ändern!",
+            "dialogueLine": "(Ach Kevin... Ich weiß...)",
+            "speaker": "JUSTIN",
+            "speakermood": "SAD",
+            "listener": "KEVIN",
+            "listenermood": "SAD"
+        },
+        {
+            "dialogueLine": "(Irgendwie muss Ria ja das originale Passwort geknackt haben...)",
+            "speaker": "JUSTIN",
+            "speakermood": "SAD",
+            "listener": "KEVIN",
+            "listenermood": "SAD"
+        },
+        {
+            "dialogueLine": "Aber keine Sorge, du kannst deine Passwörter auch regelmäßig ändern!",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "KEVIN",

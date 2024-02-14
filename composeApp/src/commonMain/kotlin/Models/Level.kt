@@ -11,6 +11,8 @@ import Models.Scripts.Kevin.kevinScript
 import Models.Scripts.Kevin.kevinTaskExplanationScript
 import Models.Scripts.Kevin.riasZimmerLookHere1
 import Models.Scripts.Kevin.riasZimmerLookHere2
+import Models.Scripts.Kevin.riasZimmerLookHere3
+import Models.Scripts.Kevin.riasZimmerLookHere4
 import Models.Scripts.Oma.omaScript
 import Models.Scripts.Schule.schuleScript
 import Views.LevelOverlays.GameSituation
@@ -38,6 +40,8 @@ suspend fun buildScripts() : MutableList<Level> {
             buildScript(kevinLookHere1, ScriptType.LOOKHERE),
             buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE),
             buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE),
+            buildScript(riasZimmerLookHere3, ScriptType.LOOKHERE),
+            buildScript(riasZimmerLookHere4, ScriptType.LOOKHERE),
             buildScript(kevinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
             buildScript(kevinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
@@ -86,6 +90,8 @@ suspend fun buildScriptsServer() : MutableList<Level> {
     var kevinLookhere1 : Script
     var kevinLookHere2 : Script
     var kevinLookHere3 : Script
+    var kevinLookHere4 : Script
+    var kevinLookHere5 : Script
 
     var omaProcessedScript : Script
     var schuleProcessedScript : Script
@@ -98,6 +104,8 @@ suspend fun buildScriptsServer() : MutableList<Level> {
         kevinLookhere1 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
         kevinLookHere2 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
         kevinLookHere3 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
+        kevinLookHere4 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
+        kevinLookHere5 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
 
         omaProcessedScript = buildScript(getLocationScriptFromServer(Location.OMASHAUS), ScriptType.GREETING)
         schuleProcessedScript = buildScript(getLocationScriptFromServer(Location.SCHULE), ScriptType.GREETING)
@@ -110,6 +118,8 @@ suspend fun buildScriptsServer() : MutableList<Level> {
         kevinLookhere1 = buildScript(kevinLookHere1, ScriptType.LOOKHERE)
         kevinLookHere2 = buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE)
         kevinLookHere3 = buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE)
+        kevinLookHere4 = buildScript(riasZimmerLookHere3, ScriptType.LOOKHERE)
+        kevinLookHere5 = buildScript(riasZimmerLookHere4, ScriptType.LOOKHERE)
 
         omaProcessedScript = buildScript(omaScript, ScriptType.GREETING)
         schuleProcessedScript = buildScript(schuleScript, ScriptType.GREETING)
@@ -123,7 +133,9 @@ suspend fun buildScriptsServer() : MutableList<Level> {
             kevinTaskScript,
             kevinLookhere1,
             kevinLookHere2,
-            kevinLookHere3
+            kevinLookHere3,
+            kevinLookHere4,
+            kevinLookHere5
         ),
         helpContents = listOf(
             HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "hi")
