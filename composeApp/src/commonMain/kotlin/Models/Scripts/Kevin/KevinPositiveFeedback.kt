@@ -31,7 +31,98 @@ val kevinPositiveFeedback = """
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Ria sollte wirklich ihre Passworthinweisen verbessern...",
+            "dialogueLine": "Ich hoffe Ria wird nicht besser darin, sich Passwörter auszudenken...",
+            "speaker": "JUSTIN",
+            "speakermood": "HAPPY",
+            "listener": "KEVIN",
+            "listenermood": "HAPPY"
+        },
+        {
+            "dialogueLine": "Sonst knacken wir das nächstes Mal gar nicht mehr.",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "KEVIN",
+            "listenermood": "HAPPY"
+        },
+        {
+            "dialogueLine": "Was muss sie denn dafür machen?",
+            "speaker": "KEVIN",
+            "speakermood": "NEUTRAL",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Das hab ich gestern noch gelesen!",
+            "speaker": "JUSTIN",
+            "speakermood": "HAPPY",
+            "listener": "KEVIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Ein Passwort soll am besten 10 oder mehr Zeichen haben.",
+            "speaker": "JUSTIN",
+            "speakermood": "HAPPY",
+            "listener": "KEVIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Am besten setzt es sich aus mehreren Wörtern zusammen.",
+            "speaker": "JUSTIN",
+            "speakermood": "HAPPY",
+            "listener": "KEVIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Und am ALLERBESTEN...",
+            "speaker": "JUSTIN",
+            "speakermood": "HAPPY",
+            "listener": "KEVIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "...Ja?",
+            "speaker": "KEVIN",
+            "speakermood": "NEUTRAL",
+            "listener": "JUSTIN",
+            "listenermood": "HAPPY"
+        },
+        {
+            "dialogueLine": "Sollte es noch Zahlen und Sonderzeichen enthalten!",
+            "speaker": "JUSTIN",
+            "speakermood": "HAPPY",
+            "listener": "KEVIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Wow... Meine Passwörter sind alle super einfach...",
+            "speaker": "KEVIN",
+            "speakermood": "SAD",
+            "listener": "JUSTIN",
+            "listenermood": "HAPPY"
+        },
+        {
+            "dialogueLine": "Keine Sorge, du kannst deine Passwörter auch regelmäßig ändern!",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "KEVIN",
+            "listenermood": "SAD"
+        },
+        {
+            "dialogueLine": "Das werde ich auf jeden Fall machen!",
+            "speaker": "KEVIN",
+            "speakermood": "HAPPY",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Aber jetzt holen wir uns erst mal den Victory Royale!",
+            "speaker": "KEVIN",
+            "speakermood": "HAPPY",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Ok!",
             "speaker": "JUSTIN",
             "speakermood": "HAPPY",
             "listener": "KEVIN",

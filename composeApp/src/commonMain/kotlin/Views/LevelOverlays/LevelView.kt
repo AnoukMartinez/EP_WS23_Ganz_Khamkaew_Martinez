@@ -98,7 +98,7 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
         }
     }
 
-    val currentHelpContent = level.helpContents.first { it.situation == levelStateManager.currentSituation }
+    val currentHelpContent = level.helpContents.first { it.situation == currentSituation }
     SettingsOverlay(navigator, level, levelStateManager.currentRoomIndex, currentHelpContent)
 }
 
