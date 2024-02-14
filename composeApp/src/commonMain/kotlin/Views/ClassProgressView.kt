@@ -1,9 +1,6 @@
 package Views
 
-import Models.Profiles.StudentProfile
 import Models.Profiles.klassen
-import Models.Profiles.processedStudentProfiles
-import Models.buildScriptsLocal
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,14 +13,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.material.contentColorFor
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Star
@@ -36,36 +29,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
-
-@Composable
-fun ClassProgressView2(classId : String?, navigator: Navigator){
-    Column {
-        IconButton(onClick = { navigator.goBack() }) {
-            Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Back To Worldview")
-        }
-
-        for(student in klassen.first{ it.id == classId }.students){
-            if(student.klasse == classId){
-                Button(
-                    modifier = Modifier.padding(5.dp),
-                    onClick = {
-                        // WARUM IST DAS HIER ICH TRAU MICH NICHT DAS RAUSZUNEHMEN HILFE???
-                        buildScriptsLocal()
-                        navigator.navigate("/studentprogress/${student.email}")
-                    },
-                    colors = ButtonDefaults.buttonColors(backgroundColor = Color.Yellow)
-                ) {
-                    Text(
-                        text = student.vorname + " " + student.nachname,
-                        color = Color.Black,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 30.sp
-                    )
-                }
-            }
-        }
-    }
-}
 
 @Composable
 fun ClassProgressView(classId : String?, navigator : Navigator) {

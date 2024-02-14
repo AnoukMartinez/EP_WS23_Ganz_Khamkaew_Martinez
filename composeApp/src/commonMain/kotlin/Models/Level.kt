@@ -105,8 +105,6 @@ suspend fun buildScriptsServer() : MutableList<Level> {
         kevinLookHere2 = buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE)
         kevinLookHere3 = buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE)
 
-        // TODO - Der Help Content muss auch aus einer JSON kommen
-
         omaProcessedScript = buildScript(omaScript, ScriptType.GREETING)
         schuleProcessedScript = buildScript(schuleScript, ScriptType.GREETING)
         justinProcessedScript = buildScript(justinScript, ScriptType.GREETING)

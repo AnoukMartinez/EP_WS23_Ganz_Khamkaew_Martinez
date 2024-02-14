@@ -1,7 +1,6 @@
 import Models.buildScripts
 import Models.levels
 import Views.FalseLoad
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,10 +8,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
-import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -32,7 +29,6 @@ import kotlinx.coroutines.launch
 import Models.buildScriptsLocal
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme.colors
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
@@ -71,7 +67,6 @@ fun StudentHomeScreen(navigator : Navigator) {
                 Button(
                     modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
-                        buildScriptsLocal()
                         // PLATZHALTER
                         navigator.navigate("/studentprogress/student")
                     },
@@ -200,7 +195,6 @@ fun TeacherHomeScreen(navigator : Navigator){
                 Button(
                     modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
-                        buildScriptsLocal()
                         navigator.navigate("/classedit")
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black))

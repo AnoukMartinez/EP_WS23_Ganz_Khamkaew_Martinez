@@ -22,7 +22,8 @@ enum class ScriptType {
     GREETING,
     TASKEXPLANATION,
     LOOKHERE,
-    FEEDBACK
+    POSITIVEFEEDBACK,
+    NEGATIVEFEEDBACK
 }
 
 data class HelpContent(

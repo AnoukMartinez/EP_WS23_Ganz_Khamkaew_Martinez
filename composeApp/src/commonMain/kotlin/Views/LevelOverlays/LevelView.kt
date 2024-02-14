@@ -20,7 +20,8 @@ enum class GameSituation {
     TASKVIEW,
     INSPECTIONMODE,
     LOOKHEREDIALOGUE,
-    FEEDBACK
+    POSITIVEFEEDBACK,
+    NEGATIVEFEEDBACK
 }
 
 @Composable
@@ -61,16 +62,28 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                 { if(currentRoomIndex > 0) {currentRoomIndex--} },
                 { if(currentRoomIndex < level.location.getRoomList().size - 1) { currentRoomIndex++ } },
                 currentRoomIndex,
-                currentRoomIndex
+                levelStateManager,
+                { currentSituation = GameSituation.LOOKHEREDIALOGUE }
             )
         }
 
-        GameSituation.LOOKHEREDIALOGUE -> DialogueOverlay(level.scripts[4]) {
-            currentSituation = GameSituation.INSPECTIONMODE
+        GameSituation.LOOKHEREDIALOGUE -> {
+            var onlyLookHereScripts = level.scripts.filter{it.scriptType == ScriptType.LOOKHERE }
+            DialogueOverlay(onlyLookHereScripts[levelStateManager.currentLookHere]) {
+                currentSituation = GameSituation.INSPECTIONMODE
+            }
         }
 
-        GameSituation.FEEDBACK -> DialogueOverlay(level.scripts[2]) {
-            // Noch nichts tun, hab das Feedback noch nicht implementiert
+        GameSituation.POSITIVEFEEDBACK -> {
+            DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.POSITIVEFEEDBACK}) {
+                // Noch nichts tun, hab das Feedback noch nicht implementiert
+            }
+        }
+
+        GameSituation.NEGATIVEFEEDBACK -> {
+            DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.NEGATIVEFEEDBACK}) {
+                // Noch nichts tun, hab das Feedback noch nicht implementiert
+            }
         }
     }
 
@@ -78,7 +91,8 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
     SettingsOverlay(navigator, level, levelStateManager.currentRoomIndex, currentHelpContent)
 }
 
-// EXTREM WIP NICHT BENUTZEN, KANN SPÄTER NOCH MIT STATE MANAGER VERFEINERN
+// SEHR WIP, ICH ÜBERLEG NUR DEN STATE SPÄTER STATTDESSEN MIT EINEM STATE MANAGER ZU REGELN
+/*
 @Composable
 fun LevelView2(navigator: Navigator, level : Level, levelStateManager : LevelStateManager) {
     /*
@@ -117,7 +131,8 @@ fun LevelView2(navigator: Navigator, level : Level, levelStateManager : LevelSta
                 { if(levelStateManager.currentRoomIndex < level.location.getRoomList().size - 1) {levelStateManager.currentRoomIndex++} },
                 // levelStateManager
                 currentRoomIndex,
-                currentLookHere
+                levelStateManager,
+                {}
             )
         }
 
@@ -125,8 +140,16 @@ fun LevelView2(navigator: Navigator, level : Level, levelStateManager : LevelSta
             levelStateManager.currentSituation = GameSituation.INSPECTIONMODE
         }
 
-        GameSituation.FEEDBACK -> DialogueOverlay(level.scripts[2]) {
-            // Noch nichts tun, hab das Feedback noch nicht implementiert
+        GameSituation.POSITIVEFEEDBACK -> {
+            DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.POSITIVEFEEDBACK}) {
+                // Noch nichts tun, hab das Feedback noch nicht implementiert
+            }
+        }
+
+        GameSituation.NEGATIVEFEEDBACK -> {
+            DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.NEGATIVEFEEDBACK}) {
+                // Noch nichts tun, hab das Feedback noch nicht implementiert
+            }
         }
     }
 
@@ -134,3 +157,4 @@ fun LevelView2(navigator: Navigator, level : Level, levelStateManager : LevelSta
 
     SettingsOverlay(navigator, level, levelStateManager.currentRoomIndex, currentHelpContent)
 }
+*/

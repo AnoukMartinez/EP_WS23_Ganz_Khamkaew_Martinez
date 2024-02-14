@@ -23,7 +23,12 @@ val kevinHelp = """
             "content" : "Hoho"
         },
         {
-            "situation" : "FEEDBACK",
+            "situation" : "POSITIVEFEEDBACK",
+            "title" : "kko?",
+            "content" : "ohwahhhbobaohaab!!!!!!"
+        },
+        {
+            "situation" : "NEGATIVEFEEDBACK",
             "title" : "kko?",
             "content" : "ohwahhhbobaohaab!!!!!!"
         }

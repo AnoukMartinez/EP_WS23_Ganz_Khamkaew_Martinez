@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.Dp
 data class LookHere(val x : Dp, val y : Dp, val id : Int)
 
 @Composable
-fun InspectionOverlay(location : Location, onMoveLeft : () -> Unit, onMoveRight : () -> Unit, currentRoomIndex : Int, currentLookHere : Int) {
+fun InspectionOverlay(location : Location, onMoveLeft : () -> Unit, onMoveRight : () -> Unit, currentRoomIndex : Int, levelStateManager : LevelStateManager, onTest : () -> Unit) {
     val rooms = location.getRoomList()
     val lookHeres = rooms[currentRoomIndex].getRoomLookHeres()
 
@@ -59,13 +59,13 @@ fun InspectionOverlay(location : Location, onMoveLeft : () -> Unit, onMoveRight 
         modifier = Modifier.fillMaxSize()
     ) {
         for (lookHere in lookHeres) {
-            // Das sieht vielleicht unnötig aus aber irgendwas funktioniert nicht da dran
-            // wenn man die lookhere.id direkt nimmt. Ich nehme an das liegt daran dass das
-            // Composable nicht immer updated wenn sich die id in der Loop ändert.
             val currentId = lookHere.id
 
             Button(
-                onClick = { /* currentLookHere = currentId */ }, // Sind wa wieder beim selben Problem...
+                onClick = {
+                    levelStateManager.currentLookHere = currentId
+                    onTest()
+                },
                 elevation = null,
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Color.Transparent
