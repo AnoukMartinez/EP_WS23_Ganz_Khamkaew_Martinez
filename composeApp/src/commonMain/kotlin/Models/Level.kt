@@ -4,6 +4,8 @@ import Location
 import Models.Scripts.Kevin.kevinHelp
 import Models.Scripts.Kevin.kevinLookHere0
 import Models.Scripts.Kevin.kevinLookHere1
+import Models.Scripts.Kevin.kevinNegativeFeedback
+import Models.Scripts.Kevin.kevinPositiveFeedback
 import Models.Scripts.Protagonist.justinScript
 import Models.Scripts.Kevin.kevinScript
 import Models.Scripts.Kevin.kevinTaskExplanationScript
@@ -35,7 +37,9 @@ suspend fun buildScripts() : MutableList<Level> {
             buildScript(kevinLookHere0, ScriptType.LOOKHERE),
             buildScript(kevinLookHere1, ScriptType.LOOKHERE),
             buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE),
-            buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE)
+            buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE),
+            buildScript(kevinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+            buildScript(kevinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
         buildHelpContent(kevinHelp),
     )

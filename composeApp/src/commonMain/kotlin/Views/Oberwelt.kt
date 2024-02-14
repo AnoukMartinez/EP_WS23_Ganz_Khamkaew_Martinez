@@ -2,7 +2,6 @@ package Views
 
 import LevelButton
 import Models.Level
-import Views.LevelOverlays.TestTaskButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -45,11 +44,6 @@ fun Oberwelt(
                 LevelButton(listOfLevels[i].location, level = listOfLevels[i]) {
                     navigator.navigate("/level/${listOfLevels[i].location}")
                 }
-            }
-        }
-        Row {
-            TestTaskButton {
-                navigator.navigate("/testtask")
             }
         }
     }

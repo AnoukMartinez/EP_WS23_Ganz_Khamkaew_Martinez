@@ -94,7 +94,7 @@ fun CrosswordTaskView() {
 }
 
 @Composable
-fun TestTaskView(navigator : Navigator, onMove : () -> Unit){
+fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit){
     Box (modifier = Modifier.fillMaxWidth()) {
         DesktopBackground()
         Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
@@ -151,26 +151,16 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit){
 
                     if(submitted){
                         if(text == "Hello World") {
-                            Text("Die Eingabe war richtig")
+                            onFinishCorrect()
+                            // Text("Die Eingabe war richtig")
                             levels[0].cleared = true
                         } else {
-                            Text("Das Passwort ist falsch. Bitte noch einmal versuchen.")
+                            onFinishFalse()
+                            // Text("Das Passwort ist falsch. Bitte noch einmal versuchen.")
                         }
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun TestTaskButton(onClick : () -> Unit){
-    Column(modifier = Modifier.wrapContentSize(Alignment.Center)) {
-        TextButton (
-            onClick = { onClick() }
-        )
-        {
-            Text("Test Task")
         }
     }
 }

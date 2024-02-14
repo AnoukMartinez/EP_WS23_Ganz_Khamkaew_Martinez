@@ -96,14 +96,6 @@ fun App() {
                     LevelView(navigator, queriedLevel, levelStateManager)
                 }
 
-                // TEST TASK (Kommt später wieder weg)
-                scene (
-                    route = "/testtask",
-                    navTransition = NavTransition()
-                ) {
-                    TestTaskView(navigator) { /* Hier kommt nichts rein weil das später eh weg kommt */ }
-                }
-
                 // LOADING SCREEN FÜR SCRIPTS
                 scene(
                     route = "/gameloadingscreen",

@@ -42,7 +42,12 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
         }
 
         GameSituation.TASKEXPLANATION -> {
-            TestTaskView(navigator) { currentSituation = GameSituation.INSPECTIONMODE }
+            TestTaskView(
+                navigator,
+                { currentSituation = GameSituation.INSPECTIONMODE },
+                { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                { currentSituation = GameSituation.NEGATIVEFEEDBACK }
+            )
             // Könnte crashen wenn ein Level noch kein Help Script/Task hat
             // Mach ich später noch aber ist momentan keine Priorität
             DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.TASKEXPLANATION }) {
@@ -52,7 +57,12 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
         }
 
         GameSituation.TASKVIEW -> {
-            TestTaskView(navigator) { currentSituation = GameSituation.INSPECTIONMODE }
+            TestTaskView(
+                navigator,
+                { currentSituation = GameSituation.INSPECTIONMODE },
+                { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                { currentSituation = GameSituation.NEGATIVEFEEDBACK }
+            )
         }
 
         GameSituation.INSPECTIONMODE -> {
@@ -77,13 +87,13 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
 
         GameSituation.POSITIVEFEEDBACK -> {
             DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.POSITIVEFEEDBACK}) {
-                // Noch nichts tun, hab das Feedback noch nicht implementiert
+                navigator.navigate("/worldmap")
             }
         }
 
         GameSituation.NEGATIVEFEEDBACK -> {
             DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.NEGATIVEFEEDBACK}) {
-                // Noch nichts tun, hab das Feedback noch nicht implementiert
+                currentSituation = GameSituation.TASKVIEW
             }
         }
     }
