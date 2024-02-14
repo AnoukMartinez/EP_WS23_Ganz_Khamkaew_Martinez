@@ -1,6 +1,7 @@
 package Views.LevelOverlays
 
-import androidx.compose.foundation.background
+import DesktopBackground
+import DesktopProfilePicture
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,19 +9,22 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
@@ -89,81 +94,70 @@ fun CrosswordTaskView() {
 
 @Composable
 fun TestTaskView(navigator : Navigator, onMove : () -> Unit){
-    var isHelpOverlayVisible by remember { mutableStateOf(false) }
-
-    Box (
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        // Row (modifier = Modifier, verticalAlignment = Alignment.CenterVertically){
-            Column(modifier = Modifier.fillMaxHeight().background(Color.Red), verticalArrangement = Arrangement.Center) {
-                IconButton(onClick = { onMove() }) {
-                    Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Left")
-                }
+    Box (modifier = Modifier.fillMaxWidth()) {
+        DesktopBackground()
+        Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
+            IconButton(onClick = { onMove() }) {
+                Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Left")
             }
+        }
 
-            Column(modifier = Modifier.fillMaxHeight()){
-                var text by remember { mutableStateOf("") }
-                var submitted by remember { mutableStateOf(false) }
+        Column(modifier = Modifier.fillMaxHeight()){
+            var text by remember { mutableStateOf("") }
+            var submitted by remember { mutableStateOf(false) }
 
-                // Icon Bar oben mit Location Titel
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    if (isHelpOverlayVisible) {
-                        // Platzhalter!!
-                        val helperTitlePlaceholder = "Was jetzt?"
-                        val helperTextPlaceholder = "Bitte tippe folgendes ein: Hello World"
-                        HelpOverlay(
-                            onConfirm = { isHelpOverlayVisible = false },
-                            helperTitlePlaceholder,
-                            helperTextPlaceholder
-                        )
-                    }
-                }
+            Column(
+                modifier = Modifier
+                    .fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                DesktopProfilePicture()
 
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
+                Text(text = "kevin123", fontSize = 24.sp, modifier = Modifier.padding(10.dp))
+
+                Row(modifier = Modifier, verticalAlignment = Alignment.CenterVertically) {
                     TextField (
-                        modifier = Modifier.padding(20.dp),
+                        modifier = Modifier,
+                        // modifier = Modifier.padding(20.dp),
                         value = text,
                         onValueChange = {
                             if(!submitted) {
                                 text = it
                             }
                         },
-                        label = { Text("Eingabe Test") }
+                        label = { Text("Kennwort") }
                     )
 
                     Button(
+                        modifier = Modifier.height(50.dp).width(50.dp),
                         onClick = {
                             submitted = true
                         },
-                        shape = RoundedCornerShape(50.dp)
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.White)
                     ) {
-                        Text(text = "Lösung Prüfen")
+                        Icon(
+                            Icons.Filled.KeyboardArrowRight,
+                            "Submit",
+                            modifier = Modifier.size(40.dp)
+                        )
                     }
+                }
 
-                    if(submitted) {
-                        Box(modifier = Modifier.padding(10.dp)) {
-                            if(text == "Hello World") {
-                                Text("Die Eingabe war richtig")
-                            } else {
-                                Text("Leider nicht. Die richtige Eingabe wäre gewesen: Hello World. " +
-                                        "[Hier eine Erklärung]. Weil in der Info stand man sollte das so machen.")
-                            }
+
+                Column(modifier = Modifier.padding(10.dp)){
+                    Text("Hinweis: süßundgelb22")
+
+                    if(submitted){
+                        if(text == "Hello World") {
+                            Text("Die Eingabe war richtig")
+                        } else {
+                            Text("Das Passwort ist falsch. Bitte noch einmal versuchen.")
                         }
                     }
                 }
             }
-        // }
+        }
     }
 }
 

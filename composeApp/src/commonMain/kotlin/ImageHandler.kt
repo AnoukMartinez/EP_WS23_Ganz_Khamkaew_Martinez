@@ -9,3 +9,9 @@ expect fun CharacterSprite(character : GameCharacter, mood : Mood, isActive : Bo
 
 @Composable
 expect fun LookHereImage()
+
+@Composable
+expect fun DesktopBackground()
+
+@Composable
+expect fun DesktopProfilePicture()
