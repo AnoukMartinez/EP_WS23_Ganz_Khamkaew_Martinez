@@ -24,7 +24,15 @@ import androidx.compose.ui.unit.Dp
 data class LookHere(val x : Dp, val y : Dp, val id : Int)
 
 @Composable
-fun InspectionOverlay(location : Location, onMoveLeft : () -> Unit, onMoveRight : () -> Unit, currentRoomIndex : Int, levelStateManager : LevelStateManager, onTest : () -> Unit) {
+fun InspectionOverlay(
+    location : Location,
+    onMoveLeft : () -> Unit,
+    onMoveRight : () -> Unit,
+    currentRoomIndex : Int,
+    levelStateManager : LevelStateManager,
+    onTest : () -> Unit,
+    onFirstLookHere : () -> Unit
+) {
     val rooms = location.getRoomList()
     val lookHeres = rooms[currentRoomIndex].getRoomLookHeres()
 
@@ -63,8 +71,13 @@ fun InspectionOverlay(location : Location, onMoveLeft : () -> Unit, onMoveRight 
 
             Button(
                 onClick = {
+                    println("LOOKHERE with ID $currentId got called")
                     levelStateManager.currentLookHere = currentId
-                    onTest()
+                    if(currentId == 0){
+                        onFirstLookHere()
+                    } else {
+                        onTest()
+                    }
                 },
                 elevation = null,
                 colors = ButtonDefaults.buttonColors(

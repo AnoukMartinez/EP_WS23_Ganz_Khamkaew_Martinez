@@ -63,7 +63,8 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                 { if(currentRoomIndex < level.location.getRoomList().size - 1) { currentRoomIndex++ } },
                 currentRoomIndex,
                 levelStateManager,
-                { currentSituation = GameSituation.LOOKHEREDIALOGUE }
+                { currentSituation = GameSituation.LOOKHEREDIALOGUE },
+                { currentSituation = GameSituation.TASKVIEW }
             )
         }
 
