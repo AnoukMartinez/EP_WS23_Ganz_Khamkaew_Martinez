@@ -3,6 +3,9 @@ package Views.LevelOverlays
 import DesktopBackground
 import DesktopProfilePicture
 import Models.levels
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import moe.tlaster.precompose.navigation.Navigator
@@ -97,9 +101,11 @@ fun CrosswordTaskView() {
 fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit){
     Box (modifier = Modifier.fillMaxWidth()) {
         DesktopBackground()
-        Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
-            IconButton(onClick = { onMove() }) {
-                Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Left")
+        Row {
+            Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
+                IconButton(onClick = { onMove() }) {
+                    Icon(modifier = Modifier.size(50.dp), imageVector = Icons.Filled.KeyboardArrowLeft, contentDescription = "Left")
+                }
             }
         }
 
@@ -115,7 +121,7 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : (
             ) {
                 DesktopProfilePicture()
 
-                Text(text = "kevin123", fontSize = 24.sp, modifier = Modifier.padding(10.dp))
+                Text(text = "kevin123", fontSize = 24.sp, modifier = Modifier.padding(10.dp), fontWeight = FontWeight.Bold)
 
                 Row(modifier = Modifier, verticalAlignment = Alignment.CenterVertically) {
                     TextField (
@@ -147,7 +153,7 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : (
 
 
                 Column(modifier = Modifier.padding(10.dp)){
-                    Text("Hinweis: süßundgelb22")
+                    Text(modifier = Modifier, text = "Hinweis: süßundgelb22", fontWeight = FontWeight.Bold)
 
                     if(submitted){
                         if(text == "Hello World") {

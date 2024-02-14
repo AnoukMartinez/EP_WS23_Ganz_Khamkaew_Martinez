@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 data class LookHere(val x : Dp, val y : Dp, val id : Int)
 
@@ -46,7 +48,7 @@ fun InspectionOverlay(
         ) {
             if (currentRoomIndex != 0) {
                 IconButton(onClick = { onMoveLeft() }) {
-                    Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Left")
+                    Icon(modifier = Modifier.size(50.dp), imageVector = Icons.Filled.KeyboardArrowLeft, contentDescription = "Left")
                 }
             }
         }
@@ -57,7 +59,7 @@ fun InspectionOverlay(
         ) {
             if (currentRoomIndex < location.getRoomList().size - 1) {
                 IconButton(onClick = { onMoveRight() }) {
-                    Icon(Icons.Filled.KeyboardArrowRight, contentDescription = "Right")
+                    Icon(modifier = Modifier.size(50.dp), imageVector = Icons.Filled.KeyboardArrowRight, contentDescription = "Right")
                 }
             }
         }

@@ -66,8 +66,8 @@ enum class Room {
     // HAB NOCH NICHT ALLES AUSGEFÜLLT...
     fun getRoomLookHeres() : List<LookHere> {
         return when(this) {
-            KEVINSZIMMER -> listOf(LookHere(220.dp, 70.dp, 0), LookHere(680.dp, 100.dp, 1))
-            RIASZIMMER -> listOf(LookHere(200.dp, 425.dp, 2), LookHere(400.dp, 100.dp, 3))
+            KEVINSZIMMER -> listOf(LookHere(350.dp, 150.dp, 0), LookHere(900.dp, 100.dp, 1))
+            RIASZIMMER -> listOf(LookHere(400.dp, 550.dp, 2), LookHere(1050.dp, 340.dp, 3))
             OMAKUECHE -> listOf()
             OMAWOHNZIMMER -> listOf()
             JUSTINFLUR -> listOf()
