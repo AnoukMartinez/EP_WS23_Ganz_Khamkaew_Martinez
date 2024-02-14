@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun DialogueOverlay(script : Script) {
+fun DialogueOverlay(script : Script, onScriptFinished : () -> Unit) {
     var scriptLineNumber by remember { mutableStateOf(1) }
 
     Box(modifier = Modifier.fillMaxWidth()) {
@@ -46,7 +46,7 @@ fun DialogueOverlay(script : Script) {
                     if (scriptLineNumber < script.getScriptSize()) {
                         scriptLineNumber++
                     } else {
-                        // Skript ist durch. Was jetzt?
+                        onScriptFinished()
                     }
                 }
                 .padding(24.dp),

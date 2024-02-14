@@ -2,6 +2,7 @@ import Models.Profiles.processedStudentProfiles
 import Models.levels
 import Views.ClassEditView
 import Views.ClassProgressView
+import Views.LevelOverlays.LevelStateManager
 import Views.LevelOverlays.LevelView
 import Views.LoginRegister.LoginScreen
 import Views.Oberwelt
@@ -22,11 +23,12 @@ import moe.tlaster.precompose.navigation.transition.NavTransition
 fun App() {
     PreComposeApp {
         MaterialTheme {
+            val levelStateManager = LevelStateManager()
             val navigator = rememberNavigator()
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/classedit",
+                initialRoute = "/studenthome",
             ) {
                 // LOGIN SCREEN
                 scene (
@@ -90,7 +92,7 @@ fun App() {
                 ) { backStackEntry ->
                     val locationname : String? = backStackEntry.path<String>("locationname")
                     val queriedLevel = levels.first { it.location.toString() == locationname}
-                    LevelView(navigator, queriedLevel)
+                    LevelView(navigator, queriedLevel, levelStateManager)
                 }
 
                 // TEST TASK (Kommt später wieder weg)
@@ -98,7 +100,7 @@ fun App() {
                     route = "/testtask",
                     navTransition = NavTransition()
                 ) {
-                    TestTaskView(navigator)
+                    TestTaskView(navigator) { /* Hier kommt nichts rein weil das später eh weg kommt */ }
                 }
 
                 // LOADING SCREEN FÜR SCRIPTS

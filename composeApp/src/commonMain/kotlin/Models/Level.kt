@@ -29,11 +29,11 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(kevinScript),
-            buildScript(kevinTaskExplanationScript),
-            buildScript(kevinLookHere1),
-            buildScript(riasZimmerLookHere1),
-            buildScript(riasZimmerLookHere2)
+            buildScript(kevinScript, ScriptType.GREETING),
+            buildScript(kevinTaskExplanationScript, ScriptType.TASKEXPLANATION),
+            buildScript(kevinLookHere1, ScriptType.LOOKHERE),
+            buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE),
+            buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE)
         ),
         buildHelpContent(kevinHelp),
     )
@@ -43,7 +43,7 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(omaScript)
+            buildScript(omaScript, ScriptType.GREETING)
         ),
         buildHelpContent(kevinHelp)
     )
@@ -53,7 +53,7 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(schuleScript)
+            buildScript(schuleScript, ScriptType.GREETING)
         ),
         buildHelpContent(kevinHelp)
     )
@@ -63,7 +63,7 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(justinScript)
+            buildScript(justinScript, ScriptType.GREETING)
         ),
         buildHelpContent(kevinHelp)
     )
@@ -87,31 +87,29 @@ suspend fun buildScriptsServer() : MutableList<Level> {
 
     try {
         // PLATZHALTER IST WORK IN PROGRESS
-        kevinGreetingScript = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS))
-        kevinTaskScript = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS))
-        kevinLookhere1 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS))
-        kevinLookHere2 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS))
-        kevinLookHere3 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS))
+        kevinGreetingScript = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.GREETING)
+        kevinTaskScript = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.TASKEXPLANATION)
+        kevinLookhere1 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
+        kevinLookHere2 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
+        kevinLookHere3 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
 
-        // TODO - Der Help Content muss auch aus einer JSON kommen
-
-        omaProcessedScript = buildScript(getLocationScriptFromServer(Location.OMASHAUS))
-        schuleProcessedScript = buildScript(getLocationScriptFromServer(Location.SCHULE))
-        justinProcessedScript = buildScript(getLocationScriptFromServer(Location.JUSTINSHAUS))
+        omaProcessedScript = buildScript(getLocationScriptFromServer(Location.OMASHAUS), ScriptType.GREETING)
+        schuleProcessedScript = buildScript(getLocationScriptFromServer(Location.SCHULE), ScriptType.GREETING)
+        justinProcessedScript = buildScript(getLocationScriptFromServer(Location.JUSTINSHAUS), ScriptType.GREETING)
 
     } catch (e : Exception){
         // Wenn Server Verbindung fehlschlägt, nehme stattdessen die lokalen Scripts
-        kevinGreetingScript = buildScript(kevinScript)
-        kevinTaskScript = buildScript(kevinTaskExplanationScript)
-        kevinLookhere1 = buildScript(kevinLookHere1)
-        kevinLookHere2 = buildScript(riasZimmerLookHere1)
-        kevinLookHere3 = buildScript(riasZimmerLookHere2)
+        kevinGreetingScript = buildScript(kevinScript, ScriptType.GREETING)
+        kevinTaskScript = buildScript(kevinTaskExplanationScript, ScriptType.TASKEXPLANATION)
+        kevinLookhere1 = buildScript(kevinLookHere1, ScriptType.LOOKHERE)
+        kevinLookHere2 = buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE)
+        kevinLookHere3 = buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE)
 
         // TODO - Der Help Content muss auch aus einer JSON kommen
 
-        omaProcessedScript = buildScript(omaScript)
-        schuleProcessedScript = buildScript(schuleScript)
-        justinProcessedScript = buildScript(justinScript)
+        omaProcessedScript = buildScript(omaScript, ScriptType.GREETING)
+        schuleProcessedScript = buildScript(schuleScript, ScriptType.GREETING)
+        justinProcessedScript = buildScript(justinScript, ScriptType.GREETING)
     }
 
     val kevin = Level(
@@ -152,10 +150,10 @@ suspend fun buildScriptsServer() : MutableList<Level> {
 
 // Die Funktion ist eigentlich nur für den Dev Process und kommt danach wieder weg
 fun buildScriptsLocal() : MutableList<Level> {
-    val kevin = Level(Location.KEVINSHAUS, scripts = listOf(buildScript(kevinScript)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-    val oma = Level(Location.OMASHAUS, scripts = listOf(buildScript(omaScript)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-    val schule = Level(Location.SCHULE, scripts = listOf(buildScript(schuleScript)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-    val justin = Level(Location.JUSTINSHAUS, scripts = listOf(buildScript(justinScript)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+    val kevin = Level(Location.KEVINSHAUS, scripts = listOf(buildScript(kevinScript,  ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+    val oma = Level(Location.OMASHAUS, scripts = listOf(buildScript(omaScript, ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+    val schule = Level(Location.SCHULE, scripts = listOf(buildScript(schuleScript, ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+    val justin = Level(Location.JUSTINSHAUS, scripts = listOf(buildScript(justinScript, ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
 
     levels.add(kevin)
     levels.add(oma)

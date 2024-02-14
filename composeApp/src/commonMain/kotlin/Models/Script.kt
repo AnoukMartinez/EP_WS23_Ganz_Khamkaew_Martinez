@@ -20,7 +20,7 @@ enum class GameCharacter {
 
 enum class ScriptType {
     GREETING,
-    TASK,
+    TASKEXPLANATION,
     LOOKHERE,
     FEEDBACK
 }
@@ -54,9 +54,10 @@ data class DialogueLine (
 
 val mapper = jacksonObjectMapper()
 
-fun buildScript(rawCharacterScript : String) : Script {
+fun buildScript(rawCharacterScript : String, scriptType : ScriptType) : Script {
     val dialogueLines : List<DialogueLine> = mapper.readValue(rawCharacterScript)
-    val characterScript = Script(ScriptType.GREETING)
+    // TODO Alle Skripts haben unterschiedliche Typen
+    val characterScript = Script(scriptType)
 
     for(element in dialogueLines) {
         characterScript.lines.add(element)
