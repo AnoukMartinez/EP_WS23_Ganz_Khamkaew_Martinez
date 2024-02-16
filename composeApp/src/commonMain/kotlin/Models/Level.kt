@@ -9,11 +9,17 @@ import Models.Scripts.Kevin.kevinPositiveFeedback
 import Models.Scripts.Protagonist.justinScript
 import Models.Scripts.Kevin.kevinScript
 import Models.Scripts.Kevin.kevinTaskExplanationScript
+import Models.Scripts.Kevin.omaLookHere0
 import Models.Scripts.Kevin.riasZimmerLookHere1
 import Models.Scripts.Kevin.riasZimmerLookHere2
 import Models.Scripts.Kevin.riasZimmerLookHere3
 import Models.Scripts.Kevin.riasZimmerLookHere4
+import Models.Scripts.Oma.omaHelp
+import Models.Scripts.Oma.omaLookHere1
+import Models.Scripts.Oma.omaNegativeFeedback
+import Models.Scripts.Oma.omaPositiveFeedback
 import Models.Scripts.Oma.omaScript
+import Models.Scripts.Oma.omaTaskExplanation
 import Models.Scripts.Schule.schuleScript
 import Views.LevelOverlays.GameSituation
 
@@ -53,9 +59,14 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(omaScript, ScriptType.GREETING)
+            buildScript(omaScript, ScriptType.GREETING),
+            buildScript(omaTaskExplanation, ScriptType.TASKEXPLANATION),
+            buildScript(omaLookHere0, ScriptType.LOOKHERE),
+            buildScript(omaLookHere1, ScriptType.LOOKHERE),
+            buildScript(omaPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+            buildScript(omaNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
-        buildHelpContent(kevinHelp)
+        buildHelpContent(omaHelp)
     )
 
     val schule = Level (
@@ -156,20 +167,6 @@ suspend fun buildScriptsServer() : MutableList<Level> {
         Location.JUSTINSHAUS,
         scripts = listOf(justinProcessedScript),
         helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-
-    levels.add(kevin)
-    levels.add(oma)
-    levels.add(schule)
-    levels.add(justin)
-    return levels
-}
-
-// Die Funktion ist eigentlich nur für den Dev Process und kommt danach wieder weg
-fun buildScriptsLocal() : MutableList<Level> {
-    val kevin = Level(Location.KEVINSHAUS, scripts = listOf(buildScript(kevinScript,  ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-    val oma = Level(Location.OMASHAUS, scripts = listOf(buildScript(omaScript, ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-    val schule = Level(Location.SCHULE, scripts = listOf(buildScript(schuleScript, ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
-    val justin = Level(Location.JUSTINSHAUS, scripts = listOf(buildScript(justinScript, ScriptType.GREETING)), helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
 
     levels.add(kevin)
     levels.add(oma)

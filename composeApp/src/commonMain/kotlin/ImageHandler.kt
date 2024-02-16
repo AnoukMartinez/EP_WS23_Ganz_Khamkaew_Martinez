@@ -15,3 +15,6 @@ expect fun DesktopBackground()
 
 @Composable
 expect fun DesktopProfilePicture()
+
+@Composable
+expect fun WorldMapImage()

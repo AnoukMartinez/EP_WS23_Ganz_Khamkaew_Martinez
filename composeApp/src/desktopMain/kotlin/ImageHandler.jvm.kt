@@ -88,3 +88,12 @@ actual fun DesktopProfilePicture(){
             .background(Color.White)
     )
 }
+
+@Composable
+actual fun WorldMapImage(){
+    Image(
+        painterResource("worldmap.png"),
+        contentDescription = "Oberwelt Hintergrund",
+        contentScale = ContentScale.Crop
+    )
+}
