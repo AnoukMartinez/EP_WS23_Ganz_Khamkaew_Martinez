@@ -28,7 +28,7 @@ fun App() {
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/studenthome",
+                initialRoute = "/login",
             ) {
                 // LOGIN SCREEN
                 scene (

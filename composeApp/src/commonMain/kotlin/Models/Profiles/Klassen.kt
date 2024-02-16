@@ -4,7 +4,10 @@ package Models.Profiles
 // und modifiziert werden, wenn eine verifizierte Lehrkraft eine neue Klasse hinzufügt
 // val klassen = listOf("5a", "5b", "5c")
 
-data class Klasse(val id : String, val students : MutableList<StudentProfile>)
+data class Klasse(
+    val id : String,
+    val students : MutableList<StudentProfile>
+)
 
 val testclass1 = Klasse("5a", mutableListOf(processedStudentProfiles[0], processedStudentProfiles[1]))
 val testclass2 = Klasse("5b", mutableListOf(processedStudentProfiles[2]))

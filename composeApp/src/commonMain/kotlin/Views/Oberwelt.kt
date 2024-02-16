@@ -116,9 +116,9 @@ fun Oberwelt(
                     }
                 }
 
-                if(!levels[2].discovered) {
+                if(!levels[3].discovered) {
                     LookHereImage()
-                } else if(!levels[2].cleared) {
+                } else if(!levels[3].cleared) {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Red), imageVector = Icons.Filled.Clear, contentDescription = "Not Clear")
                 } else {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
@@ -126,7 +126,6 @@ fun Oberwelt(
             }
 
         }
-
 
         Box (modifier = Modifier.offset(755.dp, 115.dp)) {
             Row {
@@ -150,15 +149,14 @@ fun Oberwelt(
                     Text(modifier = Modifier, text = "Schule", fontSize = 24.sp, fontWeight = FontWeight.Bold)
                 }
 
-                if(!levels[3].discovered) {
+                if(!levels[2].discovered) {
                     LookHereImage()
-                } else if(!levels[3].cleared) {
+                } else if(!levels[2].cleared) {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Red), imageVector = Icons.Filled.Clear, contentDescription = "Not Clear")
                 } else {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
                 }
             }
         }
-
     }
 }
