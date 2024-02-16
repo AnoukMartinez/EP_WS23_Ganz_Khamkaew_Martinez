@@ -38,31 +38,59 @@ val omaScript = """
             "listenermood": "HAPPY"
         },
         {
-            "dialogueLine": "Vielleicht kannst du mir noch mit etwas helfen während ich die Kekse hole?",
+            "dialogueLine": "Übrigens...",
+            "speaker": "OMA",
+            "speakermood": "HAPPY",
+            "listener": "JUSTIN",
+            "listenermood": "HAPPY"
+        },
+        {
+            "dialogueLine": "Warum schreibst du mir denn in letzter Zeit so viele Nachrichten?",
             "speaker": "OMA",
             "speakermood": "NEUTRAL",
             "listener": "JUSTIN",
             "listenermood": "HAPPY"
         },
         {
-            "dialogueLine": "Na klar, was kann ich denn tun?",
+            "dialogueLine": "...?",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "OMA",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Ich hab gestern ein Kreuzworträtsel gemacht, aber ich verstehe es gar nicht...",
+            "dialogueLine": "Was meinst du? Ich komme dich doch eigentlich nur besuchen?",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "OMA",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Ich habe in letzte Zeit ganz viele komische Emails von dir bekommen...",
             "speaker": "OMA",
             "speakermood": "NEUTRAL",
             "listener": "JUSTIN",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Hier, schau mal!",
+            "dialogueLine": "Und in ein paar Gewinnspielen habe ich auch gewonnen.",
             "speaker": "OMA",
             "speakermood": "NEUTRAL",
             "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "...",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "OMA",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Ich weiß ja nicht Oma... Lass mich da mal einen Blick drauf werfen.",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "OMA",
             "listenermood": "NEUTRAL"
         }
     ]

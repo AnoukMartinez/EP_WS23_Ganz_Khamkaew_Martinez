@@ -1,0 +1,20 @@
+package Models.Scripts.Schule
+
+val schulePositiveFeedback = """
+    [
+        {
+            "dialogueLine": "Oh Mann... Das würde definitiv Sinn machen!",
+            "speaker": "KEVIN",
+            "speakermood": "HAPPY",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Der hat mich extra noch gefragt ob ich früher gehe!",
+            "speaker": "KEVIN",
+            "speakermood": "HAPPY",
+            "listener": "JUSTIN",
+            "listenermood": "NEUTRAL"
+        }
+    ]
+""".trimIndent()

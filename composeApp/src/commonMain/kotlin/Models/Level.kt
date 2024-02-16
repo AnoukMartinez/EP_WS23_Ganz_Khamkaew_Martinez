@@ -20,7 +20,12 @@ import Models.Scripts.Oma.omaNegativeFeedback
 import Models.Scripts.Oma.omaPositiveFeedback
 import Models.Scripts.Oma.omaScript
 import Models.Scripts.Oma.omaTaskExplanation
+import Models.Scripts.Schule.schuleHelp
+import Models.Scripts.Schule.schuleLookHere0
+import Models.Scripts.Schule.schuleNegativeFeedback
+import Models.Scripts.Schule.schulePositiveFeedback
 import Models.Scripts.Schule.schuleScript
+import Models.Scripts.Schule.schuleTaskExplanation
 import Views.LevelOverlays.GameSituation
 
 data class Level (
@@ -74,9 +79,14 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(schuleScript, ScriptType.GREETING)
+            buildScript(schuleScript, ScriptType.GREETING),
+            buildScript(schuleTaskExplanation, ScriptType.TASKEXPLANATION),
+            buildScript(schuleLookHere0, ScriptType.LOOKHERE),
+            buildScript(schuleLookHere0, ScriptType.LOOKHERE),
+            buildScript(schulePositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+            buildScript(schuleNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
-        buildHelpContent(kevinHelp)
+        buildHelpContent(schuleHelp)
     )
 
     val justin = Level (

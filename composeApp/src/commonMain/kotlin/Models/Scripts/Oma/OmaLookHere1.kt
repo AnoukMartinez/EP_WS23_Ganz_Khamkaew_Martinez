@@ -3,11 +3,18 @@ package Models.Scripts.Oma
 val omaLookHere1 = """
     [
         {
-            "dialogueLine": "Hey, ich hol eben die Kekse...",
+            "dialogueLine": "Justin, was gibt es? Bist du schon fertig?",
             "speaker": "OMA",
-            "speakermood": "NEUTRAL",
+            "speakermood": "HAPPY",
             "listener": "JUSTIN",
             "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Nein, noch nicht ganz.",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "OMA",
+            "listenermood": "HAPPY"
         }
     ]
 """.trimIndent()

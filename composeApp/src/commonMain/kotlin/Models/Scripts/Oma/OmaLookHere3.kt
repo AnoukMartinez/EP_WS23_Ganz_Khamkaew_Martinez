@@ -1,0 +1,83 @@
+package Models.Scripts.Oma
+
+val omaLookHere3 = """
+    [
+        {
+            "dialogueLine": "Oh, eine Zeitung von heute?",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Es geht um Phisingmethoden...",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Also so wie Fishing? Fischen gehen?",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Ah... Hier steht dass Phising der Versuch der Beschaffung persönlicher Daten ist.",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Oft geben sich Täter hier als falsche Personen aus...",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "zum Beispiel tut man so als wenn man eine Support Mail einer Firma ist.",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Also zum Beispiel Amazon oder Google?",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Na das ist ja wirklich einfallsreich...",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Aber wenn man es schafft dass eine Email offiziell aussieht?",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Vielleicht fällt man ja schneller auf so etwas rein als man denken würde...",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        },
+        {
+            "dialogueLine": "Ich denke man sollte sich also wahrscheinlich den Absender genau ansehen.",
+            "speaker": "JUSTIN",
+            "speakermood": "NEUTRAL",
+            "listener": "NOBODY",
+            "listenermood": "NEUTRAL"
+        }
+    ]
+""".trimIndent()
