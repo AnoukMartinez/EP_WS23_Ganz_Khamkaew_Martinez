@@ -32,12 +32,12 @@ data class TeacherProfile (
     // Liste der Klassen IDs, Klassen werden seperat gespeichert um Dopplungen zu vermeiden
 )
 
-fun parseStudentList(rawStudentProfiles: String): List<StudentProfile> {
-    return mapper.readValue<List<StudentProfile>>(rawStudentProfiles)
+fun parseStudentList(rawStudentProfiles: String): MutableList<StudentProfile> {
+    return mapper.readValue<MutableList<StudentProfile>>(rawStudentProfiles)
 }
 
-fun parseTeacherList(rawTeacherProfiles: String): List<TeacherProfile> {
-    return mapper.readValue<List<TeacherProfile>>(rawTeacherProfiles)
+fun parseTeacherList(rawTeacherProfiles: String): MutableList<TeacherProfile> {
+    return mapper.readValue<MutableList<TeacherProfile>>(rawTeacherProfiles)
 }
 
 val processedStudentProfiles = parseStudentList(studentProfiles)

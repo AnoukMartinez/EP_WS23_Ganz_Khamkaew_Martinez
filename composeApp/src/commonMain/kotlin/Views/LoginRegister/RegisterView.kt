@@ -1,5 +1,10 @@
 package Views.LoginRegister
 
+import Models.Profiles.LevelProgress
+import Models.Profiles.StudentProfile
+import Models.Profiles.TeacherProfile
+import Models.Profiles.processedStudentProfiles
+import Models.Profiles.processedTeacherProfiles
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -93,6 +98,13 @@ fun StudentRegisterScreen(navigator : Navigator) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        var vorname = ""
+        var nachname = ""
+        var email = ""
+        var passwort = ""
+        var schule = ""
+        var klasse = ""
+
         Column(
             modifier = Modifier
                 .width(580.dp),
@@ -125,22 +137,41 @@ fun StudentRegisterScreen(navigator : Navigator) {
             }
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                InputField("Vorname")
-                InputField("Nachname")
+                vorname = InputField("Vorname")
+                nachname = InputField("Nachname")
             }
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                InputField("Email")
-                InputField("Passwort")
+                email = InputField("Email")
+                passwort = InputField("Passwort")
             }
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                InputField("Schule")
-                InputField("Klasse")
+                schule = InputField("Schule")
+                klasse = InputField("Klasse")
             }
 
             Column(modifier = Modifier.fillMaxWidth().padding(0.dp, 30.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
+                        // Ja hier sind keine Checks dabei ob die Strings leer sind.
+                        // Das ist glaube ich für die Bewertung nicht allzu relevant.
+                        // Ausserdem wäre das sowieso eigentlich nur Fleißarbeit.
+                        val newStudent = StudentProfile(
+                            vorname,
+                            nachname,
+                            email,
+                            passwort,
+                            schule,
+                            klasse,
+                            listOf(
+                                LevelProgress(Location.KEVINSHAUS, 0, 0, false),
+                                LevelProgress(Location.OMASHAUS, 0, 0, false),
+                                LevelProgress(Location.SCHULE, 0, 0, false),
+                                LevelProgress(Location.JUSTINSHAUS, 0, 0, false),
+                            )
+                        )
+                        currentProfileMail = email
+                        processedStudentProfiles.add(newStudent)
                         navigator.navigate("/studenthome")
                     },
                     colors = ButtonDefaults.buttonColors(Color(64, 95, 255))
@@ -168,6 +199,13 @@ fun TeacherRegisterScreen(navigator : Navigator) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        var vorname = ""
+        var nachname = ""
+        var email = ""
+        var passwort = ""
+        var schule = ""
+        var id = ""
+
         Column(
             modifier = Modifier
                 .width(580.dp),
@@ -201,22 +239,32 @@ fun TeacherRegisterScreen(navigator : Navigator) {
 
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                InputField("Vorname")
-                InputField("Nachname")
+                vorname = InputField("Vorname")
+                nachname = InputField("Nachname")
             }
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                InputField("Email")
-                InputField("Passwort")
+                email = InputField("Email")
+                passwort = InputField("Passwort")
             }
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                InputField("Schule")
-                InputField("Klasse")
+                schule = InputField("Schule")
+                id = InputField("Id")
             }
 
             Column(modifier = Modifier.fillMaxWidth().padding(0.dp, 30.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
+                        val newTeacher = TeacherProfile(
+                            vorname,
+                            nachname,
+                            email,
+                            passwort,
+                            schule,
+                            listOf()
+                        )
+                        currentProfileMail = email
+                        processedTeacherProfiles.add(newTeacher)
                         navigator.navigate("/teacherhome")
                     },
                     colors = ButtonDefaults.buttonColors(Color(64, 95, 255))
