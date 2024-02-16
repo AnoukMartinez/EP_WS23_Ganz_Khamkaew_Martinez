@@ -130,6 +130,7 @@ fun LoginScreen(navigator : Navigator) {
                     Text("NEU REGISTRIEREN")
                 }
             }
+
             Row {
                 if(mailNotFound && attemptedOnce) {
                     Text(text = "Die Mail oder das Passwort ist falsch.", color = Color.Red)
