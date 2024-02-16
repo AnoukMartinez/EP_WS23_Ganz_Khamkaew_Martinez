@@ -1,6 +1,7 @@
 import Models.buildScripts
 import Models.levels
 import Views.FalseLoad
+import Views.LoginRegister.currentProfileMail
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -67,12 +68,28 @@ fun StudentHomeScreen(navigator : Navigator) {
                     modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
                         // PLATZHALTER
-                        navigator.navigate("/studentprogress/student")
+                        navigator.navigate("/studentprogress/$currentProfileMail")
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black))
                 {
                     Text(
                         text = "FORTSCHRITT",
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    modifier = Modifier.padding(5.dp).width(300.dp),
+                    onClick = {
+                        currentProfileMail = ""
+                        navigator.navigate("/login")
+                    },
+                    colors = ButtonDefaults.buttonColors(Color(64, 95, 255)))
+                {
+                    Text(
+                        text = "LOGOUT",
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 30.sp
@@ -200,6 +217,22 @@ fun TeacherHomeScreen(navigator : Navigator){
                 {
                     Text(
                         text = "KLASSEN",
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp
+                    )
+                }
+
+                Button(
+                    modifier = Modifier.padding(5.dp).width(300.dp),
+                    onClick = {
+                        currentProfileMail = ""
+                        navigator.navigate("/login")
+                    },
+                    colors = ButtonDefaults.buttonColors(Color(64, 95, 255)))
+                {
+                    Text(
+                        text = "LOGOUT",
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 30.sp

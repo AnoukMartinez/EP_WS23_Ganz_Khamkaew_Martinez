@@ -261,7 +261,7 @@ fun TeacherRegisterScreen(navigator : Navigator) {
                             email,
                             passwort,
                             schule,
-                            listOf()
+                            mutableListOf()
                         )
                         currentProfileMail = email
                         processedTeacherProfiles.add(newTeacher)

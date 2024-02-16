@@ -28,7 +28,7 @@ data class TeacherProfile (
     val password : String,
     val email : String,
     val schule : String,
-    val klassen : List<String>
+    val klassen : MutableList<String>
     // Liste der Klassen IDs, Klassen werden seperat gespeichert um Dopplungen zu vermeiden
 )
 

@@ -2,6 +2,8 @@ package Views
 
 import Models.Profiles.Klasse
 import Models.Profiles.klassen
+import Models.Profiles.processedTeacherProfiles
+import Views.LoginRegister.currentProfileMail
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -45,6 +47,8 @@ fun ClassEditView(navigator : Navigator){
     var lastClassReached = false
     var isAddOverlayVisible by remember { mutableStateOf(false) }
 
+    var classesToShow = processedTeacherProfiles.first{it.email == currentProfileMail}.klassen
+
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.fillMaxWidth().weight(0.1f),
@@ -72,8 +76,8 @@ fun ClassEditView(navigator : Navigator){
                 horizontalArrangement = Arrangement.Center
             ) {
                 for(i in 0..4){
-                    if(currentLastClass < klassen.size){
-                        val currentClassId = klassen[currentLastClass].id
+                    if(currentLastClass < classesToShow.size){
+                        val currentClassId = classesToShow[currentLastClass]
                         Column(modifier = Modifier
                             .padding(10.dp)
                             .clickable { navigator.navigate("/classprogress/${currentClassId}") }
@@ -84,7 +88,7 @@ fun ClassEditView(navigator : Navigator){
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
-                            Text(text = klassen[currentLastClass].id, fontSize = 50.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
+                            Text(text = classesToShow[currentLastClass], fontSize = 50.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
                         }
                         currentLastClass++
                     } else {
@@ -128,8 +132,8 @@ fun ClassEditView(navigator : Navigator){
 
             Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.Center) {
                 for(i in 0..4){
-                    if(currentLastClass < klassen.size){
-                        val currentClassId = klassen[currentLastClass].id
+                    if(currentLastClass < classesToShow.size){
+                        val currentClassId = classesToShow[currentLastClass]
                         Column(modifier = Modifier
                             .padding(10.dp)
                             .clickable { navigator.navigate("/classprogress/${currentClassId}") }
@@ -140,7 +144,7 @@ fun ClassEditView(navigator : Navigator){
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
-                            Text(text = klassen[currentLastClass].id, fontSize = 50.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
+                            Text(text = classesToShow[currentLastClass], fontSize = 50.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
                         }
                         currentLastClass++
                     } else {
@@ -184,8 +188,8 @@ fun ClassEditView(navigator : Navigator){
 
             Row(modifier = Modifier.fillMaxWidth().weight(1f), horizontalArrangement = Arrangement.Center) {
                 for(i in 0..4){
-                    if(currentLastClass < klassen.size){
-                        val currentClassId = klassen[currentLastClass].id
+                    if(currentLastClass < classesToShow.size){
+                        val currentClassId = classesToShow[currentLastClass]
                         Column(modifier = Modifier
                             .padding(10.dp)
                             .clickable { navigator.navigate("/classprogress/${currentClassId}") }
@@ -196,7 +200,7 @@ fun ClassEditView(navigator : Navigator){
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
-                            Text(text = klassen[currentLastClass].id, fontSize = 50.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
+                            Text(text = classesToShow[currentLastClass], fontSize = 50.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
                         }
                         currentLastClass++
                     } else {
@@ -284,6 +288,7 @@ fun ClassAddOverlay(onDismiss : () -> Unit) {
                         if(text.isEmpty()) {
                             Text("Das Textfeld darf nicht leer sein.")
                         } else {
+                            processedTeacherProfiles.first{it.email == currentProfileMail}.klassen.add(text)
                             klassen.add(Klasse(text, mutableListOf()))
                             onDismiss()
                         }
