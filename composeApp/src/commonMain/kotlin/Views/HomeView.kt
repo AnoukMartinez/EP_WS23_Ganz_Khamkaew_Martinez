@@ -163,6 +163,7 @@ fun TitleText() {
                 textAlign = TextAlign.Center
             )
         )
+
         Text(
             "Secure",
             style = TextStyle(

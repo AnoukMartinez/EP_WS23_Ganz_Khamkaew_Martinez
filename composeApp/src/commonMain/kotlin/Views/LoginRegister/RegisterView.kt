@@ -6,18 +6,15 @@ import Models.Profiles.TeacherProfile
 import Models.Profiles.processedStudentProfiles
 import Models.Profiles.processedTeacherProfiles
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
@@ -214,7 +211,7 @@ fun TeacherRegisterScreen(navigator : Navigator) {
         ) {
             Column(modifier = Modifier.padding(0.dp, 30.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Row(modifier = Modifier) {
-                    Text(
+                    Text (
                         "Re",
                         style = TextStyle(
                             color = Color(64, 95, 255),
@@ -223,7 +220,8 @@ fun TeacherRegisterScreen(navigator : Navigator) {
                             textAlign = TextAlign.Center
                         )
                     )
-                    Text(
+
+                    Text (
                         "gistrieren",
                         style = TextStyle(
                             color = Color.Black,
@@ -233,7 +231,6 @@ fun TeacherRegisterScreen(navigator : Navigator) {
                         )
                     )
                 }
-
                 Text(text = "Als Lehrkraft", fontWeight = FontWeight.Bold, fontSize = 24.sp)
             }
 

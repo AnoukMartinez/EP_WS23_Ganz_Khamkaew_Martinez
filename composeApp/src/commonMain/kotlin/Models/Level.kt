@@ -16,12 +16,18 @@ import Models.Scripts.Kevin.riasZimmerLookHere3
 import Models.Scripts.Kevin.riasZimmerLookHere4
 import Models.Scripts.Oma.omaHelp
 import Models.Scripts.Oma.omaLookHere1
+import Models.Scripts.Oma.omaLookHere2
+import Models.Scripts.Oma.omaLookHere3
 import Models.Scripts.Oma.omaNegativeFeedback
 import Models.Scripts.Oma.omaPositiveFeedback
 import Models.Scripts.Oma.omaScript
 import Models.Scripts.Oma.omaTaskExplanation
 import Models.Scripts.Schule.schuleHelp
 import Models.Scripts.Schule.schuleLookHere0
+import Models.Scripts.Schule.schuleLookHere1
+import Models.Scripts.Schule.schuleLookHere2
+import Models.Scripts.Schule.schuleLookHere3
+import Models.Scripts.Schule.schuleLookHere4
 import Models.Scripts.Schule.schuleNegativeFeedback
 import Models.Scripts.Schule.schulePositiveFeedback
 import Models.Scripts.Schule.schuleScript
@@ -38,7 +44,6 @@ data class Level (
 
 var levels = mutableListOf<Level>()
 
-// ganz grausiger code bitte nochmal drübergehen wenn wir zeit haben aua aua
 suspend fun buildScripts() : MutableList<Level> {
     val kevin = Level (
         Location.KEVINSHAUS,
@@ -68,6 +73,8 @@ suspend fun buildScripts() : MutableList<Level> {
             buildScript(omaTaskExplanation, ScriptType.TASKEXPLANATION),
             buildScript(omaLookHere0, ScriptType.LOOKHERE),
             buildScript(omaLookHere1, ScriptType.LOOKHERE),
+            buildScript(omaLookHere2, ScriptType.LOOKHERE),
+            buildScript(omaLookHere3, ScriptType.LOOKHERE),
             buildScript(omaPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
             buildScript(omaNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
@@ -82,7 +89,10 @@ suspend fun buildScripts() : MutableList<Level> {
             buildScript(schuleScript, ScriptType.GREETING),
             buildScript(schuleTaskExplanation, ScriptType.TASKEXPLANATION),
             buildScript(schuleLookHere0, ScriptType.LOOKHERE),
-            buildScript(schuleLookHere0, ScriptType.LOOKHERE),
+            buildScript(schuleLookHere1, ScriptType.LOOKHERE),
+            buildScript(schuleLookHere2, ScriptType.LOOKHERE),
+            buildScript(schuleLookHere3, ScriptType.LOOKHERE),
+            buildScript(schuleLookHere4, ScriptType.LOOKHERE),
             buildScript(schulePositiveFeedback, ScriptType.POSITIVEFEEDBACK),
             buildScript(schuleNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
@@ -102,6 +112,7 @@ suspend fun buildScripts() : MutableList<Level> {
     return mutableListOf(kevin, oma, schule, justin)
 }
 
+// WIP
 suspend fun buildScriptsServer() : MutableList<Level> {
     val levels = mutableListOf<Level>()
 

@@ -3,9 +3,6 @@ package Views.LevelOverlays
 import DesktopBackground
 import DesktopProfilePicture
 import Models.levels
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,14 +14,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.material.TextButton
 import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
@@ -40,65 +34,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import moe.tlaster.precompose.navigation.Navigator
 
 @Composable
-fun LoginTaskView() {
-    Box (
-        modifier = Modifier
-            .fillMaxWidth()
-    ) {
-        var text by remember { mutableStateOf("") }
-        var submitted by remember { mutableStateOf(false) }
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            TextField (
-                modifier = Modifier.padding(20.dp),
-                value = text,
-                onValueChange = {
-                    if(!submitted) { text = it }
-                },
-                label = { Text("Eingabe Test") }
-            )
-
-            Button(
-                onClick = { submitted = true },
-                shape = RoundedCornerShape(50.dp)
-            ) {
-                Text(text = "Lösung Prüfen")
-            }
-
-            if(submitted) {
-                Box(modifier = Modifier.padding(10.dp)) {
-                    if(text == "Hello World") {
-                        Text("Die Eingabe war richtig")
-                    } else {
-                        Text("Leider nicht. Die richtige Eingabe wäre gewesen: Hello World. " +
-                                "[Hier eine Erklärung]. Weil in der Info stand man sollte das so machen.")
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun EmailTaskView() {
-    // TODO
-}
-
-@Composable
-fun CrosswordTaskView() {
-    // TODO
-}
-
-@Composable
-fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit){
+fun TestTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit){
     Box (modifier = Modifier.fillMaxWidth()) {
         DesktopBackground()
         Row {
@@ -126,7 +64,6 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : (
                 Row(modifier = Modifier, verticalAlignment = Alignment.CenterVertically) {
                     TextField (
                         modifier = Modifier,
-                        // modifier = Modifier.padding(20.dp),
                         value = text,
                         onValueChange = {
                             if(!submitted) {
@@ -158,15 +95,23 @@ fun TestTaskView(navigator : Navigator, onMove : () -> Unit, onFinishCorrect : (
                     if(submitted){
                         if(text == "teddy22") {
                             onFinishCorrect()
-                            // Text("Die Eingabe war richtig")
                             levels[0].cleared = true
                         } else {
                             onFinishFalse()
-                            // Text("Das Passwort ist falsch. Bitte noch einmal versuchen.")
                         }
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+fun EmailTaskView() {
+    // TODO
+}
+
+@Composable
+fun CrosswordTaskView() {
+    // TODO
 }

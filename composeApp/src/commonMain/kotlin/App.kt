@@ -11,6 +11,7 @@ import Views.StudentProgressView
 import Views.LoginRegister.StudentRegisterScreen
 import Views.LoginRegister.TeacherRegisterScreen
 import Views.LevelOverlays.TestTaskView
+import Views.LoginRegister.currentProfileMail
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import moe.tlaster.precompose.PreComposeApp
@@ -25,12 +26,12 @@ fun App() {
         MaterialTheme {
             val levelStateManager = LevelStateManager()
             val navigator = rememberNavigator()
+            currentProfileMail = "student"
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/login",
+                initialRoute = "/studenthome",
             ) {
-                // LOGIN SCREEN
                 scene (
                     route = "/login",
                     navTransition = NavTransition(),
@@ -38,7 +39,6 @@ fun App() {
                     LoginScreen(navigator)
                 }
 
-                // REGISTRIERUNGS SCREEN
                 scene (
                     route = "/register",
                     navTransition = NavTransition(),
@@ -46,7 +46,6 @@ fun App() {
                     RegisterChoice(navigator)
                 }
 
-                // STUDENT REGISTER
                 scene (
                     route = "/studentregister",
                     navTransition = NavTransition()
@@ -54,7 +53,6 @@ fun App() {
                     StudentRegisterScreen(navigator)
                 }
 
-                // TEACHER REGISTER
                 scene (
                     route = "/teacherregister",
                     navTransition = NavTransition()
@@ -62,14 +60,13 @@ fun App() {
                     TeacherRegisterScreen(navigator)
                 }
 
-                // HOME SCREEN SCHÜLERINNEN
                 scene (
                     route = "/studenthome",
                     navTransition = NavTransition(),
                 ) {
                     StudentHomeScreen(navigator)
                 }
-                // HOME SCREEN LEHRERINNEN
+
                 scene (
                     route = "/teacherhome",
                     navTransition = NavTransition(),
@@ -77,15 +74,13 @@ fun App() {
                     TeacherHomeScreen(navigator)
                 }
 
-                // OBERWELT
                 scene (
                     route = "/worldmap",
                     navTransition = NavTransition(),
                 ) {
-                    Oberwelt(levels, navigator)
+                    Oberwelt(navigator)
                 }
 
-                // LEVEL AUFRUF
                 scene (
                     route = "/level/{locationname}",
                     navTransition = NavTransition()
@@ -96,7 +91,6 @@ fun App() {
                     LevelView(navigator, queriedLevel, levelStateManager)
                 }
 
-                // LOADING SCREEN FÜR SCRIPTS
                 scene(
                     route = "/gameloadingscreen",
                     navTransition = NavTransition()

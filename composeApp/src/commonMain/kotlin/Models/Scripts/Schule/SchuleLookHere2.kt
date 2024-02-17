@@ -15,7 +15,7 @@ val schuleLookHere2 = """
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
-        }
+        },
         {
             "dialogueLine": "Ah... Ich lerne gerade eigentlich nur noch für diesen Mathetest...",
             "speaker": "NOBODY",

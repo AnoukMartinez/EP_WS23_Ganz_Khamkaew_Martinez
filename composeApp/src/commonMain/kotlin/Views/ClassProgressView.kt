@@ -104,7 +104,6 @@ fun ClassProgressView(classId : String?, navigator : Navigator) {
 
         // Tabelle mit allen Statistiken
         Row (modifier = Modifier, horizontalArrangement = Arrangement.SpaceAround) {
-            // Diese Columns könnten auch eigene Composables sein denke ich
             Column(
                 modifier = Modifier
                     .padding(5.dp)

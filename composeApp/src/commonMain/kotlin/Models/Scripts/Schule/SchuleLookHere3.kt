@@ -15,7 +15,7 @@ val schuleLookHere3 = """
             "speakermood": "NEUTRAL",
             "listener": "JUSTIN",
             "listenermood": "NEUTRAL"
-        }
+        },
         {
             "dialogueLine": "Ah... Stimmt es dass du vorhin im Computerraum warst?",
             "speaker": "JUSTIN",

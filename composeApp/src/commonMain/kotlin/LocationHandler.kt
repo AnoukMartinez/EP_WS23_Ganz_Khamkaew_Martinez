@@ -9,10 +9,6 @@ enum class Location {
     SCHULE,
     JUSTINSHAUS;
 
-    fun getDesktopPath() : String {
-        return this.toString().lowercase() + ".png"
-    }
-
     fun getLocationToString() : String {
         return when(this) {
             OMASHAUS -> "Oma's Haus"
@@ -28,7 +24,6 @@ enum class Location {
             OMASHAUS -> listOf(Room.OMAKUECHE, Room.OMAWOHNZIMMER)
             JUSTINSHAUS -> listOf(Room.JUSTINFLUR, Room.JUSTINKUECHE, Room.JUSTINZIMMER)
             SCHULE -> listOf(Room.SCHULFLUR, Room.SCHULLABOR)
-            else -> throw Exception("Location noch nicht fertig")
         }
     }
 }
@@ -59,11 +54,9 @@ enum class Room {
             JUSTINZIMMER -> "Justin's Zimmer"
             SCHULFLUR -> "Schule Flur"
             SCHULLABOR -> "Computerraum"
-            else -> throw Exception("Location noch nicht fertig")
         }
     }
 
-    // HAB NOCH NICHT ALLES AUSGEFÜLLT...
     fun getRoomLookHeres() : List<LookHere> {
         return when(this) {
             KEVINSZIMMER -> listOf(
@@ -83,10 +76,6 @@ enum class Room {
             JUSTINZIMMER -> listOf()
             SCHULFLUR -> listOf()
             SCHULLABOR -> listOf()
-            else -> throw Exception("Location noch nicht fertig")
         }
     }
 }
-
-@Composable
-expect fun LevelButton(location: Location, level :  Level, onClick: () -> Unit)
