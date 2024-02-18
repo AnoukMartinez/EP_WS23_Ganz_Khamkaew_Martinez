@@ -26,11 +26,10 @@ fun App() {
         MaterialTheme {
             val levelStateManager = LevelStateManager()
             val navigator = rememberNavigator()
-            currentProfileMail = "student"
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/studenthome",
+                initialRoute = "/login",
             ) {
                 scene (
                     route = "/login",

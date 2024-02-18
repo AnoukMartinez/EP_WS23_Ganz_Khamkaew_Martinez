@@ -22,6 +22,7 @@ enum class GameSituation {
 
 @Composable
 fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStateManager) {
+    var numberOfTries by remember { mutableStateOf(0) }
 
     var currentRoomIndex by remember { mutableStateOf(0) }
     var dialogueIsActive by remember { mutableStateOf(true) }
@@ -40,7 +41,11 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
             TestTaskView(
                 { currentSituation = GameSituation.INSPECTIONMODE },
                 { currentSituation = GameSituation.POSITIVEFEEDBACK },
-                { currentSituation = GameSituation.NEGATIVEFEEDBACK }
+                {
+                    numberOfTries++
+                    currentSituation = GameSituation.NEGATIVEFEEDBACK
+                },
+                numberOfTries
             )
 
             DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.TASKEXPLANATION }) {
@@ -53,7 +58,11 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
             TestTaskView(
                 { currentSituation = GameSituation.INSPECTIONMODE },
                 { currentSituation = GameSituation.POSITIVEFEEDBACK },
-                { currentSituation = GameSituation.NEGATIVEFEEDBACK }
+                {
+                    numberOfTries++
+                    currentSituation = GameSituation.NEGATIVEFEEDBACK
+                },
+                numberOfTries
             )
         }
 

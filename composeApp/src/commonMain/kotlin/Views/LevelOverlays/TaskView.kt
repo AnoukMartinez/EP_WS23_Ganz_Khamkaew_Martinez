@@ -2,7 +2,9 @@ package Views.LevelOverlays
 
 import DesktopBackground
 import DesktopProfilePicture
+import Models.Profiles.processedStudentProfiles
 import Models.levels
+import Views.LoginRegister.currentProfileMail
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,7 +38,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TestTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit){
+fun TestTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit, numberOfTries : Int){
+
+
     Box (modifier = Modifier.fillMaxWidth()) {
         DesktopBackground()
         Row {
@@ -95,8 +99,21 @@ fun TestTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFals
                     if(submitted){
                         if(text == "teddy22") {
                             onFinishCorrect()
+
+                            var currentStudentProgress = processedStudentProfiles.first{ it.email == currentProfileMail }.progress[1]
+                            var currentScore = 5 - numberOfTries
+
+                            if(currentStudentProgress.ersterscore == 0){
+                                currentStudentProgress.ersterscore = currentScore
+                                currentStudentProgress.besterscore = currentScore
+                                currentStudentProgress.fertig = true
+                            } else if(currentScore > currentStudentProgress.besterscore) {
+                                currentStudentProgress.besterscore = currentScore
+                            }
+
                             levels[0].cleared = true
                         } else {
+                            println(numberOfTries)
                             onFinishFalse()
                         }
                     }

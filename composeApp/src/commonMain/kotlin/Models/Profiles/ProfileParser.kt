@@ -5,9 +5,9 @@ import Models.mapper
 import com.fasterxml.jackson.module.kotlin.readValue
 data class LevelProgress (
     val aufgabe : Location,
-    val ersterscore : Int,
-    val besterscore : Int,
-    val fertig : Boolean
+    var ersterscore : Int,
+    var besterscore : Int,
+    var fertig : Boolean
 )
 
 data class StudentProfile (
