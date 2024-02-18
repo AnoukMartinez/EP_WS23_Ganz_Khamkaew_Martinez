@@ -2,8 +2,10 @@ package Views
 
 import LookHereImage
 import Models.Level
+import Models.Profiles.processedStudentProfiles
 import Models.levels
 import Views.LevelOverlays.HelpOverlay
+import Views.LoginRegister.currentProfileMail
 import WorldMapImage
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,9 +25,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -124,7 +128,11 @@ fun Oberwelt(
                 } else if(!levels[0].cleared) {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Red), imageVector = Icons.Filled.Clear, contentDescription = "Not Clear")
                 } else {
-                    Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    if(processedStudentProfiles.first{it.email == currentProfileMail}.progress[1].besterscore == 5) {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Yellow), imageVector = Icons.Filled.Star, contentDescription = "Cleared")
+                    } else {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    }
                 }
             }
         }
