@@ -22,6 +22,12 @@ import Models.Scripts.Oma.omaNegativeFeedback
 import Models.Scripts.Oma.omaPositiveFeedback
 import Models.Scripts.Oma.omaScript
 import Models.Scripts.Oma.omaTaskExplanation
+import Models.Scripts.Protagonist.justinHelp
+import Models.Scripts.Protagonist.justinLookHere0
+import Models.Scripts.Protagonist.justinLookHere1
+import Models.Scripts.Protagonist.justinNegativeFeedback
+import Models.Scripts.Protagonist.justinPositiveFeedback
+import Models.Scripts.Protagonist.justinTaskExplanation
 import Models.Scripts.Schule.schuleHelp
 import Models.Scripts.Schule.schuleLookHere0
 import Models.Scripts.Schule.schuleLookHere1
@@ -104,9 +110,14 @@ suspend fun buildScripts() : MutableList<Level> {
         false,
         false,
         listOf(
-            buildScript(justinScript, ScriptType.GREETING)
+            buildScript(justinScript, ScriptType.GREETING),
+            buildScript(justinTaskExplanation, ScriptType.TASKEXPLANATION),
+            buildScript(justinLookHere0, ScriptType.LOOKHERE),
+            buildScript(justinLookHere1, ScriptType.LOOKHERE),
+            buildScript(justinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+            buildScript(justinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
         ),
-        buildHelpContent(kevinHelp)
+        buildHelpContent(justinHelp)
     )
 
     return mutableListOf(kevin, oma, schule, justin)

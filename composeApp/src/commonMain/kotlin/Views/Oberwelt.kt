@@ -93,7 +93,11 @@ fun Oberwelt(
                 } else if(!levels[1].cleared) {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Red), imageVector = Icons.Filled.Clear, contentDescription = "Not Clear")
                 } else {
-                    Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    if(processedStudentProfiles.first{it.email == currentProfileMail}.progress[0].besterscore == 5) {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Yellow), imageVector = Icons.Filled.Star, contentDescription = "Cleared")
+                    } else {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    }
                 }
             }
         }
@@ -112,7 +116,11 @@ fun Oberwelt(
                 } else if(!levels[3].cleared) {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Red), imageVector = Icons.Filled.Clear, contentDescription = "Not Clear")
                 } else {
-                    Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    if(processedStudentProfiles.first{it.email == currentProfileMail}.progress[3].besterscore == 5) {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Yellow), imageVector = Icons.Filled.Star, contentDescription = "Cleared")
+                    } else {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    }
                 }
             }
         }
@@ -148,7 +156,11 @@ fun Oberwelt(
                 } else if(!levels[2].cleared) {
                     Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Red), imageVector = Icons.Filled.Clear, contentDescription = "Not Clear")
                 } else {
-                    Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    if(processedStudentProfiles.first{it.email == currentProfileMail}.progress[2].besterscore == 5) {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Yellow), imageVector = Icons.Filled.Star, contentDescription = "Cleared")
+                    } else {
+                        Icon(modifier = Modifier.size(30.dp).clip(CircleShape).background(Color.Green), imageVector = Icons.Filled.Clear, contentDescription = "Cleared")
+                    }
                 }
             }
         }

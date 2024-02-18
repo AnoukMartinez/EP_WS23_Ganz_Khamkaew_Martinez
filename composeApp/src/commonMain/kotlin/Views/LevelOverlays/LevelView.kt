@@ -42,7 +42,10 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                 Location.KEVINSHAUS -> {
                     TestTaskView(
                         { currentSituation = GameSituation.INSPECTIONMODE },
-                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
                         {
                             numberOfTries++
                             currentSituation = GameSituation.NEGATIVEFEEDBACK
@@ -54,7 +57,10 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                 Location.OMASHAUS -> {
                     EmailTaskView (
                         { currentSituation = GameSituation.INSPECTIONMODE },
-                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
                         {
                             numberOfTries++
                             currentSituation = GameSituation.NEGATIVEFEEDBACK
@@ -62,8 +68,35 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                         numberOfTries
                     )
                 }
-                else -> {
 
+                Location.JUSTINSHAUS -> {
+                    CrosswordTaskView (
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
+                }
+
+                Location.SCHULE -> {
+                    DownloadsTaskView (
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
                 }
             }
 
@@ -78,7 +111,10 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                 Location.KEVINSHAUS -> {
                     TestTaskView(
                         { currentSituation = GameSituation.INSPECTIONMODE },
-                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
                         {
                             numberOfTries++
                             currentSituation = GameSituation.NEGATIVEFEEDBACK
@@ -90,7 +126,10 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                 Location.OMASHAUS -> {
                     EmailTaskView (
                         { currentSituation = GameSituation.INSPECTIONMODE },
-                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
                         {
                             numberOfTries++
                             currentSituation = GameSituation.NEGATIVEFEEDBACK
@@ -98,8 +137,35 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
                         numberOfTries
                     )
                 }
-                else -> {
 
+                Location.JUSTINSHAUS -> {
+                    CrosswordTaskView (
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
+                }
+
+                Location.SCHULE -> {
+                    DownloadsTaskView (
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        {
+                            numberOfTries = 0
+                            currentSituation = GameSituation.POSITIVEFEEDBACK
+                        },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
                 }
             }
         }

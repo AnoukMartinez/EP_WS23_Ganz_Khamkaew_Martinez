@@ -106,8 +106,8 @@ fun TestTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFals
                         if(text == "teddy22") {
                             onFinishCorrect()
 
-                            var currentStudentProgress = processedStudentProfiles.first{ it.email == currentProfileMail }.progress[1]
-                            var currentScore = 5 - numberOfTries
+                            val currentStudentProgress = processedStudentProfiles.first{ it.email == currentProfileMail }.progress[1]
+                            val currentScore = 5 - numberOfTries
 
                             if(currentStudentProgress.ersterscore == 0){
                                 currentStudentProgress.ersterscore = currentScore
@@ -282,6 +282,56 @@ fun MailCheckBox(id : Int, mailList : MutableList<Boolean>) {
 }
 
 @Composable
-fun CrosswordTaskView() {
-    // TODO
+fun CrosswordTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit, numberOfTries : Int) {
+    Box (modifier = Modifier.fillMaxWidth()) {
+        Row {
+            Column(
+                modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start
+            ) {
+                IconButton(onClick = { onMove() }) {
+                    Icon(
+                        modifier = Modifier.size(50.dp),
+                        imageVector = Icons.Filled.KeyboardArrowLeft,
+                        contentDescription = "Left"
+                    )
+                }
+            }
+
+            // Hier der Rest
+            Column (modifier = Modifier.fillMaxSize().padding(0.dp, 50.dp, 0.dp, 0.dp).background(Color.LightGray)) {
+                Text("Platzhalter")
+            }
+        }
+    }
+}
+
+@Composable
+fun DownloadsTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinishFalse : () -> Unit, numberOfTries : Int) {
+    Box(modifier = Modifier.fillMaxWidth()) {
+        Row {
+            Column(
+                modifier = Modifier.fillMaxHeight(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start
+            ) {
+                IconButton(onClick = { onMove() }) {
+                    Icon(
+                        modifier = Modifier.size(50.dp),
+                        imageVector = Icons.Filled.KeyboardArrowLeft,
+                        contentDescription = "Left"
+                    )
+                }
+            }
+
+            // Hier der Rest
+            Column(
+                modifier = Modifier.fillMaxSize().padding(0.dp, 50.dp, 0.dp, 0.dp)
+                    .background(Color.LightGray)
+            ) {
+                Text("Platzhalter")
+            }
+        }
+    }
 }
