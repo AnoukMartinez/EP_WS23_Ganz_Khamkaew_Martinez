@@ -38,15 +38,34 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
         }
 
         GameSituation.TASKEXPLANATION -> {
-            TestTaskView(
-                { currentSituation = GameSituation.INSPECTIONMODE },
-                { currentSituation = GameSituation.POSITIVEFEEDBACK },
-                {
-                    numberOfTries++
-                    currentSituation = GameSituation.NEGATIVEFEEDBACK
-                },
-                numberOfTries
-            )
+            when(level.location){
+                Location.KEVINSHAUS -> {
+                    TestTaskView(
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
+                }
+
+                Location.OMASHAUS -> {
+                    EmailTaskView (
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
+                }
+                else -> {
+
+                }
+            }
 
             DialogueOverlay(level.scripts.first{ it.scriptType == ScriptType.TASKEXPLANATION }) {
                 currentSituation = GameSituation.TASKVIEW
@@ -55,15 +74,34 @@ fun LevelView(navigator: Navigator, level : Level, levelStateManager : LevelStat
         }
 
         GameSituation.TASKVIEW -> {
-            TestTaskView(
-                { currentSituation = GameSituation.INSPECTIONMODE },
-                { currentSituation = GameSituation.POSITIVEFEEDBACK },
-                {
-                    numberOfTries++
-                    currentSituation = GameSituation.NEGATIVEFEEDBACK
-                },
-                numberOfTries
-            )
+            when(level.location){
+                Location.KEVINSHAUS -> {
+                    TestTaskView(
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
+                }
+
+                Location.OMASHAUS -> {
+                    EmailTaskView (
+                        { currentSituation = GameSituation.INSPECTIONMODE },
+                        { currentSituation = GameSituation.POSITIVEFEEDBACK },
+                        {
+                            numberOfTries++
+                            currentSituation = GameSituation.NEGATIVEFEEDBACK
+                        },
+                        numberOfTries
+                    )
+                }
+                else -> {
+
+                }
+            }
         }
 
         GameSituation.INSPECTIONMODE -> {
