@@ -299,7 +299,6 @@ fun CrosswordTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinis
                 }
             }
 
-            // Hier der Rest
             Column (
                 modifier = Modifier
                     .fillMaxSize()
@@ -309,10 +308,24 @@ fun CrosswordTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinis
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text("Diese Aufgabe ist noch nicht im Prototypen enthalten.")
-                Button({ onFinishCorrect() }){
+                Button(onClick = {
+                    onFinishCorrect()
+                    val currentStudentProgress = processedStudentProfiles.first{ it.email == currentProfileMail }.progress[3]
+                    val currentScore = 5 - numberOfTries
+
+                    if(currentStudentProgress.ersterscore == 0){
+                        currentStudentProgress.ersterscore = currentScore
+                        currentStudentProgress.besterscore = currentScore
+                        currentStudentProgress.fertig = true
+                    } else if(currentScore > currentStudentProgress.besterscore) {
+                        currentStudentProgress.besterscore = currentScore
+                    }
+
+                    levels[3].cleared = true
+                }){
                     Text("Richtig beantworten")
                 }
-                Button({ onFinishFalse() }){
+                Button( onClick = { onFinishFalse() }){
                     Text("Falsch beantworten")
                 }
             }
@@ -348,10 +361,27 @@ fun DownloadsTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinis
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text("Diese Aufgabe ist noch nicht im Prototypen enthalten.")
-                Button({ onFinishCorrect() }){
+                Button({
+                    onFinishCorrect()
+
+                    val currentStudentProgress = processedStudentProfiles.first{ it.email == currentProfileMail }.progress[2]
+                    val currentScore = 5 - numberOfTries
+
+                    if(currentStudentProgress.ersterscore == 0){
+                        currentStudentProgress.ersterscore = currentScore
+                        currentStudentProgress.besterscore = currentScore
+                        currentStudentProgress.fertig = true
+                    } else if(currentScore > currentStudentProgress.besterscore) {
+                        currentStudentProgress.besterscore = currentScore
+                    }
+
+                    levels[2].cleared = true
+                }){
                     Text("Richtig beantworten")
                 }
-                Button({ onFinishFalse() }){
+                Button({
+                    onFinishFalse()
+                }){
                     Text("Falsch beantworten")
                 }
             }

@@ -3,7 +3,10 @@ package Views
 import LookHereImage
 import Models.Level
 import Models.Profiles.processedStudentProfiles
+import Models.Profiles.studentProfiles
+import Models.Scripts.gameFinishedScript
 import Models.levels
+import Views.LevelOverlays.DialogueOverlay
 import Views.LevelOverlays.HelpOverlay
 import Views.LoginRegister.currentProfileMail
 import WorldMapImage
@@ -47,6 +50,20 @@ fun Oberwelt(
 ) {
     var isHelpOverlayVisible by remember { mutableStateOf(false) }
     WorldMapImage()
+
+    var totalPerfectTasks = 0
+    for(progress in processedStudentProfiles.first{it.email == currentProfileMail}.progress){
+        if(progress.besterscore == 5) {
+            totalPerfectTasks++
+        }
+    }
+
+    if(totalPerfectTasks == 4){
+        Box(modifier = Modifier.fillMaxSize()) {
+            DialogueOverlay(gameFinishedScript) { var endGame = 1/0 }
+        }
+    }
+
     Column (
         modifier = Modifier.fillMaxWidth()
     ) {
