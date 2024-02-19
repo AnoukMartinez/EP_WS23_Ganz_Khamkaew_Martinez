@@ -7,9 +7,9 @@ import io.ktor.client.engine.java.*
 
 private val client = HttpClient(Java)
 
-actual suspend fun getLocationScriptFromServer(location : Location) : String {
+actual suspend fun getLocationScriptFromServer(scriptName : String) : String {
     // Hier ip addresse von dem gerät wo der server drauf läuft :)
-    val ip = "00.00.00.00:3000"
-    val response = client.get("http://$ip/script/${location.toString().lowercase()}")
+    val ip = "192.168.178.112:3000"
+    val response = client.get("http://$ip/script/$scriptName")
     return response.bodyAsText()
 }

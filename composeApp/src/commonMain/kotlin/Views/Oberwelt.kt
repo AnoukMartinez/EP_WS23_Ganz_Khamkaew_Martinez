@@ -60,6 +60,7 @@ fun Oberwelt(
 
     if(totalPerfectTasks == 4){
         Box(modifier = Modifier.fillMaxSize()) {
+            // Protag says thanks for playing and proceeds to crash the fucking game
             DialogueOverlay(gameFinishedScript) { var endGame = 1/0 }
         }
     }

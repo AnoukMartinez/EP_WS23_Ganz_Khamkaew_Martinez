@@ -1,0 +1,73 @@
+
+[
+    {
+        "dialogueLine": "Hey Mann, wie geht's?",
+        "speaker": "NOBODY",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Hi, was hast du heute so alles gemacht?",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ah... Ich lerne gerade eigentlich nur noch für diesen Mathetest...",
+        "speaker": "NOBODY",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ah... Der macht mir auch Sorgen...",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Und sonst so?",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ich habe vorhin noch ein paar Sachen dazu am Computer gesucht...",
+        "speaker": "NOBODY",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ich bin aber relativ früh wieder gegangen.",
+        "speaker": "NOBODY",
+        "speakermood": "ANGRY",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ich hatte zu viel Lust auf einen Schokoriegel vom Kiosk...",
+        "speaker": "NOBODY",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Ok, danke für die Hilfe. Man sieht sich!",
+        "speaker": "JUSTIN",
+        "speakermood": "NEUTRAL",
+        "listener": "NOBODY",
+        "listenermood": "NEUTRAL"
+    },
+    {
+        "dialogueLine": "Bis dann.",
+        "speaker": "NOBODY",
+        "speakermood": "NEUTRAL",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    }
+]

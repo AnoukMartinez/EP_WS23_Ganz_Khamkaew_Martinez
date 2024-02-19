@@ -1,27 +1,27 @@
 [
     {
-        "dialogueLine": "Hey Mann, wo kommst du denn her?",
+        "dialogueLine": "Hey Mann, wie geht's? Cool dass du nach der Schule vorbeischaust.",
         "speaker": "KEVIN",
         "speakermood": "HAPPY",
         "listener": "JUSTIN",
         "listenermood": "NEUTRAL"
     },
     {
-        "dialogueLine": "Ich, mein guter Herr, komme von einem Server.",
-        "speaker": "JUSTIN",
+        "dialogueLine": "Hör mal, ich weiss wir wollten eigentlich Fortnite spielen...",
+        "speaker": "KEVIN",
         "speakermood": "NEUTRAL",
-        "listener": "KEVIN",
+        "listener": "JUSTIN",
         "listenermood": "NEUTRAL"
     },
     {
-        "dialogueLine": "Wow!",
+        "dialogueLine": "Aber meine Schwester hat meinen Laptop geklaut und das Passwort geändert!",
         "speaker": "KEVIN",
         "speakermood": "ANGRY",
         "listener": "JUSTIN",
         "listenermood": "NEUTRAL"
     },
     {
-        "dialogueLine": "Das ist ja völlig verrückt!",
+        "dialogueLine": "Kannst du mir helfen das Passwort zu knacken? So schwer kann das ja nicht sein...!",
         "speaker": "KEVIN",
         "speakermood": "NEUTRAL",
         "listener": "JUSTIN",

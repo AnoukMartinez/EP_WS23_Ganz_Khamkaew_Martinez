@@ -1,4 +1,4 @@
 package Models
 import Location
 
-expect suspend fun getLocationScriptFromServer(location : Location) : String
+expect suspend fun getLocationScriptFromServer(scriptName : String) : String

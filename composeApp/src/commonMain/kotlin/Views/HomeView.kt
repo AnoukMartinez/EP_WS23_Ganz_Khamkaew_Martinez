@@ -1,4 +1,6 @@
 import Models.buildScripts
+import Models.buildScriptsLocal
+import Models.buildScriptsServer
 import Models.levels
 import Views.FalseLoad
 import Views.LoginRegister.currentProfileMail
@@ -113,17 +115,17 @@ fun GameLoadingScreen(navigator : Navigator) {
 
         LaunchedEffect(true) {
             scope.launch {
-                levels = buildScripts()
-                // Dieser Check ist nicht sehr gut und sollte später noch ersetzt werden.
-                // Wir checken einfach ob das Skript das lokale ist, oder mit dem richtigem Satz anfängt.
-                // Oh Gott ja der Check ist schrecklich aber ich hab den ganz vergessen oh nein
-                if(levels[0].scripts[0][0].dialogueLine == "Hey Mann, wie geht's? Cool dass du nach der Schule vorbeischaust."){
-                    localScripts = true
-                } else {
+                // levels = buildScripts()
+                try {
+                    levels = buildScriptsServer()
                     navigator.navigate("/worldmap")
+                } catch(e : Exception) {
+                    localScripts = true
+                    levels = buildScriptsLocal()
                 }
             }
         }
+
         CircularProgressIndicator(
             modifier = Modifier.width(30.dp),
             color = Color.Blue,

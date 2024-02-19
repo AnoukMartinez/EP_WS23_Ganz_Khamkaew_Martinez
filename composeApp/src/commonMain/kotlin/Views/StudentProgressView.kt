@@ -126,7 +126,7 @@ fun StudentProgressView(student : StudentProfile, navigator : Navigator) {
             ) {
                 Spacer(modifier = Modifier.padding(5.dp))
                 for(level in student.progress) {
-                    Text(modifier = Modifier.padding(5.dp), text = level.ersterscore.toString())
+                    Text(modifier = Modifier.padding(5.dp), text = level.ersterscore.toString() + "/5")
                 }
             }
 
@@ -141,7 +141,7 @@ fun StudentProgressView(student : StudentProfile, navigator : Navigator) {
             ) {
                 Spacer(modifier = Modifier.padding(5.dp))
                 for(level in student.progress) {
-                    Text(modifier = Modifier.padding(5.dp), text = level.besterscore.toString())
+                    Text(modifier = Modifier.padding(5.dp), text = level.besterscore.toString() + "/5")
                 }
             }
 

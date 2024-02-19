@@ -1,0 +1,104 @@
+[
+    {
+        "vorname" : "Jan",
+        "nachname" : "Müller",
+        "password" : "hi",
+        "email" : "student",
+        "schule" : "Test Gymnasium",
+        "klasse" : "5a",
+        "progress" : [
+            {
+                "aufgabe" : "OMASHAUS",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            },
+            {
+                "aufgabe" : "KEVINSHAUS",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            },
+            {
+                "aufgabe" : "SCHULE",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            },
+            {
+                "aufgabe" : "JUSTINSHAUS",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            }
+        ]
+    },
+    {
+        "vorname" : "Susi",
+        "nachname" : "Mongus",
+        "password" : "hi",
+        "email" : "student2",
+        "schule" : "Test Gymnasium",
+        "klasse" : "5a",
+        "progress" : [
+            {
+                "aufgabe" : "OMASHAUS",
+                "ersterscore" : "5",
+                "besterscore" : "5",
+                "fertig" : "true"
+            },
+            {
+                "aufgabe" : "KEVINSHAUS",
+                "ersterscore" : "5",
+                "besterscore" : "5",
+                "fertig" : "true"
+            },
+            {
+                "aufgabe" : "SCHULE",
+                "ersterscore" : "5",
+                "besterscore" : "5",
+                "fertig" : "true"
+            },
+            {
+                "aufgabe" : "JUSTINSHAUS",
+                "ersterscore" : "5",
+                "besterscore" : "5",
+                "fertig" : "true"
+            }
+        ]
+    },
+    {
+        "vorname" : "Frank",
+        "nachname" : "Ozean",
+        "password" : "hi",
+        "email" : "student3",
+        "schule" : "Test Gymnasium",
+        "klasse" : "5b",
+        "progress" : [
+            {
+                "aufgabe" : "OMASHAUS",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            },
+            {
+                "aufgabe" : "KEVINSHAUS",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            },
+            {
+                "aufgabe" : "SCHULE",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            },
+            {
+                "aufgabe" : "JUSTINSHAUS",
+                "ersterscore" : "0",
+                "besterscore" : "0",
+                "fertig" : "false"
+            }
+        ]
+    }
+]

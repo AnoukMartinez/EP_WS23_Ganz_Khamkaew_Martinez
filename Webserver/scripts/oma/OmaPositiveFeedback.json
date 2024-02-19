@@ -1,0 +1,9 @@
+[
+    {
+        "dialogueLine": "Super, hier sind deine Kekse. Ich bin ein Platzhalter!",
+        "speaker": "OMA",
+        "speakermood": "HAPPY",
+        "listener": "JUSTIN",
+        "listenermood": "NEUTRAL"
+    }
+]

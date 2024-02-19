@@ -125,84 +125,155 @@ suspend fun buildScripts() : MutableList<Level> {
 
 // WIP
 suspend fun buildScriptsServer() : MutableList<Level> {
-    val levels = mutableListOf<Level>()
-
-    // Kevin Scripts
-    var kevinGreetingScript : Script
-    var kevinTaskScript : Script
-    var kevinLookhere1 : Script
-    var kevinLookHere2 : Script
-    var kevinLookHere3 : Script
-    var kevinLookHere4 : Script
-    var kevinLookHere5 : Script
-
-    var omaProcessedScript : Script
-    var schuleProcessedScript : Script
-    var justinProcessedScript : Script
-
-    try {
-        // PLATZHALTER IST WORK IN PROGRESS
-        kevinGreetingScript = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.GREETING)
-        kevinTaskScript = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.TASKEXPLANATION)
-        kevinLookhere1 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
-        kevinLookHere2 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
-        kevinLookHere3 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
-        kevinLookHere4 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
-        kevinLookHere5 = buildScript(getLocationScriptFromServer(Location.KEVINSHAUS), ScriptType.LOOKHERE)
-
-        omaProcessedScript = buildScript(getLocationScriptFromServer(Location.OMASHAUS), ScriptType.GREETING)
-        schuleProcessedScript = buildScript(getLocationScriptFromServer(Location.SCHULE), ScriptType.GREETING)
-        justinProcessedScript = buildScript(getLocationScriptFromServer(Location.JUSTINSHAUS), ScriptType.GREETING)
-
-    } catch (e : Exception){
-        // Wenn Server Verbindung fehlschlägt, nehme stattdessen die lokalen Scripts
-        kevinGreetingScript = buildScript(kevinScript, ScriptType.GREETING)
-        kevinTaskScript = buildScript(kevinTaskExplanationScript, ScriptType.TASKEXPLANATION)
-        kevinLookhere1 = buildScript(kevinLookHere1, ScriptType.LOOKHERE)
-        kevinLookHere2 = buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE)
-        kevinLookHere3 = buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE)
-        kevinLookHere4 = buildScript(riasZimmerLookHere3, ScriptType.LOOKHERE)
-        kevinLookHere5 = buildScript(riasZimmerLookHere4, ScriptType.LOOKHERE)
-
-        omaProcessedScript = buildScript(omaScript, ScriptType.GREETING)
-        schuleProcessedScript = buildScript(schuleScript, ScriptType.GREETING)
-        justinProcessedScript = buildScript(justinScript, ScriptType.GREETING)
-    }
-
-    val kevin = Level(
-        Location.KEVINSHAUS,
-        scripts = listOf(
-            kevinGreetingScript,
-            kevinTaskScript,
-            kevinLookhere1,
-            kevinLookHere2,
-            kevinLookHere3,
-            kevinLookHere4,
-            kevinLookHere5
+    return mutableListOf (
+        // KEVIN
+        Level (
+            location = Location.KEVINSHAUS,
+            discovered = false,
+            cleared = false,
+            scripts = listOf(
+                buildScript(getLocationScriptFromServer("kevinScript"), ScriptType.GREETING),
+                buildScript(getLocationScriptFromServer("kevinTaskExplanation"), ScriptType.TASKEXPLANATION),
+                buildScript(getLocationScriptFromServer("kevinLookHere0"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("kevinLookHere1"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("riasZimmerLookHere1"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("riasZimmerLookHere2"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("riasZimmerLookHere3"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("riasZimmerLookHere4"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("kevinPositiveFeedback"), ScriptType.POSITIVEFEEDBACK),
+                buildScript(getLocationScriptFromServer("kevinNegativeFeedback"), ScriptType.NEGATIVEFEEDBACK)
+            ),
+            helpContents = buildHelpContent(getLocationScriptFromServer("kevinHelp"))
         ),
-        helpContents = listOf(
-            HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "hi")
+
+        // OMA
+        Level (
+            location = Location.OMASHAUS,
+            discovered = false,
+            cleared = false,
+            scripts = listOf(
+                buildScript(getLocationScriptFromServer("omaScript"), ScriptType.GREETING),
+                buildScript(getLocationScriptFromServer("omaTaskExplanation"), ScriptType.TASKEXPLANATION),
+                buildScript(getLocationScriptFromServer("omaLookHere0"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("omaLookHere1"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("omaLookHere2"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("omaLookHere3"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("omaPositiveFeedback"), ScriptType.POSITIVEFEEDBACK),
+                buildScript(getLocationScriptFromServer("omaNegativeFeedback"), ScriptType.NEGATIVEFEEDBACK)
+            ),
+            helpContents = buildHelpContent(getLocationScriptFromServer("omaHelp"))
+        ),
+
+        // SCHULE
+        Level (
+            location = Location.SCHULE,
+            discovered = false,
+            cleared = false,
+            scripts = listOf(
+                buildScript(getLocationScriptFromServer("schuleScript"), ScriptType.GREETING),
+                buildScript(getLocationScriptFromServer("schuleTaskExplanation"), ScriptType.TASKEXPLANATION),
+                buildScript(getLocationScriptFromServer("schuleLookHere0"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("schuleLookHere1"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("schuleLookHere2"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("schuleLookHere3"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("schuleLookHere4"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("schulePositiveFeedback"), ScriptType.POSITIVEFEEDBACK),
+                buildScript(getLocationScriptFromServer("schuleNegativeFeedback"), ScriptType.NEGATIVEFEEDBACK)
+            ),
+            helpContents = buildHelpContent(getLocationScriptFromServer("schuleHelp"))
+        ),
+
+        // PROTAG
+        Level (
+            location = Location.JUSTINSHAUS,
+            discovered = false,
+            cleared = false,
+            scripts = listOf(
+                buildScript(getLocationScriptFromServer("protagScript"), ScriptType.GREETING),
+                buildScript(getLocationScriptFromServer("protagTaskExplanation"), ScriptType.TASKEXPLANATION),
+                buildScript(getLocationScriptFromServer("protagLookHere0"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("protagLookHere1"), ScriptType.LOOKHERE),
+                buildScript(getLocationScriptFromServer("protagPositiveFeedback"), ScriptType.POSITIVEFEEDBACK),
+                buildScript(getLocationScriptFromServer("protagNegativeFeedback"), ScriptType.NEGATIVEFEEDBACK)
+            ),
+            helpContents = buildHelpContent(getLocationScriptFromServer("protagHelp"))
         )
     )
+}
 
-    val oma = Level(
-        Location.OMASHAUS,
-        scripts = listOf(omaProcessedScript),
-        helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+suspend fun buildScriptsLocal() : MutableList<Level> {
+    return mutableListOf (
+        // BUILD KEVIN
+        Level (
+            Location.KEVINSHAUS,
+            false,
+            false,
+            listOf(
+                buildScript(kevinScript, ScriptType.GREETING),
+                buildScript(kevinTaskExplanationScript, ScriptType.TASKEXPLANATION),
+                buildScript(kevinLookHere0, ScriptType.LOOKHERE),
+                buildScript(kevinLookHere1, ScriptType.LOOKHERE),
+                buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE),
+                buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE),
+                buildScript(riasZimmerLookHere3, ScriptType.LOOKHERE),
+                buildScript(riasZimmerLookHere4, ScriptType.LOOKHERE),
+                buildScript(kevinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+                buildScript(kevinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
+            ),
+            buildHelpContent(kevinHelp)
+        ),
 
-    val schule = Level(
-        Location.SCHULE,
-        scripts = listOf(schuleProcessedScript),
-        helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+        // OMA
+        Level (
+            Location.OMASHAUS,
+            false,
+            false,
+            listOf(
+                buildScript(omaScript, ScriptType.GREETING),
+                buildScript(omaTaskExplanation, ScriptType.TASKEXPLANATION),
+                buildScript(omaLookHere0, ScriptType.LOOKHERE),
+                buildScript(omaLookHere1, ScriptType.LOOKHERE),
+                buildScript(omaLookHere2, ScriptType.LOOKHERE),
+                buildScript(omaLookHere3, ScriptType.LOOKHERE),
+                buildScript(omaPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+                buildScript(omaNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
+            ),
+            buildHelpContent(omaHelp)
+        ),
 
-    val justin = Level(
-        Location.JUSTINSHAUS,
-        scripts = listOf(justinProcessedScript),
-        helpContents = listOf(HelpContent(GameSituation.GREETINGDIALOGUE, "hi", "platzhalter")))
+        // SCHULE
+        Level (
+            Location.SCHULE,
+            false,
+            false,
+            listOf(
+                buildScript(schuleScript, ScriptType.GREETING),
+                buildScript(schuleTaskExplanation, ScriptType.TASKEXPLANATION),
+                buildScript(schuleLookHere0, ScriptType.LOOKHERE),
+                buildScript(schuleLookHere1, ScriptType.LOOKHERE),
+                buildScript(schuleLookHere2, ScriptType.LOOKHERE),
+                buildScript(schuleLookHere3, ScriptType.LOOKHERE),
+                buildScript(schuleLookHere4, ScriptType.LOOKHERE),
+                buildScript(schulePositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+                buildScript(schuleNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
+            ),
+            buildHelpContent(schuleHelp)
+        ),
 
-    levels.add(kevin)
-    levels.add(oma)
-    levels.add(schule)
-    levels.add(justin)
-    return levels
+        // PROTAGONIST
+        Level (
+            Location.JUSTINSHAUS,
+            false,
+            false,
+            listOf(
+                buildScript(justinScript, ScriptType.GREETING),
+                buildScript(justinTaskExplanation, ScriptType.TASKEXPLANATION),
+                buildScript(justinLookHere0, ScriptType.LOOKHERE),
+                buildScript(justinLookHere1, ScriptType.LOOKHERE),
+                buildScript(justinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
+                buildScript(justinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
+            ),
+            buildHelpContent(justinHelp)
+        )
+    )
 }
