@@ -69,8 +69,14 @@ enum class Room {
                 LookHere(320.dp, 280.dp, 4),
                 LookHere(300.dp, 100.dp, 5)
             )
-            OMAKUECHE -> listOf()
-            OMAWOHNZIMMER -> listOf()
+            OMAKUECHE -> listOf(
+                LookHere(650.dp, 300.dp, 0),
+                LookHere(300.dp, 140.dp, 1),
+                LookHere(900.dp, 350.dp, 2)
+            )
+            OMAWOHNZIMMER -> listOf(
+                LookHere(900.dp, 250.dp, 3)
+            )
             JUSTINFLUR -> listOf()
             JUSTINKUECHE -> listOf()
             JUSTINZIMMER -> listOf()

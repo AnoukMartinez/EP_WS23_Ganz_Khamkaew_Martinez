@@ -3,77 +3,70 @@ package Models.Scripts.Oma
 val omaLookHere3 = """
     [
         {
-            "dialogueLine": "Oh, eine Zeitung von heute?",
+            "dialogueLine": "Was ist das denn? Ein Magazin?",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Es geht um Phisingmethoden...",
+            "dialogueLine": "Das hat Oma wohl kostenlos irgendwo in die Hand bekommen...",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Also so wie Fishing? Fischen gehen?",
+            "dialogueLine": "Hier steht: Achtung vor Spam-Mails!",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Ah... Hier steht dass Phising der Versuch der Beschaffung persönlicher Daten ist.",
+            "dialogueLine": "Als Tipp wird hier die Seite haveibeenpwned.com empfohlen...",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Oft geben sich Täter hier als falsche Personen aus...",
+            "dialogueLine": "Dort soll man wohl herausfinden können, welche von den eigenen Mails schon in Datenleaks involviert war.",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "zum Beispiel tut man so als wenn man eine Support Mail einer Firma ist.",
+            "dialogueLine": "Was soll den ein Datenleak sein?",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Also zum Beispiel Amazon oder Google?",
+            "dialogueLine": "Ah, hier steht es noch einmal...",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Na das ist ja wirklich einfallsreich...",
+            "dialogueLine": "Manchmal passiert es Firmen, dass private Daten von Nutzern ausversehen an die Öffentlichkeit kommen...",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Aber wenn man es schafft dass eine Email offiziell aussieht?",
+            "dialogueLine": "Dann sollte man am Besten seine registrierte Email oder Passwort ändern.",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",
             "listenermood": "NEUTRAL"
         },
         {
-            "dialogueLine": "Vielleicht fällt man ja schneller auf so etwas rein als man denken würde...",
-            "speaker": "JUSTIN",
-            "speakermood": "NEUTRAL",
-            "listener": "NOBODY",
-            "listenermood": "NEUTRAL"
-        },
-        {
-            "dialogueLine": "Ich denke man sollte sich also wahrscheinlich den Absender genau ansehen.",
+            "dialogueLine": "Na so was aber auch...",
             "speaker": "JUSTIN",
             "speakermood": "NEUTRAL",
             "listener": "NOBODY",

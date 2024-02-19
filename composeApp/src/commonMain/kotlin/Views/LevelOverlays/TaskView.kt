@@ -300,8 +300,21 @@ fun CrosswordTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinis
             }
 
             // Hier der Rest
-            Column (modifier = Modifier.fillMaxSize().padding(0.dp, 50.dp, 0.dp, 0.dp).background(Color.LightGray)) {
-                Text("Platzhalter")
+            Column (
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(0.dp, 50.dp, 0.dp, 0.dp)
+                    .background(Color.LightGray),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("Diese Aufgabe ist noch nicht im Prototypen enthalten.")
+                Button({ onFinishCorrect() }){
+                    Text("Richtig beantworten")
+                }
+                Button({ onFinishFalse() }){
+                    Text("Falsch beantworten")
+                }
             }
         }
     }
@@ -327,10 +340,20 @@ fun DownloadsTaskView(onMove : () -> Unit, onFinishCorrect : () -> Unit, onFinis
 
             // Hier der Rest
             Column(
-                modifier = Modifier.fillMaxSize().padding(0.dp, 50.dp, 0.dp, 0.dp)
-                    .background(Color.LightGray)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(0.dp, 50.dp, 0.dp, 0.dp)
+                    .background(Color.LightGray),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Platzhalter")
+                Text("Diese Aufgabe ist noch nicht im Prototypen enthalten.")
+                Button({ onFinishCorrect() }){
+                    Text("Richtig beantworten")
+                }
+                Button({ onFinishFalse() }){
+                    Text("Falsch beantworten")
+                }
             }
         }
     }
