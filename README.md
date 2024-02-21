@@ -23,7 +23,7 @@ Darüber hinaus reicht die Relevanz bis in die berufliche Zukunft der Kinder. Ge
 Hier eine kleine Erklärung dazu, wie man das Projekt laufen lassen kann.
 1. Projekt klonen und in Android Studio öffnen
 2. Projekt mit Gradle syncen und alle nötigen Dependencies herunterladen lassen
-3. Seperat den Webserver mit ```node server.js``` starten (Zum Beispiel in einem neuem Fenster oder in einer anderen IDE wie VSCode)
+3. Seperat Server Module mit ```npm install``` installieren, dann den Webserver mit ```node server.js``` starten (Zum Beispiel in einem neuem Fenster oder in einer anderen IDE wie VSCode)
 4. Mit ipconfig eigene IP Adresse finden und ip Variable in GetScriptFromServer.kt ersetzen auf Port 3000 (z.B val ip = "192.163.178.110:3000")
 5. In Android Studio mit Run Anything folgendem Command ausführen ```gradle composeApp:run``` (Mobile Konfiguration sollte automatisch verfügbar sein. Mobile Version ist allerdings momentan nicht funktional.)
 6. Jetzt sollte die App auf dem Desktop laufen. Momentan sind im Code folgende Dummy Profile mit denen man sich anmelden kann:
