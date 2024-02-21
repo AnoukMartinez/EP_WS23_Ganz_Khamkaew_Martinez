@@ -18,3 +18,19 @@ Ziel von KidsSecure ist es, ein System zu entwickeln, dass es Schüler\*innen er
 ## Relevanz
 Die Relevanz, durch die Umsetzung des vorliegenden Projekts ist offensichtlich: dadurch, dass Schüler\*innen gezielt den Umgang mit Gefahren im Internet lernen, sind Familien im privaten Umfeld geschützter, weil sich mindestens eine Person mit dem Thema IT-Sicherheit auseinander gesetzt hat. Ein solches System entlastet darüber hinaus auch das Lehrpersonal, da auch im schulischen Kontext die Lehr- und Lerneinheiten im Internet stattfinden und die Lehrer\*innen oft selbst nicht über die entsprechenden Kompetenzen verfügen. 
 Darüber hinaus reicht die Relevanz bis in die berufliche Zukunft der Kinder. Gefahren, die die Kinder heute schon kennengelernt haben, werden sie auf der Arbeit selbstsicher erkennen und aus dem Weg gehen können. Dadurch wird auch das IT Team in Firmen entlastet, da sie sich so voll und ganz auf ihre Arbeit konzentrieren können und nicht mehr so oft die Schäden beheben müssen, die Mitarbeiter\*innen unbedacht angerichtet haben. 
+
+## Installation
+Hier eine kleine Erklärung dazu, wie man das Projekt laufen lassen kann.
+1. Projekt klonen und in Android Studio öffnen
+2. Projekt mit Gradle syncen und alle nötigen Dependencies herunterladen lassen
+3. Seperat den Webserver mit ```node server.js``` starten (Zum Beispiel in einem neuem Fenster oder in einer anderen IDE wie VSCode)
+4. Mit ipconfig eigene IP Adresse finden und ip Variable in GetScriptFromServer.kt ersetzen auf Port 3000 (z.B val ip = "192.163.178.110:3000")
+5. In Android Studio mit Run Anything folgendem Command ausführen ```gradle composeApp:run``` (Mobile Konfiguration sollte automatisch verfügbar sein. Mobile Version ist allerdings momentan nicht funktional.)
+6. Jetzt sollte die App auf dem Desktop laufen. Momentan sind im Code folgende Dummy Profile mit denen man sich anmelden kann:
+   * Jan Müller (email = student, password = hi)
+   * Susi Mongus (email = student2, password = hi)
+   * Frank Ozean (email = student3, password = hi)
+   * Herr Lehrer (email = teacher, password = hi)
+   * Hannah Mongus (email = teacher2, password = hi)
+
+[Sonst bei Fragen oder Rückmeldung bitte eine Mail schicken.](mailto:anouk_olivia_elsa.martinez_wieczorek@smail.th-koeln.de?subject=[GitHub]%20Entwicklungsprojekt%20Rückfrage)
