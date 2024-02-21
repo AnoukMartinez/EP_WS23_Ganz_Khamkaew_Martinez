@@ -1,7 +1,7 @@
 package Views.LoginRegister
 
-import Models.Profiles.processedStudentProfiles
-import Models.Profiles.processedTeacherProfiles
+import processedStudentProfiles
+import processedTeacherProfiles
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

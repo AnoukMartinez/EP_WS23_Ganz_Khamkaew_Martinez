@@ -3,8 +3,8 @@ package Views.LoginRegister
 import Models.Profiles.LevelProgress
 import Models.Profiles.StudentProfile
 import Models.Profiles.TeacherProfile
-import Models.Profiles.processedStudentProfiles
-import Models.Profiles.processedTeacherProfiles
+import processedStudentProfiles
+import processedTeacherProfiles
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

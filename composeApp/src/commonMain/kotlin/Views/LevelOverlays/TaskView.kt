@@ -2,7 +2,7 @@ package Views.LevelOverlays
 
 import DesktopBackground
 import DesktopProfilePicture
-import Models.Profiles.processedStudentProfiles
+import processedStudentProfiles
 import Models.levels
 import Views.LoginRegister.currentProfileMail
 import androidx.compose.foundation.background

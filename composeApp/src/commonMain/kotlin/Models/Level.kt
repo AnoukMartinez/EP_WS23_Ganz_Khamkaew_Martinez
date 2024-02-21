@@ -38,8 +38,6 @@ import Models.Scripts.Schule.schuleNegativeFeedback
 import Models.Scripts.Schule.schulePositiveFeedback
 import Models.Scripts.Schule.schuleScript
 import Models.Scripts.Schule.schuleTaskExplanation
-import Views.LevelOverlays.GameSituation
-
 data class Level (
     val location : Location,
     var discovered : Boolean = false,
@@ -49,79 +47,6 @@ data class Level (
 )
 
 var levels = mutableListOf<Level>()
-
-suspend fun buildScripts() : MutableList<Level> {
-    val kevin = Level (
-        Location.KEVINSHAUS,
-        false,
-        false,
-        listOf(
-            buildScript(kevinScript, ScriptType.GREETING),
-            buildScript(kevinTaskExplanationScript, ScriptType.TASKEXPLANATION),
-            buildScript(kevinLookHere0, ScriptType.LOOKHERE),
-            buildScript(kevinLookHere1, ScriptType.LOOKHERE),
-            buildScript(riasZimmerLookHere1, ScriptType.LOOKHERE),
-            buildScript(riasZimmerLookHere2, ScriptType.LOOKHERE),
-            buildScript(riasZimmerLookHere3, ScriptType.LOOKHERE),
-            buildScript(riasZimmerLookHere4, ScriptType.LOOKHERE),
-            buildScript(kevinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
-            buildScript(kevinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
-        ),
-        buildHelpContent(kevinHelp),
-    )
-
-    val oma = Level (
-        Location.OMASHAUS,
-        false,
-        false,
-        listOf(
-            buildScript(omaScript, ScriptType.GREETING),
-            buildScript(omaTaskExplanation, ScriptType.TASKEXPLANATION),
-            buildScript(omaLookHere0, ScriptType.LOOKHERE),
-            buildScript(omaLookHere1, ScriptType.LOOKHERE),
-            buildScript(omaLookHere2, ScriptType.LOOKHERE),
-            buildScript(omaLookHere3, ScriptType.LOOKHERE),
-            buildScript(omaPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
-            buildScript(omaNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
-        ),
-        buildHelpContent(omaHelp)
-    )
-
-    val schule = Level (
-        Location.SCHULE,
-        false,
-        false,
-        listOf(
-            buildScript(schuleScript, ScriptType.GREETING),
-            buildScript(schuleTaskExplanation, ScriptType.TASKEXPLANATION),
-            buildScript(schuleLookHere0, ScriptType.LOOKHERE),
-            buildScript(schuleLookHere1, ScriptType.LOOKHERE),
-            buildScript(schuleLookHere2, ScriptType.LOOKHERE),
-            buildScript(schuleLookHere3, ScriptType.LOOKHERE),
-            buildScript(schuleLookHere4, ScriptType.LOOKHERE),
-            buildScript(schulePositiveFeedback, ScriptType.POSITIVEFEEDBACK),
-            buildScript(schuleNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
-        ),
-        buildHelpContent(schuleHelp)
-    )
-
-    val justin = Level (
-        Location.JUSTINSHAUS,
-        false,
-        false,
-        listOf(
-            buildScript(justinScript, ScriptType.GREETING),
-            buildScript(justinTaskExplanation, ScriptType.TASKEXPLANATION),
-            buildScript(justinLookHere0, ScriptType.LOOKHERE),
-            buildScript(justinLookHere1, ScriptType.LOOKHERE),
-            buildScript(justinPositiveFeedback, ScriptType.POSITIVEFEEDBACK),
-            buildScript(justinNegativeFeedback, ScriptType.NEGATIVEFEEDBACK)
-        ),
-        buildHelpContent(justinHelp)
-    )
-
-    return mutableListOf(kevin, oma, schule, justin)
-}
 
 // WIP
 suspend fun buildScriptsServer() : MutableList<Level> {

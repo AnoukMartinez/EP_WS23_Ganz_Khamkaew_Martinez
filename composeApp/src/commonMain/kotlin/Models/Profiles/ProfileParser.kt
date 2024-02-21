@@ -37,6 +37,3 @@ fun parseStudentList(rawStudentProfiles: String): MutableList<StudentProfile> {
 fun parseTeacherList(rawTeacherProfiles: String): MutableList<TeacherProfile> {
     return mapper.readValue<MutableList<TeacherProfile>>(rawTeacherProfiles)
 }
-
-val processedStudentProfiles = parseStudentList(studentProfiles)
-val processedTeacherProfiles = parseTeacherList(teacherProfiles)

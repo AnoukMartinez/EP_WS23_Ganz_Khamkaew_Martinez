@@ -1,6 +1,11 @@
-import Models.buildScripts
+import Models.Profiles.buildClassList
+import Models.Profiles.parseStudentList
+import Models.Profiles.parseTeacherList
 import Models.buildScriptsLocal
 import Models.buildScriptsServer
+import Models.getClassListFromServer
+import Models.getStudentListFromServer
+import Models.getTeacherListFromServer
 import Models.levels
 import Views.FalseLoad
 import Views.LoginRegister.currentProfileMail
@@ -11,6 +16,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.AlertDialog
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +38,7 @@ import kotlinx.coroutines.launch
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import moe.tlaster.precompose.navigation.Navigator
+import org.jetbrains.compose.resources.load
 
 @Composable
 fun StudentHomeScreen(navigator : Navigator) {
@@ -54,7 +61,7 @@ fun StudentHomeScreen(navigator : Navigator) {
                 Button(
                     modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
-                        navigator.navigate("/gameloadingscreen")
+                        navigator.navigate("/worldmap")
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black)
                 ) {
@@ -115,10 +122,9 @@ fun GameLoadingScreen(navigator : Navigator) {
 
         LaunchedEffect(true) {
             scope.launch {
-                // levels = buildScripts()
                 try {
                     levels = buildScriptsServer()
-                    navigator.navigate("/worldmap")
+                    navigator.navigate("/login")
                 } catch(e : Exception) {
                     localScripts = true
                     levels = buildScriptsLocal()
@@ -140,6 +146,82 @@ fun GameLoadingScreen(navigator : Navigator) {
         )
 
         if(localScripts){
+            Box {
+                FalseLoad (
+                    "Es konnte keine Verbindung zum Server aufgebaut werden. " +
+                            "Das bedeutet deine Skripts sind möglicherweise veraltet.",
+                    "Du kannst versuchen die App neu zu laden, oder mit alten Dialogen spielen.",
+                    "/worldmap",
+                    navigator
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun ProfileLoadingScreen(navigator : Navigator) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        val scope = rememberCoroutineScope()
+        var connectFailed by remember { mutableStateOf(false) }
+        var localScripts by remember { mutableStateOf(false) }
+        var loadingText by remember { mutableStateOf("Lade Profile...") }
+
+        LaunchedEffect(true) {
+            scope.launch {
+                try {
+                    klassen = buildClassList(getClassListFromServer())
+                    processedStudentProfiles = parseStudentList(getStudentListFromServer())
+                    processedTeacherProfiles = parseTeacherList(getTeacherListFromServer())
+                    loadingText = "Lade Gespräche..."
+                } catch(e : Exception) {
+                    connectFailed = true
+                }
+            }
+        }
+
+        LaunchedEffect(true) {
+            scope.launch {
+                try {
+                    levels = buildScriptsServer()
+                    navigator.navigate("/login")
+                } catch(e : Exception) {
+                    localScripts = true
+                    levels = buildScriptsLocal()
+                }
+            }
+        }
+
+        CircularProgressIndicator(
+            modifier = Modifier.width(30.dp),
+            color = Color.Blue,
+            backgroundColor = Color.White,
+        )
+
+        Text(
+            modifier = Modifier.padding(10.dp),
+            text = loadingText,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 20.sp
+        )
+
+        if(connectFailed){
+            Box {
+                FalseLoad (
+                    "Es konnte keine Verbindung zum Server aufgebaut werden.",
+                    "Bitte versuche es noch einmal.",
+                    "/profileloadingscreen",
+                    navigator
+                )
+            }
+        }
+
+        if(localScripts && !connectFailed){
             Box {
                 FalseLoad (
                     "Es konnte keine Verbindung zum Server aufgebaut werden. " +
@@ -180,6 +262,8 @@ fun TitleText() {
 
 @Composable
 fun TeacherHomeScreen(navigator : Navigator){
+    var alertVisible by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -199,7 +283,7 @@ fun TeacherHomeScreen(navigator : Navigator){
                 Button(
                     modifier = Modifier.padding(5.dp).width(300.dp),
                     onClick = {
-                        navigator.navigate("/gameloadingscreen")
+                        alertVisible = true
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black)
                 ) {
@@ -243,5 +327,14 @@ fun TeacherHomeScreen(navigator : Navigator){
                 }
             }
         }
+    }
+
+    if(alertVisible){
+        FalseLoad (
+            "Dieses Feature ist im Prototypen noch nicht enthalten.",
+            "",
+            "/teacherhome",
+            navigator
+        )
     }
 }

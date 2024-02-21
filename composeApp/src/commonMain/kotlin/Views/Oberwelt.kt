@@ -1,9 +1,7 @@
 package Views
 
 import LookHereImage
-import Models.Level
-import Models.Profiles.processedStudentProfiles
-import Models.Profiles.studentProfiles
+import processedStudentProfiles
 import Models.Scripts.gameFinishedScript
 import Models.levels
 import Views.LevelOverlays.DialogueOverlay

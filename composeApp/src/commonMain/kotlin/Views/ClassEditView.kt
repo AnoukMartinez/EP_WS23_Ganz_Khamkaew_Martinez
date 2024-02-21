@@ -2,7 +2,6 @@ package Views
 
 import Models.Profiles.Klasse
 import Models.Profiles.klassen
-import Models.Profiles.processedTeacherProfiles
 import Views.LoginRegister.currentProfileMail
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -40,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import moe.tlaster.precompose.navigation.Navigator
+import processedTeacherProfiles
 
 @Composable
 fun ClassEditView(navigator : Navigator){

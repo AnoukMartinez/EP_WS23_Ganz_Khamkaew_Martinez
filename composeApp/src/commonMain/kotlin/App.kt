@@ -1,4 +1,6 @@
-import Models.Profiles.processedStudentProfiles
+import Models.Profiles.Klasse
+import Models.Profiles.StudentProfile
+import Models.Profiles.TeacherProfile
 import Models.levels
 import Views.ClassEditView
 import Views.ClassProgressView
@@ -10,8 +12,6 @@ import Views.LoginRegister.RegisterChoice
 import Views.StudentProgressView
 import Views.LoginRegister.StudentRegisterScreen
 import Views.LoginRegister.TeacherRegisterScreen
-import Views.LevelOverlays.TestTaskView
-import Views.LoginRegister.currentProfileMail
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import moe.tlaster.precompose.PreComposeApp
@@ -19,6 +19,10 @@ import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.navigation.rememberNavigator
 import moe.tlaster.precompose.navigation.transition.NavTransition
+
+var klassen = mutableListOf<Klasse>()
+var processedStudentProfiles = mutableListOf<StudentProfile>()
+var processedTeacherProfiles = mutableListOf<TeacherProfile>()
 
 @Composable
 fun App() {
@@ -29,8 +33,15 @@ fun App() {
             NavHost (
                 navigator = navigator,
                 navTransition = NavTransition(),
-                initialRoute = "/login",
+                initialRoute = "/profileloadingscreen",
             ) {
+                scene (
+                    route = "/profileloadingscreen",
+                    navTransition = NavTransition()
+                ) {
+                    ProfileLoadingScreen(navigator)
+                }
+
                 scene (
                     route = "/login",
                     navTransition = NavTransition(),

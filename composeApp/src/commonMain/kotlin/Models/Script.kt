@@ -57,7 +57,6 @@ val mapper = jacksonObjectMapper()
 
 fun buildScript(rawCharacterScript : String, scriptType : ScriptType) : Script {
     val dialogueLines : List<DialogueLine> = mapper.readValue(rawCharacterScript)
-    // TODO Alle Skripts haben unterschiedliche Typen
     val characterScript = Script(scriptType)
 
     for(element in dialogueLines) {
