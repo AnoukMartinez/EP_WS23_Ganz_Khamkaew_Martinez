@@ -6,7 +6,7 @@ import io.ktor.client.statement.*
 import io.ktor.client.engine.java.*
 
 private val client = HttpClient(Java)
-val ip = "192.168.178.112:3000"
+val ip = "000.000.000.000:3000"
 
 actual suspend fun getLocationScriptFromServer(scriptName : String) : String {
     val response = client.get("http://$ip/script/$scriptName")
